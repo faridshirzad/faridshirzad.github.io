@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>احمد فرید شیرزاد | محصل طب، پژوهشگر و پروفایل رسمی</title>
+    <meta name="description" content="پروفایل رسمی و شخصی احمد فرید شیرزاد - محصل طب پوهنتون تاج، علاقه‌مند به علم، دانش، پژوهش و مطالعات اسلامی.">
+    <meta name="keywords" content="احمد فرید شیرزاد, محصل طب, پوهنتون تاج, مزار شریف, بیوگرافی احمد فرید شیرزاد">
+    
+    <!-- فونت وزیرمتن -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- آیکون‌های Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Vazirmatn', 'sans-serif'],
+                    },
+                    colors: {
+                        darkbg: '#060b14',
+                        darkcard: '#0d1526',
+                    },
+                    animation: {
+                        'blob': 'blob 8s infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -40px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* افکت شیشه‌ای مدرن (Glassmorphism) */
+        .glass {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+        .dark .glass {
+            background: rgba(13, 21, 38, 0.65);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+
+        /* الگوی نقطه‌ای پس‌زمینه */
+        .bg-grid-pattern {
+            background-image: radial-gradient(rgba(16, 185, 129, 0.15) 1px, transparent 1px);
+            background-size: 28px 28px;
+        }
+
+        /* خط ضربان قلب (ECG) */
+        .ecg-line {
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: dash 3.5s linear infinite;
+        }
+        @keyframes dash {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        /* انیمیشن ظاهر شدن بخش‌ها هنگام اسکرول */
+        .reveal {
+            opacity: 0;
+            transform: translateY(25px);
+            transition: all 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* اسکرول‌بار سفارشی */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #060b14;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #10b981;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 dark:bg-darkbg text-slate-800 dark:text-slate-200 font-sans antialiased selection:bg-emerald-500 selection:text-white transition-colors duration-300 overflow-x-hidden">
+
+    <!-- هاله‌های نوری متحرک پس‌زمینه -->
+    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+        <div class="absolute top-[-10%] right-[-5%] w-[450px] h-[450px] bg-emerald-500/15 dark:bg-emerald-500/10 rounded-full blur-[100px] animate-blob"></div>
+        <div class="absolute bottom-[10%] left-[-5%] w-[400px] h-[400px] bg-teal-500/15 dark:bg-cyan-500/10 rounded-full blur-[100px] animate-blob" style="animation-delay: 2s;"></div>
+        <div class="absolute top-[40%] left-[30%] w-[300px] h-[300px] bg-indigo-500/10 dark:bg-emerald-400/5 rounded-full blur-[90px] animate-blob" style="animation-delay: 4s;"></div>
+    </div>
+
+    <!-- نوار ناوبری شناور (Floating Glass Navbar) -->
+    <div class="fixed top-4 inset-x-0 z-50 px-4">
+        <nav class="max-w-5xl mx-auto glass border border-slate-200/80 dark:border-slate-800/80 rounded-2xl px-4 sm:px-6 h-16 flex items-center justify-between shadow-lg shadow-slate-900/5 dark:shadow-black/40">
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-600 to-teal-400 text-white flex items-center justify-center font-black text-lg shadow-md shadow-emerald-500/30 group-hover:scale-105 transition-transform">
+                    <i class="fa-solid fa-staff-snake text-base"></i>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-extrabold text-sm sm:text-base text-slate-900 dark:text-white tracking-tight">احمد فرید شیرزاد</span>
+                    <span class="text-[10px] text-emerald-600 dark:text-emerald-400 font-medium">پروفایل رسمی</span>
+                </div>
+            </a>
+
+            <!-- لینک‌های منو -->
+            <div class="hidden md:flex items-center gap-7 text-sm font-medium text-slate-600 dark:text-slate-300">
+                <a href="#about" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">بیوگرافی</a>
+                <a href="#journey" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">مسیر علمی</a>
+                <a href="#focus" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">حوزه‌های فعالیت</a>
+                <a href="#reading" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">مطالعات</a>
+                <a href="#contact" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">ارتباط</a>
+            </div>
+
+            <!-- دکمه تغییر تم (تاریک / روشن) و دکمه تماس -->
+            <div class="flex items-center gap-2.5">
+                <button onclick="toggleTheme()" class="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-800/80 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-amber-400 flex items-center justify-center transition-all cursor-pointer border border-slate-200/60 dark:border-slate-700/60" title="تغییر حالت روشن/تاریک">
+                    <i id="theme-icon" class="fa-solid fa-sun"></i>
+                </button>
+                <a href="#contact" class="hidden sm:flex items-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold shadow-md shadow-emerald-600/25 transition-all">
+                    <span>تماس مستقیم</span>
+                    <i class="fa-solid fa-arrow-left text-[11px]"></i>
+                </a>
+            </div>
+        </nav>
+    </div>
+
+    <!-- بخش اصلی (Hero Section) -->
+    <header class="relative pt-32 pb-20 sm:pt-40 sm:pb-28 bg-grid-pattern border-b border-slate-200/60 dark:border-slate-800/60 z-10">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center gap-10 md:gap-14">
+                
+                <!-- کارت تصویر پروفایل با افکت مدرن -->
+                <div class="relative shrink-0 animate-float">
+                    <div class="absolute -inset-1.5 bg-gradient-to-tr from-emerald-500 via-teal-400 to-cyan-500 rounded-[2rem] blur opacity-60 dark:opacity-75"></div>
+                    <div class="relative w-44 h-44 sm:w-52 sm:h-52 rounded-[1.8rem] p-1.5 bg-white dark:bg-darkcard border border-slate-200 dark:border-slate-700 shadow-2xl">
+                        <img id="profile-img" 
+                             src="https://placehold.co/500x500/0d1526/10b981?text=%D8%A7%D8%AD%D9%85%D8%AF+%D9%81%D8%B1%DB%8C%D8%AF" 
+                             onerror="this.src='https://placehold.co/500x500/0d1526/10b981?text=Ahmad+Farid'"
+                             alt="احمد فرید شیرزاد" 
+                             class="w-full h-full object-cover rounded-[1.4rem]">
+                        
+                        <!-- نشان وضعیت آنلاین / محصل -->
+                        <div class="absolute -bottom-3 right-1/2 translate-x-1/2 whitespace-nowrap px-3.5 py-1 rounded-full bg-slate-900 dark:bg-emerald-950 border border-emerald-500/40 text-emerald-400 text-xs font-semibold shadow-lg flex items-center gap-1.5">
+                            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                            <span>محصل طب • پوهنتون تاج</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- متن معرفی Hero -->
+                <div class="flex-1 text-center md:text-right space-y-5">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-700 dark:text-emerald-300 text-xs font-semibold">
+                        <i class="fa-solid fa-sparkles"></i>
+                        <span>خوش آمدید به صفحه شخصی من</span>
+                    </div>
+
+                    <h1 class="text-4xl sm:text-6xl font-black tracking-tight text-slate-900 dark:text-white leading-tight">
+                        احمد فرید <span class="text-transparent bg-clip-text bg-gradient-to-l from-emerald-500 to-teal-400">شیرزاد</span>
+                    </h1>
+
+                    <!-- تایپوگرافی متحرک تخصص‌ها -->
+                    <div class="text-lg sm:text-2xl font-bold text-slate-700 dark:text-slate-300 flex items-center justify-center md:justify-start gap-2 h-8">
+                        <span class="text-emerald-600 dark:text-emerald-400"><i class="fa-solid fa-heart-pulse"></i></span>
+                        <span id="typewriter-text">محصل طب پوهنتون تاج</span>
+                        <span class="w-0.5 h-6 bg-emerald-500 animate-pulse"></span>
+                    </div>
+
+                    <p class="text-slate-600 dark:text-slate-400 text-sm sm:text-base max-w-2xl leading-8">
+                        علاقه‌مند به علوم طبی، پژوهش‌های علمی، زبان عربی و مطالعات عمیق اسلامی. این فضا برای به اشتراک‌گذاری مسیر علمی، دیدگاه‌ها و ایجاد پل ارتباطی مستقیم طراحی شده است.
+                    </p>
+
+                    <!-- خط ضربان قلب تزئینی (ECG SVG) -->
+                    <div class="max-w-xs mx-auto md:mx-0 opacity-70">
+                        <svg viewBox="0 0 300 40" class="w-full h-8 stroke-emerald-500 fill-none" stroke-width="2">
+                            <path class="ecg-line" d="M0,20 L70,20 L80,10 L90,30 L100,5 L110,35 L120,20 L180,20 L190,12 L200,28 L210,20 L300,20" />
+                        </svg>
+                    </div>
+
+                    <!-- دکمه‌های اصلی -->
+                    <div class="pt-2 flex flex-wrap items-center justify-center md:justify-start gap-3.5">
+                        <a href="#contact" class="px-7 py-3.5 rounded-2xl bg-gradient-to-l from-emerald-600 to-teal-500 hover:from-emerald-500 hover:to-teal-400 text-white font-bold text-sm shadow-lg shadow-emerald-600/30 transition-all hover:-translate-y-0.5 flex items-center gap-2.5">
+                            <i class="fa-solid fa-paper-plane"></i>
+                            <span>ارتباط مستقیم با من</span>
+                        </a>
+                        <a href="#about" class="px-7 py-3.5 rounded-2xl glass hover:bg-slate-200/60 dark:hover:bg-slate-800/80 text-slate-800 dark:text-white border border-slate-300/80 dark:border-slate-700 font-semibold text-sm transition-all hover:-translate-y-0.5 flex items-center gap-2">
+                            <i class="fa-solid fa-user-doctor text-emerald-500"></i>
+                            <span>آشنایی بیشتر</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- محتوای اصلی -->
+    <main class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-20">
+
+        <!-- بخش بیوگرافی و کارت اطلاعات کلیدی (Bento Style) -->
+        <section id="about" class="reveal space-y-6">
+            <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-id-badge"></i>
+                </div>
+                <div>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">بیوگرافی و معرفی</h2>
+                    <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">نگاهی کوتاه به شخصیت، اهداف و مسیر تحصیلی من</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                <!-- متن بیوگرافی -->
+                <div class="lg:col-span-7 glass rounded-3xl p-7 sm:p-8 border border-slate-200/80 dark:border-slate-800/80 shadow-xl shadow-slate-900/5 flex flex-col justify-between space-y-6">
+                    <div class="space-y-4 text-slate-600 dark:text-slate-300 leading-8 text-sm sm:text-base text-justify">
+                        <p>
+                            سلام، من <strong class="text-slate-900 dark:text-white font-bold">احمد فرید شیرزاد</strong> هستم؛ محصل رشته طب در <strong class="text-emerald-600 dark:text-emerald-400">پوهنتون تاج</strong> در شهر زیبای مزار شریف. علم طب برای من فراتر از یک رشته تحصیلی است؛ آن را رسالتی برای درک شگفتی‌های خلقت و خدمت صادقانه به انسان‌ها می‌دانم.
+                        </p>
+                        <p>
+                            در کنار دروس اکادمیک طبی، اشتیاق فراوانی به <strong class="text-slate-900 dark:text-white">پژوهش‌های علمی، فراگیری زبان عربی و مطالعه عمیق کتب اسلامی</strong> (به‌ویژه در حوزه‌های عقاید و تزکیه نفس) دارم. باور من این است که تلفیق دانش مدرن با معنویت و اخلاق، مسیر رشد حقیقی انسان را هموار می‌سازد.
+                        </p>
+                    </div>
+
+                    <!-- نقل‌قول الهام‌بخش -->
+                    <div class="p-4 rounded-2xl bg-emerald-500/5 dark:bg-emerald-500/10 border-r-4 border-emerald-500 text-xs sm:text-sm text-slate-700 dark:text-emerald-200 italic leading-relaxed">
+                        «طلب علم عبادت است؛ هر گامی که در راه دانش و شناخت برداشته می‌شود، نوری است برای روشن‌تر ساختن آینده خود و جامعه.»
+                    </div>
+                </div>
+
+                <!-- گرید اطلاعات سریع (Bento Cards) -->
+                <div class="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
+                    <div class="glass rounded-2xl p-4 border border-slate-200/80 dark:border-slate-800/80 flex items-center gap-4 hover:border-emerald-500/50 transition-colors">
+                        <div class="w-12 h-12 rounded-xl bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-xl shrink-0">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                        </div>
+                        <div>
+                            <span class="block text-xs text-slate-400">رشته و پوهنتون</span>
+                            <span class="font-bold text-sm sm:text-base text-slate-900 dark:text-white">محصل طب — پوهنتون تاج</span>
+                        </div>
+                    </div>
+
+                    <div class="glass rounded-2xl p-4 border border-slate-200/80 dark:border-slate-800/80 flex items-center gap-4 hover:border-teal-500/50 transition-colors">
+                        <div class="w-12 h-12 rounded-xl bg-teal-500/15 text-teal-600 dark:text-teal-400 flex items-center justify-center text-xl shrink-0">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <div>
+                            <span class="block text-xs text-slate-400">موقعیت جغرافیایی</span>
+                            <span class="font-bold text-sm sm:text-base text-slate-900 dark:text-white">مزار شریف، افغانستان</span>
+                        </div>
+                    </div>
+
+                    <div class="glass rounded-2xl p-4 border border-slate-200/80 dark:border-slate-800/80 flex items-center gap-4 hover:border-cyan-500/50 transition-colors">
+                        <div class="w-12 h-12 rounded-xl bg-cyan-500/15 text-cyan-600 dark:text-cyan-400 flex items-center justify-center text-xl shrink-0">
+                            <i class="fa-solid fa-language"></i>
+                        </div>
+                        <div>
+                            <span class="block text-xs text-slate-400">زبان‌ها</span>
+                            <span class="font-bold text-sm sm:text-base text-slate-900 dark:text-white">فارسی (دری)، انگلیسی، عربی (در حال یادگیری)</span>
+                        </div>
+                    </div>
+
+                    <div class="glass rounded-2xl p-4 border border-slate-200/80 dark:border-slate-800/80 flex items-center gap-4 hover:border-indigo-500/50 transition-colors">
+                        <div class="w-12 h-12 rounded-xl bg-indigo-500/15 text-indigo-600 dark:text-indigo-400 flex items-center justify-center text-xl shrink-0">
+                            <i class="fa-solid fa-microscope"></i>
+                        </div>
+                        <div>
+                            <span class="block text-xs text-slate-400">تمرکز اصلی</span>
+                            <span class="font-bold text-sm sm:text-base text-slate-900 dark:text-white">علوم طبی، پژوهش و مطالعات دینی</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- بخش جدید: مسیر علمی و تحصیلی (Timeline) -->
+        <section id="journey" class="reveal space-y-6">
+            <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-2xl bg-teal-500/10 border border-teal-500/20 text-teal-600 dark:text-teal-400 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-route"></i>
+                </div>
+                <div>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">مسیر علمی و اهداف</h2>
+                    <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">گام‌های من در دنیای طب، دانش و خودسازی</p>
+                </div>
+            </div>
+
+            <div class="glass rounded-3xl p-7 sm:p-9 border border-slate-200/80 dark:border-slate-800/80">
+                <div class="relative border-r-2 border-emerald-500/40 pr-6 sm:pr-8 space-y-8">
+                    <!-- مرحله ۱ -->
+                    <div class="relative">
+                        <span class="absolute -right-[33px] sm:-right-[41px] top-1 w-4 h-4 rounded-full bg-emerald-500 ring-4 ring-emerald-500/20"></span>
+                        <span class="inline-block px-2.5 py-0.5 rounded-md bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-xs font-bold mb-1">مرحله کنونی</span>
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white">تحصیل در رشته طب — پوهنتون تاج</h3>
+                        <p class="text-sm text-slate-600 dark:text-slate-400 mt-1 leading-relaxed">
+                            تمرکز بر علوم پایه و بالینی طب، آشنایی با فیزیولوژی، آناتومی و اصول تشخیص و تداوی بیماری‌ها با رویکرد علمی و دقیق.
+                        </p>
+                    </div>
+
+                    <!-- مرحله ۲ -->
+                    <div class="relative">
+                        <span class="absolute -right-[33px] sm:-right-[41px] top-1 w-4 h-4 rounded-full bg-teal-500 ring-4 ring-teal-500/20"></span>
+                        <span class="inline-block px-2.5 py-0.5 rounded-md bg-teal-500/10 text-teal-600 dark:text-teal-400 text-xs font-bold mb-1">مطالعه موازی</span>
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white">فراگیری زبان عربی و علوم اسلامی</h3>
+                        <p class="text-sm text-slate-600 dark:text-slate-400 mt-1 leading-relaxed">
+                            مطالعه مستمر متون اصیل اسلامی در بخش‌های عقیده، اخلاق و تزکیه نفس همراه با تقویت مهارت‌های زبان عربی برای درک مستقیم منابع.
+                        </p>
+                    </div>
+
+                    <!-- مرحله ۳ -->
+                    <div class="relative">
+                        <span class="absolute -right-[33px] sm:-right-[41px] top-1 w-4 h-4 rounded-full bg-cyan-500 ring-4 ring-cyan-500/20"></span>
+                        <span class="inline-block px-2.5 py-0.5 rounded-md bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 text-xs font-bold mb-1">چشم‌انداز آینده</span>
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white">پژوهش‌های طبی و خدمت به جامعه</h3>
+                        <p class="text-sm text-slate-600 dark:text-slate-400 mt-1 leading-relaxed">
+                            تلفیق دانش طبی با ابزارهای نوین دیجیتال و هوش مصنوعی جهت ارتقای سطح آگاهی صحی و ارائه خدمات طبی معیاری.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- بخش حوزه‌های فعالیت و علاقه‌مندی -->
+        <section id="focus" class="reveal space-y-6">
+            <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-layer-group"></i>
+                </div>
+                <div>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">حوزه‌های فعالیت و علاقه‌مندی</h2>
+                    <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">زمینه‌هایی که به صورت تخصصی روی آن‌ها وقت می‌گذارم</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- کارت ۱ -->
+                <div class="group glass rounded-3xl p-7 border border-slate-200/80 dark:border-slate-800/80 hover:border-emerald-500/60 transition-all duration-300 hover:-translate-y-1.5 relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-24 h-24 bg-emerald-500/10 rounded-br-full -translate-x-4 -translate-y-4 group-hover:scale-125 transition-transform"></div>
+                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 text-white flex items-center justify-center text-2xl mb-5 shadow-lg shadow-emerald-500/25">
+                        <i class="fa-solid fa-stethoscope"></i>
+                    </div>
+                    <h3 class="font-extrabold text-xl text-slate-900 dark:text-white mb-3">علوم طبی و سلامت</h3>
+                    <p class="text-sm text-slate-600 dark:text-slate-400 leading-7">
+                        مطالعه مباحث پایه و بالینی طب، بررسی کیس‌های علمی و آشنایی با تازه‌ترین دستاوردهای پزشکی برای ارتقای سلامت جامعه.
+                    </p>
+                </div>
+
+                <!-- کارت ۲ -->
+                <div class="group glass rounded-3xl p-7 border border-slate-200/80 dark:border-slate-800/80 hover:border-teal-500/60 transition-all duration-300 hover:-translate-y-1.5 relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-24 h-24 bg-teal-500/10 rounded-br-full -translate-x-4 -translate-y-4 group-hover:scale-125 transition-transform"></div>
+                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-teal-500 to-cyan-600 text-white flex items-center justify-center text-2xl mb-5 shadow-lg shadow-teal-500/25">
+                        <i class="fa-solid fa-book-quran"></i>
+                    </div>
+                    <h3 class="font-extrabold text-xl text-slate-900 dark:text-white mb-3">پژوهش و معارف اسلامی</h3>
+                    <p class="text-sm text-slate-600 dark:text-slate-400 leading-7">
+                        علاقه‌مند به تحقیق، یادگیری زبان عربی و مطالعه عمیق کتب اسلامی به‌ویژه در زمینه‌های عقاید، سیره و تزکیه نفس.
+                    </p>
+                </div>
+
+                <!-- کارت ۳ -->
+                <div class="group glass rounded-3xl p-7 border border-slate-200/80 dark:border-slate-800/80 hover:border-cyan-500/60 transition-all duration-300 hover:-translate-y-1.5 relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-24 h-24 bg-cyan-500/10 rounded-br-full -translate-x-4 -translate-y-4 group-hover:scale-125 transition-transform"></div>
+                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-cyan-500 to-blue-600 text-white flex items-center justify-center text-2xl mb-5 shadow-lg shadow-cyan-500/25">
+                        <i class="fa-solid fa-laptop-medical"></i>
+                    </div>
+                    <h3 class="font-extrabold text-xl text-slate-900 dark:text-white mb-3">تکنولوژی و مهارت‌های دیجیتال</h3>
+                    <p class="text-sm text-slate-600 dark:text-slate-400 leading-7">
+                        بهره‌گیری از ابزارهای مدرن دیجیتال و هوش مصنوعی برای پژوهش سریع‌تر، مدیریت دانش و کاربرد فناوری در علوم طبی.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- بخش جدید: قفسه مطالعات و علاقه‌مندی‌های فکری -->
+        <section id="reading" class="reveal space-y-6">
+            <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-amber-600 dark:text-amber-400 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-book-open-reader"></i>
+                </div>
+                <div>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">محورهای مطالعه و تحقیق</h2>
+                    <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">موضوعاتی که همیشه در برنامه مطالعه روزانه من جای دارند</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="glass rounded-2xl p-5 border border-slate-200/80 dark:border-slate-800/80 space-y-2.5">
+                    <span class="text-xs font-bold px-2.5 py-1 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">علوم طبی</span>
+                    <h4 class="font-bold text-slate-900 dark:text-white text-base">آناتومی و فیزیولوژی</h4>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">درک ساختار دقیق بدن انسان و مکانیزم‌های حیاتی آن.</p>
+                </div>
+
+                <div class="glass rounded-2xl p-5 border border-slate-200/80 dark:border-slate-800/80 space-y-2.5">
+                    <span class="text-xs font-bold px-2.5 py-1 rounded-lg bg-amber-500/10 text-amber-600 dark:text-amber-400">معارف اسلامی</span>
+                    <h4 class="font-bold text-slate-900 dark:text-white text-base">عقاید و تزکیه نفس</h4>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">مطالعه آثار علمای برجسته در زمینه اصلاح قلب و تقویت ایمان.</p>
+                </div>
+
+                <div class="glass rounded-2xl p-5 border border-slate-200/80 dark:border-slate-800/80 space-y-2.5">
+                    <span class="text-xs font-bold px-2.5 py-1 rounded-lg bg-sky-500/10 text-sky-600 dark:text-sky-400">زبان‌شناسی</span>
+                    <h4 class="font-bold text-slate-900 dark:text-white text-base">زبان و ادبیات عربی</h4>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">یادگیری قواعد صرف و نحو برای فهم عمیق‌تر متون دینی.</p>
+                </div>
+
+                <div class="glass rounded-2xl p-5 border border-slate-200/80 dark:border-slate-800/80 space-y-2.5">
+                    <span class="text-xs font-bold px-2.5 py-1 rounded-lg bg-purple-500/10 text-purple-600 dark:text-purple-400">نوآوری</span>
+                    <h4 class="font-bold text-slate-900 dark:text-white text-base">هوش مصنوعی در طب</h4>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">بررسی نقش تکنولوژی‌های نوین در آینده تشخیص و درمان.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- بخش راه‌های ارتباطی (Social Hub + Direct Form) -->
+        <section id="contact" class="reveal glass rounded-3xl p-6 sm:p-10 border border-slate-200/80 dark:border-slate-800/80 shadow-2xl shadow-slate-900/5 space-y-10">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200/70 dark:border-slate-800 pb-6">
+                <div class="flex items-center gap-3.5">
+                    <div class="w-12 h-12 rounded-2xl bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-xl">
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">راه‌های ارتباط با من</h2>
+                        <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">از طریق شبکه‌های اجتماعی زیر می‌توانید مستقیماً با من در تماس باشید</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- کارت‌های شبکه‌های اجتماعی -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                
+                <!-- ایمیل -->
+                <div class="group p-4 rounded-2xl bg-white/60 dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800 hover:border-rose-500/60 transition-all flex items-center justify-between gap-3">
+                    <a href="mailto:faridlim973@gmail.com" class="flex items-center gap-3.5 min-w-0 flex-1">
+                        <div class="w-11 h-11 rounded-xl bg-rose-500/15 text-rose-500 group-hover:bg-rose-500 group-hover:text-white transition-colors flex items-center justify-center text-lg shrink-0">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <div class="min-w-0">
+                            <span class="block text-sm font-bold text-slate-900 dark:text-white">ایمیل آدرس</span>
+                            <span class="block text-xs text-slate-500 truncate" dir="ltr">faridlim973@gmail.com</span>
+                            <span id="email-text" class="hidden">faridlim973@gmail.com</span>
+                        </div>
+                    </a>
+                    <button onclick="copyText('email-text', 'ایمیل آدرس کپی شد!')" class="w-9 h-9 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-rose-500 hover:text-white text-slate-600 dark:text-slate-300 transition-colors flex items-center justify-center cursor-pointer shrink-0" title="کپی کردن ایمیل">
+                        <i class="fa-regular fa-copy text-xs"></i>
+                    </button>
+                </div>
+
+                <!-- تلگرام -->
+                <div class="group p-4 rounded-2xl bg-white/60 dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800 hover:border-sky-500/60 transition-all flex items-center justify-between gap-3">
+                    <a href="https://t.me/A_farid_shirzad" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3.5 min-w-0 flex-1">
+                        <div class="w-11 h-11 rounded-xl bg-sky-500/15 text-sky-500 group-hover:bg-sky-500 group-hover:text-white transition-colors flex items-center justify-center text-lg shrink-0">
+                            <i class="fa-brands fa-telegram"></i>
+                        </div>
+                        <div class="min-w-0">
+                            <span class="block text-sm font-bold text-slate-900 dark:text-white">تلگرام</span>
+                            <span class="block text-xs text-slate-500 truncate" dir="ltr">@A_farid_shirzad</span>
+                            <span id="telegram-text" class="hidden">https://t.me/A_farid_shirzad</span>
+                        </div>
+                    </a>
+                    <button onclick="copyText('telegram-text', 'لینک تلگرام کپی شد!')" class="w-9 h-9 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-sky-500 hover:text-white text-slate-600 dark:text-slate-300 transition-colors flex items-center justify-center cursor-pointer shrink-0" title="کپی لینک تلگرام">
+                        <i class="fa-regular fa-copy text-xs"></i>
+                    </button>
+                </div>
+
+                <!-- واتساپ -->
+                <div class="group p-4 rounded-2xl bg-white/60 dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800 hover:border-emerald-500/60 transition-all flex items-center justify-between gap-3">
+                    <a href="https://wa.me/93795609162" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3.5 min-w-0 flex-1">
+                        <div class="w-11 h-11 rounded-xl bg-emerald-500/15 text-emerald-500 group-hover:bg-emerald-500 group-hover:text-white transition-colors flex items-center justify-center text-lg shrink-0">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </div>
+                        <div class="min-w-0">
+                            <span class="block text-sm font-bold text-slate-900 dark:text-white">واتساپ</span>
+                            <span class="block text-xs text-slate-500 truncate" dir="ltr">+93 79 560 9162</span>
+                            <span id="whatsapp-text" class="hidden">https://wa.me/93795609162</span>
+                        </div>
+                    </a>
+                    <button onclick="copyText('whatsapp-text', 'لینک واتساپ کپی شد!')" class="w-9 h-9 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-emerald-500 hover:text-white text-slate-600 dark:text-slate-300 transition-colors flex items-center justify-center cursor-pointer shrink-0" title="کپی لینک واتساپ">
+                        <i class="fa-regular fa-copy text-xs"></i>
+                    </button>
+                </div>
+
+                <!-- اینستاگرام -->
+                <div class="group p-4 rounded-2xl bg-white/60 dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800 hover:border-pink-500/60 transition-all flex items-center justify-between gap-3">
+                    <a href="https://www.instagram.com/farid___shirzad?hvrq=b3FsMjAwaWNlZjRl" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3.5 min-w-0 flex-1">
+                        <div class="w-11 h-11 rounded-xl bg-pink-500/15 text-pink-500 group-hover:bg-pink-500 group-hover:text-white transition-colors flex items-center justify-center text-lg shrink-0">
+                            <i class="fa-brands fa-instagram"></i>
+                        </div>
+                        <div class="min-w-0">
+                            <span class="block text-sm font-bold text-slate-900 dark:text-white">اینستاگرام</span>
+                            <span class="block text-xs text-slate-500 truncate" dir="ltr">@farid___shirzad</span>
+                            <span id="instagram-text" class="hidden">https://www.instagram.com/farid___shirzad?hvrq=b3FsMjAwaWNlZjRl</span>
+                        </div>
+                    </a>
+                    <button onclick="copyText('instagram-text', 'لینک اینستاگرام کپی شد!')" class="w-9 h-9 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-pink-500 hover:text-white text-slate-600 dark:text-slate-300 transition-colors flex items-center justify-center cursor-pointer shrink-0" title="کپی لینک اینستاگرام">
+                        <i class="fa-regular fa-copy text-xs"></i>
+                    </button>
+                </div>
+
+                <!-- فیسبوک -->
+                <div class="group p-4 rounded-2xl bg-white/60 dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800 hover:border-blue-500/60 transition-all flex items-center justify-between gap-3">
+                    <a href="https://www.facebook.com/farid.shirzad19" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3.5 min-w-0 flex-1">
+                        <div class="w-11 h-11 rounded-xl bg-blue-500/15 text-blue-500 group-hover:bg-blue-500 group-hover:text-white transition-colors flex items-center justify-center text-lg shrink-0">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </div>
+                        <div class="min-w-0">
+                            <span class="block text-sm font-bold text-slate-900 dark:text-white">فیسبوک</span>
+                            <span class="block text-xs text-slate-500 truncate" dir="ltr">farid.shirzad19</span>
+                            <span id="facebook-text" class="hidden">https://www.facebook.com/farid.shirzad19</span>
+                        </div>
+                    </a>
+                    <button onclick="copyText('facebook-text', 'لینک فیسبوک کپی شد!')" class="w-9 h-9 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-blue-500 hover:text-white text-slate-600 dark:text-slate-300 transition-colors flex items-center justify-center cursor-pointer shrink-0" title="کپی لینک فیسبوک">
+                        <i class="fa-regular fa-copy text-xs"></i>
+                    </button>
+                </div>
+
+            </div>
+
+            <!-- فرم ارسال پیام مستقیم (متصل به ایمیل واقعی) -->
+            <div class="pt-6 border-t border-slate-200/70 dark:border-slate-800">
+                <h3 class="font-bold text-lg text-slate-900 dark:text-white mb-4 flex items-center gap-2">
+                    <i class="fa-solid fa-envelope-open-text text-emerald-500"></i>
+                    <span>ارسال پیام مستقیم به ایمیل</span>
+                </h3>
+                <form id="contact-form" onsubmit="handleFormSubmit(event)" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label for="sender-name" class="block text-xs font-semibold text-slate-600 dark:text-slate-400 mb-1.5">نام شما</label>
+                        <input type="text" id="sender-name" required placeholder="نام خود را بنویسید..." class="w-full px-4 py-3 rounded-xl bg-white/80 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-700 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none text-sm transition-all text-slate-900 dark:text-white">
+                    </div>
+                    <div>
+                        <label for="sender-contact" class="block text-xs font-semibold text-slate-600 dark:text-slate-400 mb-1.5">موضوع پیام</label>
+                        <input type="text" id="sender-contact" required placeholder="مثلاً: پرسش علمی، همکاری..." class="w-full px-4 py-3 rounded-xl bg-white/80 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-700 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none text-sm transition-all text-slate-900 dark:text-white">
+                    </div>
+                    <div class="sm:col-span-2">
+                        <label for="sender-message" class="block text-xs font-semibold text-slate-600 dark:text-slate-400 mb-1.5">متن پیام</label>
+                        <textarea id="sender-message" rows="3" required placeholder="پیام خود را اینجا بنویسید..." class="w-full px-4 py-3 rounded-xl bg-white/80 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-700 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none text-sm transition-all text-slate-900 dark:text-white"></textarea>
+                    </div>
+                    <div class="sm:col-span-2 flex justify-end">
+                        <button type="submit" class="px-7 py-3.5 rounded-xl bg-gradient-to-l from-emerald-600 to-teal-500 hover:from-emerald-500 hover:to-teal-400 text-white font-bold text-sm transition-all shadow-lg shadow-emerald-600/25 cursor-pointer flex items-center gap-2">
+                            <i class="fa-solid fa-paper-plane"></i>
+                            <span>ارسال از طریق ایمیل</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- فوتر مدرن -->
+    <footer class="relative z-10 border-t border-slate-200/80 dark:border-slate-800/80 bg-white/50 dark:bg-darkcard/80 backdrop-blur-md py-8">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs sm:text-sm text-slate-500 dark:text-slate-400">
+            <p>© ۱۴۰۵ — تمامی حقوق این صفحه متعلق به <strong class="text-slate-800 dark:text-white">احمد فرید شیرزاد</strong> است.</p>
+            <div class="flex items-center gap-4">
+                <a href="#" class="hover:text-emerald-500 transition-colors flex items-center gap-1">
+                    <span>بازگشت به بالا</span>
+                    <i class="fa-solid fa-arrow-up text-xs"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- پیام اعلان (Toast Notification) -->
+    <div id="toast" class="fixed bottom-6 left-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none">
+        <div class="bg-slate-900 dark:bg-emerald-950 text-white px-5 py-3.5 rounded-2xl shadow-2xl border border-emerald-500/40 flex items-center gap-3 text-sm font-medium">
+            <i class="fa-solid fa-circle-check text-emerald-400 text-base"></i>
+            <span id="toast-message">عملیات انجام شد</span>
+        </div>
+    </div>
+
+    <script>
+        // تغییر تم روشن و تاریک
+        function toggleTheme() {
+            const html = document.documentElement;
+            const icon = document.getElementById('theme-icon');
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            } else {
+                html.classList.add('dark');
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            }
+        }
+
+        // افکت تایپ متن در بخش Hero
+        const phrases = [
+            "محصل طب پوهنتون تاج",
+            "علاقه‌مند به علم، دانش و پژوهش",
+            "پژوهشگر علوم طبی و معارف اسلامی",
+            "ساکن مزار شریف، افغانستان"
+        ];
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typeElement = document.getElementById('typewriter-text');
+
+        function typeEffect() {
+            const currentPhrase = phrases[phraseIndex];
+            if (isDeleting) {
+                typeElement.textContent = currentPhrase.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typeElement.textContent = currentPhrase.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            let speed = isDeleting ? 45 : 85;
+
+            if (!isDeleting && charIndex === currentPhrase.length) {
+                speed = 2000;
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                phraseIndex = (phraseIndex + 1) % phrases.length;
+                speed = 400;
+            }
+
+            setTimeout(typeEffect, speed);
+        }
+        document.addEventListener('DOMContentLoaded', typeEffect);
+
+        // انیمیشن ظاهر شدن کارت‌ها هنگام اسکرول
+        function revealOnScroll() {
+            const reveals = document.querySelectorAll('.reveal');
+            for (let i = 0; i < reveals.length; i++) {
+                const windowHeight = window.innerHeight;
+                const elementTop = reveals[i].getBoundingClientRect().top;
+                const elementVisible = 100;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add('active');
+                }
+            }
+        }
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll();
+
+        // نمایش اعلان
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-message');
+            toastMsg.textContent = message;
+            toast.classList.remove('translate-y-24', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-y-24', 'opacity-0');
+            }, 3000);
+        }
+
+        // کپی کردن متن (با پشتیبانی مدرن و قدیمی)
+        function copyText(elementId, successMessage) {
+            const text = document.getElementById(elementId).textContent.trim();
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(text).then(() => {
+                    showToast(successMessage);
+                });
+            } else {
+                const tempInput = document.createElement('textarea');
+                tempInput.value = text;
+                document.body.appendChild(tempInput);
+                tempInput.select();
+                document.execCommand('copy');
+                document.body.removeChild(tempInput);
+                showToast(successMessage);
+            }
+        }
+
+        // ارسال واقعی پیام از طریق برنامه ایمیل کاربر
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const name = document.getElementById('sender-name').value.trim();
+            const subject = document.getElementById('sender-contact').value.trim();
+            const message = document.getElementById('sender-message').value.trim();
+            
+            const mailtoLink = `mailto:faridlim973@gmail.com?subject=${encodeURIComponent(subject + ' - از طرف ' + name)}&body=${encodeURIComponent(message)}`;
+            window.location.href = mailtoLink;
+            
+            showToast(`سپاس ${name} عزیز! برنامه ایمیل شما باز شد.`);
+            event.target.reset();
+        }
+    </script>
+</body>
+</html>
