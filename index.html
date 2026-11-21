@@ -123,28 +123,36 @@
                     <i class="fa-solid fa-staff-snake text-base"></i>
                 </div>
                 <div class="flex flex-col">
-                    <span class="font-extrabold text-sm sm:text-base text-slate-900 dark:text-white tracking-tight">احمد فرید شیرزاد</span>
-                    <span class="text-[10px] text-emerald-600 dark:text-emerald-400 font-medium">پروفایل رسمی</span>
+                    <span data-i18n="brand_name" class="font-extrabold text-sm sm:text-base text-slate-900 dark:text-white tracking-tight">احمد فرید شیرزاد</span>
+                    <span data-i18n="brand_sub" class="text-[10px] text-emerald-600 dark:text-emerald-400 font-medium">پروفایل رسمی</span>
                 </div>
             </a>
 
             <!-- لینک‌های منو -->
             <div class="hidden md:flex items-center gap-7 text-sm font-medium text-slate-600 dark:text-slate-300">
-                <a href="#about" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">بیوگرافی</a>
-                <a href="#journey" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">مسیر علمی</a>
-                <a href="#focus" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">حوزه‌های فعالیت</a>
-                <a href="#reading" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">مطالعات</a>
-                <a href="#contact" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">ارتباط</a>
+                <a href="#about" data-i18n="nav_about" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">بیوگرافی</a>
+                <a href="#journey" data-i18n="nav_journey" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">مسیر علمی</a>
+                <a href="#focus" data-i18n="nav_focus" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">حوزه‌های فعالیت</a>
+                <a href="#reading" data-i18n="nav_reading" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">مطالعات</a>
+                <a href="#contact" data-i18n="nav_contact" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">ارتباط</a>
             </div>
 
-            <!-- دکمه تغییر تم (تاریک / روشن) و دکمه تماس -->
-            <div class="flex items-center gap-2.5">
+            <!-- انتخاب زبان (فارسی / انگلیسی / عربی)، دکمه تغییر تم (تاریک / روشن) و دکمه تماس -->
+            <div class="flex items-center gap-2">
+                <div class="relative">
+                    <select id="lang-select" onchange="applyLanguage(this.value)" aria-label="Language switcher" class="h-10 ps-3 pe-7 rounded-xl bg-slate-100 dark:bg-slate-800/80 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-emerald-400 text-xs font-bold transition-all cursor-pointer border border-slate-200/60 dark:border-slate-700/60 outline-none appearance-none">
+                        <option value="fa" selected>فارسی</option>
+                        <option value="en">EN</option>
+                        <option value="ar">العربية</option>
+                    </select>
+                    <i class="fa-solid fa-globe pointer-events-none absolute end-2.5 top-1/2 -translate-y-1/2 text-emerald-600 dark:text-emerald-400 text-xs"></i>
+                </div>
                 <button onclick="toggleTheme()" class="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-800/80 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-amber-400 flex items-center justify-center transition-all cursor-pointer border border-slate-200/60 dark:border-slate-700/60" title="تغییر حالت روشن/تاریک">
                     <i id="theme-icon" class="fa-solid fa-sun"></i>
                 </button>
                 <a href="#contact" class="hidden sm:flex items-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold shadow-md shadow-emerald-600/25 transition-all">
-                    <span>تماس مستقیم</span>
-                    <i class="fa-solid fa-arrow-left text-[11px]"></i>
+                    <span data-i18n="nav_cta">تماس مستقیم</span>
+                    <i id="cta-arrow" class="fa-solid fa-arrow-left text-[11px]"></i>
                 </a>
             </div>
         </nav>
@@ -160,29 +168,28 @@
                     <div class="absolute -inset-1.5 bg-gradient-to-tr from-emerald-500 via-teal-400 to-cyan-500 rounded-[2rem] blur opacity-60 dark:opacity-75"></div>
                     <div class="relative w-44 h-44 sm:w-52 sm:h-52 rounded-[1.8rem] p-1.5 bg-white dark:bg-darkcard border border-slate-200 dark:border-slate-700 shadow-2xl">
                         <img id="profile-img" 
-    src="profile.jpg" 
-     onerror="this.src='https://placehold.co/500x500/0d1526/10b981?text=Ahmad+Farid'"
-     alt="احمد فرید شیرزاد" 
-     class="w-full h-full object-cover rounded-[1.4rem]">
-                        
+                             src="profile.jpg" 
+                             onerror="this.src='https://placehold.co/500x500/0d1526/10b981?text=Ahmad+Farid'"
+                             alt="احمد فرید شیرزاد" 
+                             class="w-full h-full object-cover rounded-[1.4rem]">
                         
                         <!-- نشان وضعیت آنلاین / محصل -->
                         <div class="absolute -bottom-3 right-1/2 translate-x-1/2 whitespace-nowrap px-3.5 py-1 rounded-full bg-slate-900 dark:bg-emerald-950 border border-emerald-500/40 text-emerald-400 text-xs font-semibold shadow-lg flex items-center gap-1.5">
                             <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
-                            <span>محصل طب معالجوی • پوهنتون تاج</span>
+                            <span data-i18n="hero_badge_uni">محصل طب معالجوی • پوهنتون تاج</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- متن معرفی Hero -->
-                <div class="flex-1 text-center md:text-right space-y-5">
+                <div class="flex-1 text-center md:text-start space-y-5">
                     <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-700 dark:text-emerald-300 text-xs font-semibold">
                         <i class="fa-solid fa-sparkles"></i>
-                        <span>خوش آمدید به صفحه شخصی من</span>
+                        <span data-i18n="hero_welcome">خوش آمدید به صفحه شخصی من</span>
                     </div>
 
                     <h1 class="text-4xl sm:text-6xl font-black tracking-tight text-slate-900 dark:text-white leading-tight">
-                        احمد فرید <span class="text-transparent bg-clip-text bg-gradient-to-l from-emerald-500 to-teal-400">شیرزاد</span>
+                        <span data-i18n="hero_name_first">احمد فرید</span> <span data-i18n="hero_name_last" class="text-transparent bg-clip-text bg-gradient-to-l from-emerald-500 to-teal-400">شیرزاد</span>
                     </h1>
 
                     <!-- تایپوگرافی متحرک تخصص‌ها -->
@@ -192,7 +199,7 @@
                         <span class="w-0.5 h-6 bg-emerald-500 animate-pulse"></span>
                     </div>
 
-                    <p class="text-slate-600 dark:text-slate-400 text-sm sm:text-base max-w-2xl leading-8">
+                    <p data-i18n="hero_desc" class="text-slate-600 dark:text-slate-400 text-sm sm:text-base max-w-2xl leading-8">
                         علاقه‌مند به علوم طبی، پژوهش‌های علمی، زبان عربی و مطالعه کتب اسلامی. این فضا برای به اشتراک‌گذاری مسیر علمی، دیدگاه‌ها و ایجاد پل ارتباطی مستقیم طراحی شده است.
                     </p>
 
@@ -207,11 +214,11 @@
                     <div class="pt-2 flex flex-wrap items-center justify-center md:justify-start gap-3.5">
                         <a href="#contact" class="px-7 py-3.5 rounded-2xl bg-gradient-to-l from-emerald-600 to-teal-500 hover:from-emerald-500 hover:to-teal-400 text-white font-bold text-sm shadow-lg shadow-emerald-600/30 transition-all hover:-translate-y-0.5 flex items-center gap-2.5">
                             <i class="fa-solid fa-paper-plane"></i>
-                            <span>ارتباط مستقیم با من</span>
+                            <span data-i18n="btn_contact">ارتباط مستقیم با من</span>
                         </a>
                         <a href="#about" class="px-7 py-3.5 rounded-2xl glass hover:bg-slate-200/60 dark:hover:bg-slate-800/80 text-slate-800 dark:text-white border border-slate-300/80 dark:border-slate-700 font-semibold text-sm transition-all hover:-translate-y-0.5 flex items-center gap-2">
                             <i class="fa-solid fa-user-doctor text-emerald-500"></i>
-                            <span>آشنایی بیشتر</span>
+                            <span data-i18n="btn_about">آشنایی بیشتر</span>
                         </a>
                     </div>
                 </div>
@@ -229,25 +236,25 @@
                     <i class="fa-solid fa-id-badge"></i>
                 </div>
                 <div>
-                    <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">بیوگرافی و معرفی</h2>
-                    <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">نگاهی کوتاه به شخصیت، اهداف و مسیر تحصیلی من</p>
+                    <h2 data-i18n="about_title" class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">بیوگرافی و معرفی</h2>
+                    <p data-i18n="about_sub" class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">نگاهی کوتاه به شخصیت، اهداف و مسیر تحصیلی من</p>
                 </div>
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
                 <!-- متن بیوگرافی -->
                 <div class="lg:col-span-7 glass rounded-3xl p-7 sm:p-8 border border-slate-200/80 dark:border-slate-800/80 shadow-xl shadow-slate-900/5 flex flex-col justify-between space-y-6">
-                    <div class="space-y-4 text-slate-600 dark:text-slate-300 leading-8 text-sm sm:text-base text-justify">
-                        <p>
+                    <div class="space-y-4 text-slate-600 dark:text-slate-300 leading-8 text-sm sm:text-base text-start">
+                        <p data-i18n="about_p1">
                             سلام، من <strong class="text-slate-900 dark:text-white font-bold">احمد فرید شیرزاد</strong> هستم؛ محصل رشته طب در <strong class="text-emerald-600 dark:text-emerald-400">پوهنتون تاج</strong> در شهر زیبای مزار شریف. علم طب برای من فراتر از یک رشته تحصیلی است؛ آن را رسالتی برای درک شگفتی‌های خلقت و خدمت صادقانه به انسان‌ها می‌دانم.
                         </p>
-                        <p>
+                        <p data-i18n="about_p2">
                             در کنار دروس اکادمیک طبی، اشتیاق فراوانی به <strong class="text-slate-900 dark:text-white">پژوهش‌های علمی، فراگیری زبان عربی و مطالعه عمیق کتب اسلامی</strong> (به‌ویژه در حوزه‌های عقاید و تزکیه نفس) دارم. باور من این است که تلفیق دانش مدرن با معنویت و اخلاق، مسیر رشد حقیقی انسان را هموار می‌سازد.
                         </p>
                     </div>
 
                     <!-- نقل‌قول الهام‌بخش -->
-                    <div class="p-4 rounded-2xl bg-emerald-500/5 dark:bg-emerald-500/10 border-r-4 border-emerald-500 text-xs sm:text-sm text-slate-700 dark:text-emerald-200 italic leading-relaxed">
+                    <div data-i18n="about_quote" class="p-4 rounded-2xl bg-emerald-500/5 dark:bg-emerald-500/10 border-s-4 border-emerald-500 text-xs sm:text-sm text-slate-700 dark:text-emerald-200 italic leading-relaxed">
                         «طلب علم عبادت است؛ هر گامی که در راه دانش و شناخت برداشته می‌شود، نوری است برای روشن‌تر ساختن آینده خود و جامعه.»
                     </div>
                 </div>
@@ -259,8 +266,8 @@
                             <i class="fa-solid fa-graduation-cap"></i>
                         </div>
                         <div>
-                            <span class="block text-xs text-slate-400">رشته و پوهنتون</span>
-                            <span class="font-bold text-sm sm:text-base text-slate-900 dark:text-white">محصل طب — پوهنتون تاج</span>
+                            <span data-i18n="info_uni_label" class="block text-xs text-slate-400">رشته و پوهنتون</span>
+                            <span data-i18n="info_uni_val" class="font-bold text-sm sm:text-base text-slate-900 dark:text-white">محصل طب — پوهنتون تاج</span>
                         </div>
                     </div>
 
@@ -269,8 +276,8 @@
                             <i class="fa-solid fa-location-dot"></i>
                         </div>
                         <div>
-                            <span class="block text-xs text-slate-400">موقعیت جغرافیایی</span>
-                            <span class="font-bold text-sm sm:text-base text-slate-900 dark:text-white">میمنه، فاریاب، افغانستان</span>
+                            <span data-i18n="info_loc_label" class="block text-xs text-slate-400">موقعیت جغرافیایی</span>
+                            <span data-i18n="info_loc_val" class="font-bold text-sm sm:text-base text-slate-900 dark:text-white">میمنه، فاریاب، افغانستان</span>
                         </div>
                     </div>
 
@@ -279,8 +286,8 @@
                             <i class="fa-solid fa-language"></i>
                         </div>
                         <div>
-                            <span class="block text-xs text-slate-400">زبان‌ها</span>
-                            <span class="font-bold text-sm sm:text-base text-slate-900 dark:text-white">فارسی (دری)، اوزبیکی، انگلیسی، عربی (در حال یادگیری)</span>
+                            <span data-i18n="info_lang_label" class="block text-xs text-slate-400">زبان‌ها</span>
+                            <span data-i18n="info_lang_val" class="font-bold text-sm sm:text-base text-slate-900 dark:text-white">فارسی (دری)، اوزبیکی، انگلیسی، عربی (در حال یادگیری)</span>
                         </div>
                     </div>
 
@@ -289,8 +296,8 @@
                             <i class="fa-solid fa-microscope"></i>
                         </div>
                         <div>
-                            <span class="block text-xs text-slate-400">تمرکز اصلی</span>
-                            <span class="font-bold text-sm sm:text-base text-slate-900 dark:text-white">علوم طبی، و مطالعه کتب دینی</span>
+                            <span data-i18n="info_focus_label" class="block text-xs text-slate-400">تمرکز اصلی</span>
+                            <span data-i18n="info_focus_val" class="font-bold text-sm sm:text-base text-slate-900 dark:text-white">علوم طبی، و مطالعه کتب دینی</span>
                         </div>
                     </div>
                 </div>
@@ -304,39 +311,39 @@
                     <i class="fa-solid fa-route"></i>
                 </div>
                 <div>
-                    <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">مسیر علمی و اهداف</h2>
-                    <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">گام‌های من در دنیای طب، دانش و خودسازی</p>
+                    <h2 data-i18n="journey_title" class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">مسیر علمی و اهداف</h2>
+                    <p data-i18n="journey_sub" class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">گام‌های من در دنیای طب، دانش و خودسازی</p>
                 </div>
             </div>
 
             <div class="glass rounded-3xl p-7 sm:p-9 border border-slate-200/80 dark:border-slate-800/80">
-                <div class="relative border-r-2 border-emerald-500/40 pr-6 sm:pr-8 space-y-8">
+                <div class="relative border-s-2 border-emerald-500/40 ps-6 sm:ps-8 space-y-8">
                     <!-- مرحله ۱ -->
                     <div class="relative">
-                        <span class="absolute -right-[33px] sm:-right-[41px] top-1 w-4 h-4 rounded-full bg-emerald-500 ring-4 ring-emerald-500/20"></span>
-                        <span class="inline-block px-2.5 py-0.5 rounded-md bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-xs font-bold mb-1">مرحله کنونی</span>
-                        <h3 class="text-lg font-bold text-slate-900 dark:text-white">تحصیل در رشته طب معالجوی — پوهنتون تاج</h3>
-                        <p class="text-sm text-slate-600 dark:text-slate-400 mt-1 leading-relaxed">
+                        <span class="absolute -start-[33px] sm:-start-[41px] top-1 w-4 h-4 rounded-full bg-emerald-500 ring-4 ring-emerald-500/20"></span>
+                        <span data-i18n="step1_badge" class="inline-block px-2.5 py-0.5 rounded-md bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-xs font-bold mb-1">مرحله کنونی</span>
+                        <h3 data-i18n="step1_title" class="text-lg font-bold text-slate-900 dark:text-white">تحصیل در رشته طب معالجوی — پوهنتون تاج</h3>
+                        <p data-i18n="step1_desc" class="text-sm text-slate-600 dark:text-slate-400 mt-1 leading-relaxed">
                             تمرکز بر علوم پایه و کلینیکی طب، یادگیری فیزیولوژی، آناتومی، پتالوژی، فارمکولوژی و اصول تشخیص و تداوی بیماری‌ها با رویکرد علمی و دقیق.
                         </p>
                     </div>
 
                     <!-- مرحله ۲ -->
                     <div class="relative">
-                        <span class="absolute -right-[33px] sm:-right-[41px] top-1 w-4 h-4 rounded-full bg-teal-500 ring-4 ring-teal-500/20"></span>
-                        <span class="inline-block px-2.5 py-0.5 rounded-md bg-teal-500/10 text-teal-600 dark:text-teal-400 text-xs font-bold mb-1">مطالعه موازی</span>
-                        <h3 class="text-lg font-bold text-slate-900 dark:text-white">فراگیری زبان عربی و مطالعه کتب اسلامی</h3>
-                        <p class="text-sm text-slate-600 dark:text-slate-400 mt-1 leading-relaxed">
+                        <span class="absolute -start-[33px] sm:-start-[41px] top-1 w-4 h-4 rounded-full bg-teal-500 ring-4 ring-teal-500/20"></span>
+                        <span data-i18n="step2_badge" class="inline-block px-2.5 py-0.5 rounded-md bg-teal-500/10 text-teal-600 dark:text-teal-400 text-xs font-bold mb-1">مطالعه موازی</span>
+                        <h3 data-i18n="step2_title" class="text-lg font-bold text-slate-900 dark:text-white">فراگیری زبان عربی و مطالعه کتب اسلامی</h3>
+                        <p data-i18n="step2_desc" class="text-sm text-slate-600 dark:text-slate-400 mt-1 leading-relaxed">
                             مطالعه مستمر کتب اسلامی در بخش‌های عقیده، اخلاق و تزکیه نفس همراه با تقویت مهارت‌های زبان عربی برای درک مستقیم منابع.
                         </p>
                     </div>
 
                     <!-- مرحله ۳ -->
                     <div class="relative">
-                        <span class="absolute -right-[33px] sm:-right-[41px] top-1 w-4 h-4 rounded-full bg-cyan-500 ring-4 ring-cyan-500/20"></span>
-                        <span class="inline-block px-2.5 py-0.5 rounded-md bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 text-xs font-bold mb-1">چشم‌انداز آینده</span>
-                        <h3 class="text-lg font-bold text-slate-900 dark:text-white">پژوهش‌های طبی و خدمت به جامعه</h3>
-                        <p class="text-sm text-slate-600 dark:text-slate-400 mt-1 leading-relaxed">
+                        <span class="absolute -start-[33px] sm:-start-[41px] top-1 w-4 h-4 rounded-full bg-cyan-500 ring-4 ring-cyan-500/20"></span>
+                        <span data-i18n="step3_badge" class="inline-block px-2.5 py-0.5 rounded-md bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 text-xs font-bold mb-1">چشم‌انداز آینده</span>
+                        <h3 data-i18n="step3_title" class="text-lg font-bold text-slate-900 dark:text-white">پژوهش‌های طبی و خدمت به جامعه</h3>
+                        <p data-i18n="step3_desc" class="text-sm text-slate-600 dark:text-slate-400 mt-1 leading-relaxed">
                             تلفیق دانش طبی با ابزارهای نوین دیجیتال و هوش مصنوعی جهت ارتقای سطح آگاهی صحی و ارائه خدمات طبی معیاری.
                         </p>
                     </div>
@@ -351,8 +358,8 @@
                     <i class="fa-solid fa-layer-group"></i>
                 </div>
                 <div>
-                    <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">حوزه‌های فعالیت و علاقه‌مندی</h2>
-                    <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">زمینه‌هایی که به صورت تخصصی روی آن‌ها وقت می‌گذارم</p>
+                    <h2 data-i18n="focus_title" class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">حوزه‌های فعالیت و علاقه‌مندی</h2>
+                    <p data-i18n="focus_sub" class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">زمینه‌هایی که به صورت تخصصی روی آن‌ها وقت می‌گذارم</p>
                 </div>
             </div>
 
@@ -363,8 +370,8 @@
                     <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 text-white flex items-center justify-center text-2xl mb-5 shadow-lg shadow-emerald-500/25">
                         <i class="fa-solid fa-stethoscope"></i>
                     </div>
-                    <h3 class="font-extrabold text-xl text-slate-900 dark:text-white mb-3">علوم طبی و سلامت</h3>
-                    <p class="text-sm text-slate-600 dark:text-slate-400 leading-7">
+                    <h3 data-i18n="focus1_title" class="font-extrabold text-xl text-slate-900 dark:text-white mb-3">علوم طبی و سلامت</h3>
+                    <p data-i18n="focus1_desc" class="text-sm text-slate-600 dark:text-slate-400 leading-7">
                         مطالعه مباحث پایه و کلینیکی طب، بررسی کیس‌های علمی و آشنایی با تازه‌ترین دستاوردهای پزشکی برای ارتقای سلامت جامعه.
                     </p>
                 </div>
@@ -375,8 +382,8 @@
                     <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-teal-500 to-cyan-600 text-white flex items-center justify-center text-2xl mb-5 shadow-lg shadow-teal-500/25">
                         <i class="fa-solid fa-book-quran"></i>
                     </div>
-                    <h3 class="font-extrabold text-xl text-slate-900 dark:text-white mb-3">پژوهش و مطالعه کتباسلامی</h3>
-                    <p class="text-sm text-slate-600 dark:text-slate-400 leading-7">
+                    <h3 data-i18n="focus2_title" class="font-extrabold text-xl text-slate-900 dark:text-white mb-3">پژوهش و مطالعه کتب اسلامی</h3>
+                    <p data-i18n="focus2_desc" class="text-sm text-slate-600 dark:text-slate-400 leading-7">
                         علاقه‌مند به تحقیق، یادگیری زبان عربی و مطالعه کتب اسلامی به‌ویژه در زمینه‌های عقاید، سیرة النبی و تزکیه نفس.
                     </p>
                 </div>
@@ -387,8 +394,8 @@
                     <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-cyan-500 to-blue-600 text-white flex items-center justify-center text-2xl mb-5 shadow-lg shadow-cyan-500/25">
                         <i class="fa-solid fa-laptop-medical"></i>
                     </div>
-                    <h3 class="font-extrabold text-xl text-slate-900 dark:text-white mb-3">تکنولوژی و مهارت‌های دیجیتال</h3>
-                    <p class="text-sm text-slate-600 dark:text-slate-400 leading-7">
+                    <h3 data-i18n="focus3_title" class="font-extrabold text-xl text-slate-900 dark:text-white mb-3">تکنولوژی و مهارت‌های دیجیتال</h3>
+                    <p data-i18n="focus3_desc" class="text-sm text-slate-600 dark:text-slate-400 leading-7">
                         بهره‌گیری از ابزارهای مدرن دیجیتال و هوش مصنوعی برای پژوهش سریع‌تر، مدیریت دانش و کاربرد فناوری در علوم طبی.
                     </p>
                 </div>
@@ -402,34 +409,34 @@
                     <i class="fa-solid fa-book-open-reader"></i>
                 </div>
                 <div>
-                    <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">محورهای مطالعه و تحقیق</h2>
-                    <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">موضوعاتی که همیشه در برنامه مطالعه روزانه من جای دارند</p>
+                    <h2 data-i18n="reading_title" class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">محورهای مطالعه و تحقیق</h2>
+                    <p data-i18n="reading_sub" class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">موضوعاتی که همیشه در برنامه مطالعه روزانه من جای دارند</p>
                 </div>
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 <div class="glass rounded-2xl p-5 border border-slate-200/80 dark:border-slate-800/80 space-y-2.5">
-                    <span class="text-xs font-bold px-2.5 py-1 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">علوم طبی</span>
-                    <h4 class="font-bold text-slate-900 dark:text-white text-base">آناتومی، پتالوزی فارمکولوژی و فیزیولوژی</h4>
-                    <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">درک ساختار دقیق بدن انسان و مکانیزم‌های حیاتی آن.</p>
+                    <span data-i18n="read1_tag" class="text-xs font-bold px-2.5 py-1 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">علوم طبی</span>
+                    <h4 data-i18n="read1_title" class="font-bold text-slate-900 dark:text-white text-base">آناتومی، پتالوژی، فارمکولوژی و فیزیولوژی</h4>
+                    <p data-i18n="read1_desc" class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">درک ساختار دقیق بدن انسان و مکانیزم‌های حیاتی آن.</p>
                 </div>
 
                 <div class="glass rounded-2xl p-5 border border-slate-200/80 dark:border-slate-800/80 space-y-2.5">
-                    <span class="text-xs font-bold px-2.5 py-1 rounded-lg bg-amber-500/10 text-amber-600 dark:text-amber-400">معارف اسلامی</span>
-                    <h4 class="font-bold text-slate-900 dark:text-white text-base">عقیده اسلامی، سیرة النبی و تزکیه نفس</h4>
-                    <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">مطالعه آثار علمای برجسته در زمینه اصلاح قلب و تقویت ایمان.</p>
+                    <span data-i18n="read2_tag" class="text-xs font-bold px-2.5 py-1 rounded-lg bg-amber-500/10 text-amber-600 dark:text-amber-400">معارف اسلامی</span>
+                    <h4 data-i18n="read2_title" class="font-bold text-slate-900 dark:text-white text-base">عقیده اسلامی، سیرة النبی و تزکیه نفس</h4>
+                    <p data-i18n="read2_desc" class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">مطالعه آثار علمای برجسته در زمینه اصلاح قلب و تقویت ایمان.</p>
                 </div>
 
                 <div class="glass rounded-2xl p-5 border border-slate-200/80 dark:border-slate-800/80 space-y-2.5">
-                    <span class="text-xs font-bold px-2.5 py-1 rounded-lg bg-sky-500/10 text-sky-600 dark:text-sky-400">زبان‌شناسی</span>
-                    <h4 class="font-bold text-slate-900 dark:text-white text-base">زبان و ادبیات عربی</h4>
-                    <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">یادگیری قواعد صرف و نحو برای فهم عمیق‌تر متون دینی.</p>
+                    <span data-i18n="read3_tag" class="text-xs font-bold px-2.5 py-1 rounded-lg bg-sky-500/10 text-sky-600 dark:text-sky-400">زبان‌شناسی</span>
+                    <h4 data-i18n="read3_title" class="font-bold text-slate-900 dark:text-white text-base">زبان و ادبیات عربی</h4>
+                    <p data-i18n="read3_desc" class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">یادگیری قواعد صرف و نحو برای فهم عمیق‌تر متون دینی.</p>
                 </div>
 
                 <div class="glass rounded-2xl p-5 border border-slate-200/80 dark:border-slate-800/80 space-y-2.5">
-                    <span class="text-xs font-bold px-2.5 py-1 rounded-lg bg-purple-500/10 text-purple-600 dark:text-purple-400">نوآوری</span>
-                    <h4 class="font-bold text-slate-900 dark:text-white text-base">هوش مصنوعی در طب</h4>
-                    <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">بررسی نقش تکنولوژی‌های نوین در آینده تشخیص و درمان.</p>
+                    <span data-i18n="read4_tag" class="text-xs font-bold px-2.5 py-1 rounded-lg bg-purple-500/10 text-purple-600 dark:text-purple-400">نوآوری</span>
+                    <h4 data-i18n="read4_title" class="font-bold text-slate-900 dark:text-white text-base">هوش مصنوعی در طب</h4>
+                    <p data-i18n="read4_desc" class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">بررسی نقش تکنولوژی‌های نوین در آینده تشخیص و درمان.</p>
                 </div>
             </div>
         </section>
@@ -442,8 +449,8 @@
                         <i class="fa-solid fa-paper-plane"></i>
                     </div>
                     <div>
-                        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">راه‌های ارتباط با من</h2>
-                        <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">از طریق شبکه‌های اجتماعی زیر می‌توانید مستقیماً با من در تماس باشید</p>
+                        <h2 data-i18n="contact_title" class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">راه‌های ارتباط با من</h2>
+                        <p data-i18n="contact_sub" class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">از طریق شبکه‌های اجتماعی زیر می‌توانید مستقیماً با من در تماس باشید</p>
                     </div>
                 </div>
             </div>
@@ -458,12 +465,12 @@
                             <i class="fa-solid fa-envelope"></i>
                         </div>
                         <div class="min-w-0">
-                            <span class="block text-sm font-bold text-slate-900 dark:text-white">ایمیل آدرس</span>
+                            <span data-i18n="social_email" class="block text-sm font-bold text-slate-900 dark:text-white">ایمیل آدرس</span>
                             <span class="block text-xs text-slate-500 truncate" dir="ltr">faridlim973@gmail.com</span>
                             <span id="email-text" class="hidden">faridlim973@gmail.com</span>
                         </div>
                     </a>
-                    <button onclick="copyText('email-text', 'ایمیل آدرس کپی شد!')" class="w-9 h-9 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-rose-500 hover:text-white text-slate-600 dark:text-slate-300 transition-colors flex items-center justify-center cursor-pointer shrink-0" title="کپی کردن ایمیل">
+                    <button onclick="copyText('email-text', 'copy_email')" class="w-9 h-9 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-rose-500 hover:text-white text-slate-600 dark:text-slate-300 transition-colors flex items-center justify-center cursor-pointer shrink-0" title="کپی کردن ایمیل">
                         <i class="fa-regular fa-copy text-xs"></i>
                     </button>
                 </div>
@@ -475,12 +482,12 @@
                             <i class="fa-brands fa-telegram"></i>
                         </div>
                         <div class="min-w-0">
-                            <span class="block text-sm font-bold text-slate-900 dark:text-white">تلگرام</span>
+                            <span data-i18n="social_telegram" class="block text-sm font-bold text-slate-900 dark:text-white">تلگرام</span>
                             <span class="block text-xs text-slate-500 truncate" dir="ltr">@A_farid_shirzad</span>
                             <span id="telegram-text" class="hidden">https://t.me/A_farid_shirzad</span>
                         </div>
                     </a>
-                    <button onclick="copyText('telegram-text', 'لینک تلگرام کپی شد!')" class="w-9 h-9 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-sky-500 hover:text-white text-slate-600 dark:text-slate-300 transition-colors flex items-center justify-center cursor-pointer shrink-0" title="کپی لینک تلگرام">
+                    <button onclick="copyText('telegram-text', 'copy_telegram')" class="w-9 h-9 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-sky-500 hover:text-white text-slate-600 dark:text-slate-300 transition-colors flex items-center justify-center cursor-pointer shrink-0" title="کپی لینک تلگرام">
                         <i class="fa-regular fa-copy text-xs"></i>
                     </button>
                 </div>
@@ -492,12 +499,12 @@
                             <i class="fa-brands fa-whatsapp"></i>
                         </div>
                         <div class="min-w-0">
-                            <span class="block text-sm font-bold text-slate-900 dark:text-white">واتساپ</span>
+                            <span data-i18n="social_whatsapp" class="block text-sm font-bold text-slate-900 dark:text-white">واتساپ</span>
                             <span class="block text-xs text-slate-500 truncate" dir="ltr">+93 79 560 9162</span>
                             <span id="whatsapp-text" class="hidden">https://wa.me/93795609162</span>
                         </div>
                     </a>
-                    <button onclick="copyText('whatsapp-text', 'لینک واتساپ کپی شد!')" class="w-9 h-9 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-emerald-500 hover:text-white text-slate-600 dark:text-slate-300 transition-colors flex items-center justify-center cursor-pointer shrink-0" title="کپی لینک واتساپ">
+                    <button onclick="copyText('whatsapp-text', 'copy_whatsapp')" class="w-9 h-9 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-emerald-500 hover:text-white text-slate-600 dark:text-slate-300 transition-colors flex items-center justify-center cursor-pointer shrink-0" title="کپی لینک واتساپ">
                         <i class="fa-regular fa-copy text-xs"></i>
                     </button>
                 </div>
@@ -509,12 +516,12 @@
                             <i class="fa-brands fa-instagram"></i>
                         </div>
                         <div class="min-w-0">
-                            <span class="block text-sm font-bold text-slate-900 dark:text-white">اینستاگرام</span>
+                            <span data-i18n="social_instagram" class="block text-sm font-bold text-slate-900 dark:text-white">اینستاگرام</span>
                             <span class="block text-xs text-slate-500 truncate" dir="ltr">@farid___shirzad</span>
                             <span id="instagram-text" class="hidden">https://www.instagram.com/farid___shirzad?hvrq=b3FsMjAwaWNlZjRl</span>
                         </div>
                     </a>
-                    <button onclick="copyText('instagram-text', 'لینک اینستاگرام کپی شد!')" class="w-9 h-9 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-pink-500 hover:text-white text-slate-600 dark:text-slate-300 transition-colors flex items-center justify-center cursor-pointer shrink-0" title="کپی لینک اینستاگرام">
+                    <button onclick="copyText('instagram-text', 'copy_instagram')" class="w-9 h-9 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-pink-500 hover:text-white text-slate-600 dark:text-slate-300 transition-colors flex items-center justify-center cursor-pointer shrink-0" title="کپی لینک اینستاگرام">
                         <i class="fa-regular fa-copy text-xs"></i>
                     </button>
                 </div>
@@ -526,12 +533,12 @@
                             <i class="fa-brands fa-facebook-f"></i>
                         </div>
                         <div class="min-w-0">
-                            <span class="block text-sm font-bold text-slate-900 dark:text-white">فیسبوک</span>
+                            <span data-i18n="social_facebook" class="block text-sm font-bold text-slate-900 dark:text-white">فیسبوک</span>
                             <span class="block text-xs text-slate-500 truncate" dir="ltr">farid.shirzad19</span>
                             <span id="facebook-text" class="hidden">https://www.facebook.com/farid.shirzad19</span>
                         </div>
                     </a>
-                    <button onclick="copyText('facebook-text', 'لینک فیسبوک کپی شد!')" class="w-9 h-9 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-blue-500 hover:text-white text-slate-600 dark:text-slate-300 transition-colors flex items-center justify-center cursor-pointer shrink-0" title="کپی لینک فیسبوک">
+                    <button onclick="copyText('facebook-text', 'copy_facebook')" class="w-9 h-9 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-blue-500 hover:text-white text-slate-600 dark:text-slate-300 transition-colors flex items-center justify-center cursor-pointer shrink-0" title="کپی لینک فیسبوک">
                         <i class="fa-regular fa-copy text-xs"></i>
                     </button>
                 </div>
@@ -542,25 +549,25 @@
             <div class="pt-6 border-t border-slate-200/70 dark:border-slate-800">
                 <h3 class="font-bold text-lg text-slate-900 dark:text-white mb-4 flex items-center gap-2">
                     <i class="fa-solid fa-envelope-open-text text-emerald-500"></i>
-                    <span>ارسال پیام مستقیم به ایمیل</span>
+                    <span data-i18n="form_title">ارسال پیام مستقیم به ایمیل</span>
                 </h3>
                 <form id="contact-form" onsubmit="handleFormSubmit(event)" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                        <label for="sender-name" class="block text-xs font-semibold text-slate-600 dark:text-slate-400 mb-1.5">نام شما</label>
+                        <label for="sender-name" data-i18n="form_name_label" class="block text-xs font-semibold text-slate-600 dark:text-slate-400 mb-1.5">نام شما</label>
                         <input type="text" id="sender-name" required placeholder="نام خود را بنویسید..." class="w-full px-4 py-3 rounded-xl bg-white/80 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-700 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none text-sm transition-all text-slate-900 dark:text-white">
                     </div>
                     <div>
-                        <label for="sender-contact" class="block text-xs font-semibold text-slate-600 dark:text-slate-400 mb-1.5">موضوع پیام</label>
+                        <label for="sender-contact" data-i18n="form_subject_label" class="block text-xs font-semibold text-slate-600 dark:text-slate-400 mb-1.5">موضوع پیام</label>
                         <input type="text" id="sender-contact" required placeholder="مثلاً: پرسش علمی، همکاری..." class="w-full px-4 py-3 rounded-xl bg-white/80 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-700 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none text-sm transition-all text-slate-900 dark:text-white">
                     </div>
                     <div class="sm:col-span-2">
-                        <label for="sender-message" class="block text-xs font-semibold text-slate-600 dark:text-slate-400 mb-1.5">متن پیام</label>
+                        <label for="sender-message" data-i18n="form_msg_label" class="block text-xs font-semibold text-slate-600 dark:text-slate-400 mb-1.5">متن پیام</label>
                         <textarea id="sender-message" rows="3" required placeholder="پیام خود را اینجا بنویسید..." class="w-full px-4 py-3 rounded-xl bg-white/80 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-700 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none text-sm transition-all text-slate-900 dark:text-white"></textarea>
                     </div>
                     <div class="sm:col-span-2 flex justify-end">
                         <button type="submit" class="px-7 py-3.5 rounded-xl bg-gradient-to-l from-emerald-600 to-teal-500 hover:from-emerald-500 hover:to-teal-400 text-white font-bold text-sm transition-all shadow-lg shadow-emerald-600/25 cursor-pointer flex items-center gap-2">
                             <i class="fa-solid fa-paper-plane"></i>
-                            <span>ارسال از طریق ایمیل</span>
+                            <span data-i18n="form_submit">ارسال از طریق ایمیل</span>
                         </button>
                     </div>
                 </form>
@@ -572,10 +579,10 @@
     <!-- فوتر مدرن -->
     <footer class="relative z-10 border-t border-slate-200/80 dark:border-slate-800/80 bg-white/50 dark:bg-darkcard/80 backdrop-blur-md py-8">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs sm:text-sm text-slate-500 dark:text-slate-400">
-            <p>© ۱۴۰۵ — تمامی حقوق این صفحه متعلق به <strong class="text-slate-800 dark:text-white">احمد فرید شیرزاد</strong> است.</p>
+            <p data-i18n="footer_rights">© ۱۴۰۵ — تمامی حقوق این صفحه متعلق به <strong class="text-slate-800 dark:text-white">احمد فرید شیرزاد</strong> است.</p>
             <div class="flex items-center gap-4">
                 <a href="#" class="hover:text-emerald-500 transition-colors flex items-center gap-1">
-                    <span>بازگشت به بالا</span>
+                    <span data-i18n="footer_top">بازگشت به بالا</span>
                     <i class="fa-solid fa-arrow-up text-xs"></i>
                 </a>
             </div>
@@ -591,6 +598,339 @@
     </div>
 
     <script>
+        let currentLang = 'fa';
+
+        const translations = {
+            fa: {
+                page_title: "احمد فرید شیرزاد | محصل طب، پژوهشگر و پروفایل رسمی",
+                brand_name: "احمد فرید شیرزاد",
+                brand_sub: "پروفایل رسمی",
+                nav_about: "بیوگرافی",
+                nav_journey: "مسیر علمی",
+                nav_focus: "حوزه‌های فعالیت",
+                nav_reading: "مطالعات",
+                nav_contact: "ارتباط",
+                nav_cta: "تماس مستقیم",
+                hero_badge_uni: "محصل طب معالجوی • پوهنتون تاج",
+                hero_welcome: "خوش آمدید به صفحه شخصی من",
+                hero_name_first: "احمد فرید",
+                hero_name_last: "شیرزاد",
+                hero_desc: "علاقه‌مند به علوم طبی، پژوهش‌های علمی، زبان عربی و مطالعه کتب اسلامی. این فضا برای به اشتراک‌گذاری مسیر علمی، دیدگاه‌ها و ایجاد پل ارتباطی مستقیم طراحی شده است.",
+                btn_contact: "ارتباط مستقیم با من",
+                btn_about: "آشنایی بیشتر",
+                about_title: "بیوگرافی و معرفی",
+                about_sub: "نگاهی کوتاه به شخصیت، اهداف و مسیر تحصیلی من",
+                about_p1: 'سلام، من <strong class="text-slate-900 dark:text-white font-bold">احمد فرید شیرزاد</strong> هستم؛ محصل رشته طب در <strong class="text-emerald-600 dark:text-emerald-400">پوهنتون تاج</strong> در شهر زیبای مزار شریف. علم طب برای من فراتر از یک رشته تحصیلی است؛ آن را رسالتی برای درک شگفتی‌های خلقت و خدمت صادقانه به انسان‌ها می‌دانم.',
+                about_p2: 'در کنار دروس اکادمیک طبی، اشتیاق فراوانی به <strong class="text-slate-900 dark:text-white">پژوهش‌های علمی، فراگیری زبان عربی و مطالعه عمیق کتب اسلامی</strong> (به‌ویژه در حوزه‌های عقاید و تزکیه نفس) دارم. باور من این است که تلفیق دانش مدرن با معنویت و اخلاق، مسیر رشد حقیقی انسان را هموار می‌سازد.',
+                about_quote: "«طلب علم عبادت است؛ هر گامی که در راه دانش و شناخت برداشته می‌شود، نوری است برای روشن‌تر ساختن آینده خود و جامعه.»",
+                info_uni_label: "رشته و پوهنتون",
+                info_uni_val: "محصل طب — پوهنتون تاج",
+                info_loc_label: "موقعیت جغرافیایی",
+                info_loc_val: "میمنه، فاریاب، افغانستان",
+                info_lang_label: "زبان‌ها",
+                info_lang_val: "فارسی (دری)، اوزبیکی، انگلیسی، عربی (در حال یادگیری)",
+                info_focus_label: "تمرکز اصلی",
+                info_focus_val: "علوم طبی، و مطالعه کتب دینی",
+                journey_title: "مسیر علمی و اهداف",
+                journey_sub: "گام‌های من در دنیای طب، دانش و خودسازی",
+                step1_badge: "مرحله کنونی",
+                step1_title: "تحصیل در رشته طب معالجوی — پوهنتون تاج",
+                step1_desc: "تمرکز بر علوم پایه و کلینیکی طب، یادگیری فیزیولوژی، آناتومی، پتالوژی، فارمکولوژی و اصول تشخیص و تداوی بیماری‌ها با رویکرد علمی و دقیق.",
+                step2_badge: "مطالعه موازی",
+                step2_title: "فراگیری زبان عربی و مطالعه کتب اسلامی",
+                step2_desc: "مطالعه مستمر کتب اسلامی در بخش‌های عقیده، اخلاق و تزکیه نفس همراه با تقویت مهارت‌های زبان عربی برای درک مستقیم منابع.",
+                step3_badge: "چشم‌انداز آینده",
+                step3_title: "پژوهش‌های طبی و خدمت به جامعه",
+                step3_desc: "تلفیق دانش طبی با ابزارهای نوین دیجیتال و هوش مصنوعی جهت ارتقای سطح آگاهی صحی و ارائه خدمات طبی معیاری.",
+                focus_title: "حوزه‌های فعالیت و علاقه‌مندی",
+                focus_sub: "زمینه‌هایی که به صورت تخصصی روی آن‌ها وقت می‌گذارم",
+                focus1_title: "علوم طبی و سلامت",
+                focus1_desc: "مطالعه مباحث پایه و کلینیکی طب، بررسی کیس‌های علمی و آشنایی با تازه‌ترین دستاوردهای پزشکی برای ارتقای سلامت جامعه.",
+                focus2_title: "پژوهش و مطالعه کتب اسلامی",
+                focus2_desc: "علاقه‌مند به تحقیق، یادگیری زبان عربی و مطالعه کتب اسلامی به‌ویژه در زمینه‌های عقاید، سیرة النبی و تزکیه نفس.",
+                focus3_title: "تکنولوژی و مهارت‌های دیجیتال",
+                focus3_desc: "بهره‌گیری از ابزارهای مدرن دیجیتال و هوش مصنوعی برای پژوهش سریع‌تر، مدیریت دانش و کاربرد فناوری در علوم طبی.",
+                reading_title: "محورهای مطالعه و تحقیق",
+                reading_sub: "موضوعاتی که همیشه در برنامه مطالعه روزانه من جای دارند",
+                read1_tag: "علوم طبی",
+                read1_title: "آناتومی، پتالوژی، فارمکولوژی و فیزیولوژی",
+                read1_desc: "درک ساختار دقیق بدن انسان و مکانیزم‌های حیاتی آن.",
+                read2_tag: "معارف اسلامی",
+                read2_title: "عقیده اسلامی، سیرة النبی و تزکیه نفس",
+                read2_desc: "مطالعه آثار علمای برجسته در زمینه اصلاح قلب و تقویت ایمان.",
+                read3_tag: "زبان‌شناسی",
+                read3_title: "زبان و ادبیات عربی",
+                read3_desc: "یادگیری قواعد صرف و نحو برای فهم عمیق‌تر متون دینی.",
+                read4_tag: "نوآوری",
+                read4_title: "هوش مصنوعی در طب",
+                read4_desc: "بررسی نقش تکنولوژی‌های نوین در آینده تشخیص و درمان.",
+                contact_title: "راه‌های ارتباط با من",
+                contact_sub: "از طریق شبکه‌های اجتماعی زیر می‌توانید مستقیماً با من در تماس باشید",
+                social_email: "ایمیل آدرس",
+                social_telegram: "تلگرام",
+                social_whatsapp: "واتساپ",
+                social_instagram: "اینستاگرام",
+                social_facebook: "فیسبوک",
+                copy_email: "ایمیل آدرس کپی شد!",
+                copy_telegram: "لینک تلگرام کپی شد!",
+                copy_whatsapp: "لینک واتساپ کپی شد!",
+                copy_instagram: "لینک اینستاگرام کپی شد!",
+                copy_facebook: "لینک فیسبوک کپی شد!",
+                form_title: "ارسال پیام مستقیم به ایمیل",
+                form_name_label: "نام شما",
+                form_name_placeholder: "نام خود را بنویسید...",
+                form_subject_label: "موضوع پیام",
+                form_subject_placeholder: "مثلاً: پرسش علمی، همکاری...",
+                form_msg_label: "متن پیام",
+                form_msg_placeholder: "پیام خود را اینجا بنویسید...",
+                form_submit: "ارسال از طریق ایمیل",
+                form_sent_toast: (name) => `سپاس ${name} عزیز! برنامه ایمیل شما باز شد.`,
+                footer_rights: '© ۱۴۰۵ — تمامی حقوق این صفحه متعلق به <strong class="text-slate-800 dark:text-white">احمد فرید شیرزاد</strong> است.',
+                footer_top: "بازگشت به بالا",
+                typewriter: [
+                    "محصل طب معالجوی پوهنتون تاج",
+                    "علاقه‌مند به علم، دانش و پژوهش",
+                    "پژوهشگر علوم طبی و مطالعه کتب اسلامی",
+                    "ساکن میمنه، فاریاب، افغانستان"
+                ]
+            },
+            en: {
+                page_title: "Ahmad Farid Shirzad | Medical Student, Researcher & Official Profile",
+                brand_name: "Ahmad Farid Shirzad",
+                brand_sub: "Official Profile",
+                nav_about: "Biography",
+                nav_journey: "Journey",
+                nav_focus: "Focus Areas",
+                nav_reading: "Studies",
+                nav_contact: "Contact",
+                nav_cta: "Get in Touch",
+                hero_badge_uni: "Medical Student • Taj University",
+                hero_welcome: "Welcome to my personal profile",
+                hero_name_first: "Ahmad Farid",
+                hero_name_last: "Shirzad",
+                hero_desc: "Passionate about medical sciences, scientific research, Arabic language, and reading Islamic books. This space is designed to share my academic journey, insights, and direct contact channels.",
+                btn_contact: "Contact Me Directly",
+                btn_about: "Learn More",
+                about_title: "Biography & Overview",
+                about_sub: "A brief look into my personality, goals, and academic path",
+                about_p1: 'Hello, I am <strong class="text-slate-900 dark:text-white font-bold">Ahmad Farid Shirzad</strong>, a medical student at <strong class="text-emerald-600 dark:text-emerald-400">Taj University</strong> in Mazar-i-Sharif. To me, medicine is more than an academic major; it is a calling to understand the wonders of creation and serve humanity with sincerity.',
+                about_p2: 'Alongside my medical studies, I am deeply enthusiastic about <strong class="text-slate-900 dark:text-white">scientific research, learning the Arabic language, and reading Islamic books</strong> (especially in Creed and spiritual purification / Tazkiyah). I believe combining modern knowledge with faith and ethics paves the way for true human growth.',
+                about_quote: "“Seeking knowledge is an act of worship; every step taken on the path of learning and discovery is a light to brighten one’s future and society.”",
+                info_uni_label: "Major & University",
+                info_uni_val: "Medical Student — Taj University",
+                info_loc_label: "Location",
+                info_loc_val: "Maymana, Faryab, Afghanistan",
+                info_lang_label: "Languages",
+                info_lang_val: "Persian (Dari), Uzbek, English, Arabic (Learning)",
+                info_focus_label: "Core Focus",
+                info_focus_val: "Medical Sciences & Islamic Books",
+                journey_title: "Academic Journey & Goals",
+                journey_sub: "My steps across medicine, knowledge, and self-development",
+                step1_badge: "Current Stage",
+                step1_title: "Studying Curative Medicine — Taj University",
+                step1_desc: "Focusing on basic and clinical medicine, physiology, anatomy, pathology, pharmacology, and diagnostic and treatment principles with a scientific approach.",
+                step2_badge: "Parallel Study",
+                step2_title: "Arabic Language & Islamic Books",
+                step2_desc: "Consistent reading of Islamic books on creed, ethics, and spiritual purification alongside building Arabic skills to read primary sources.",
+                step3_badge: "Future Vision",
+                step3_title: "Medical Research & Serving Society",
+                step3_desc: "Integrating medical knowledge with modern digital tools and artificial intelligence to raise health awareness and deliver quality care.",
+                focus_title: "Areas of Interest & Focus",
+                focus_sub: "Fields where I dedicate focused time and study",
+                focus1_title: "Medical Sciences & Health",
+                focus1_desc: "Studying foundational and clinical medicine, reviewing scientific cases, and staying up to date with medical advances to improve community health.",
+                focus2_title: "Research & Reading Islamic Books",
+                focus2_desc: "Passionate about research, learning Arabic, and reading Islamic books, particularly in creed (Aqeedah), Seerah, and spiritual refinement.",
+                focus3_title: "Technology & Digital Skills",
+                focus3_desc: "Leveraging modern digital tools and AI for faster research, knowledge management, and practical applications of technology in medicine.",
+                reading_title: "Reading & Research Pillars",
+                reading_sub: "Topics regularly included in my daily reading routine",
+                read1_tag: "Medical Science",
+                read1_title: "Anatomy, Pathology, Pharmacology & Physiology",
+                read1_desc: "Understanding the intricate structure of the human body and its vital mechanisms.",
+                read2_tag: "Islamic Studies",
+                read2_title: "Islamic Creed, Seerah & Tazkiyah",
+                read2_desc: "Reading works by prominent scholars on purifying the heart and strengthening faith.",
+                read3_tag: "Linguistics",
+                read3_title: "Arabic Language & Literature",
+                read3_desc: "Learning grammar and morphology to gain deeper comprehension of texts.",
+                read4_tag: "Innovation",
+                read4_title: "AI in Medicine",
+                read4_desc: "Exploring the role of emerging technologies in the future of diagnosis and care.",
+                contact_title: "Contact Channels",
+                contact_sub: "You can reach out to me directly through any of the channels below",
+                social_email: "Email Address",
+                social_telegram: "Telegram",
+                social_whatsapp: "WhatsApp",
+                social_instagram: "Instagram",
+                social_facebook: "Facebook",
+                copy_email: "Email address copied!",
+                copy_telegram: "Telegram link copied!",
+                copy_whatsapp: "WhatsApp link copied!",
+                copy_instagram: "Instagram link copied!",
+                copy_facebook: "Facebook link copied!",
+                form_title: "Send a Direct Email Message",
+                form_name_label: "Your Name",
+                form_name_placeholder: "Enter your name...",
+                form_subject_label: "Subject",
+                form_subject_placeholder: "e.g., Academic inquiry, collaboration...",
+                form_msg_label: "Message",
+                form_msg_placeholder: "Write your message here...",
+                form_submit: "Send via Email",
+                form_sent_toast: (name) => `Thank you, ${name}! Your email client has been opened.`,
+                footer_rights: '© 2026 — All rights reserved for <strong class="text-slate-800 dark:text-white">Ahmad Farid Shirzad</strong>.',
+                footer_top: "Back to Top",
+                typewriter: [
+                    "Curative Medicine Student at Taj University",
+                    "Passionate about Science, Knowledge & Research",
+                    "Researcher in Medicine & Islamic Books",
+                    "Based in Maymana, Faryab, Afghanistan"
+                ]
+            },
+            ar: {
+                page_title: "أحمد فريد شيرزاد | طالب طب، باحث وملف شخصي رسمي",
+                brand_name: "أحمد فريد شيرزاد",
+                brand_sub: "الملف الرسمي",
+                nav_about: "نبذة تعريفية",
+                nav_journey: "المسار العلمي",
+                nav_focus: "مجالات الاهتمام",
+                nav_reading: "الدراسات",
+                nav_contact: "تواصل",
+                nav_cta: "تواصل مباشر",
+                hero_badge_uni: "طالب طب علاجي • جامعة تاج",
+                hero_welcome: "أهلاً بك في صفحتي الشخصية",
+                hero_name_first: "أحمد فريد",
+                hero_name_last: "شيرزاد",
+                hero_desc: "مهتم بالعلوم الطبية، والبحوث العلمية، واللغة العربية، ومطالعة الكتب الإسلامية. صُممت هذه المساحة لمشاركة المسار العلمي والرؤى وفتح باب التواصل المباشر.",
+                btn_contact: "تواصل معي مباشرة",
+                btn_about: "تعرف أكثر",
+                about_title: "نبذة وتعريف",
+                about_sub: "نظرة مختصرة على شخصيتي وأهدافي ومساري الدراسي",
+                about_p1: 'مرحباً، أنا <strong class="text-slate-900 dark:text-white font-bold">أحمد فريد شيرزاد</strong>؛ طالب طب في <strong class="text-emerald-600 dark:text-emerald-400">جامعة تاج</strong> في مدينة مزار شريف. الطب بالنسبة لي ليس مجرد تخصص دراسي، بل رسالة لفهم بدائع الخلق وخدمة الإنسان بإخلاص.',
+                about_p2: 'إلى جانب الدروس الطبية الأكاديمية، لدي شغف كبير بـ<strong class="text-slate-900 dark:text-white">البحوث العلمية، وتعلم اللغة العربية، ومطالعة الكتب الإسلامية</strong> (لا سيما في العقيدة وتزكية النفس). وأؤمن أن الجمع بين العلم الحديث والإيمان والأخلاق يمهد للنمو الحقيقي للإنسان.',
+                about_quote: "«طلب العلم عبادة؛ فكل خطوة في طريق المعرفة والفهم نور يضيء المستقبل للفرد والمجتمع.»",
+                info_uni_label: "التخصص والجامعة",
+                info_uni_val: "طالب طب — جامعة تاج",
+                info_loc_label: "الموقع الجغرافي",
+                info_loc_val: "ميمنة، فارياب، أفغانستان",
+                info_lang_label: "اللغات",
+                info_lang_val: "الفارسية (الدري)، الأوزبكية، الإنجليزية، العربية (قيد التعلم)",
+                info_focus_label: "التركيز الأساسي",
+                info_focus_val: "العلوم الطبية ومطالعة الكتب الدينية",
+                journey_title: "المسار العلمي والأهداف",
+                journey_sub: "خطواتي في عالم الطب والمعرفة وتزكية الذات",
+                step1_badge: "المرحلة الحالية",
+                step1_title: "الدراسة في الطب العلاجي — جامعة تاج",
+                step1_desc: "التركيز على العلوم الطبية الأساسية والسريرية، وتعلم الفيزيولوجيا والتشريح والباثولوجيا وعلم الأدوية وأسس التشخيص والعلاج بمنهج علمي دقيق.",
+                step2_badge: "مطالعة موازية",
+                step2_title: "تعلم اللغة العربية ومطالعة الكتب الإسلامية",
+                step2_desc: "مطالعة مستمرة للكتب الإسلامية في العقيدة والأخلاق وتزكية النفس مع تنمية مهارات اللغة العربية لفهم المصادر مباشرة.",
+                step3_badge: "رؤية المستقبل",
+                step3_title: "الأبحاث الطبية وخدمة المجتمع",
+                step3_desc: "الجمع بين المعرفة الطبية والأدوات الرقمية الحديثة والذكاء الاصطناعي لرفع الوعي الصحي وتقديم رعاية طبية نوعية.",
+                focus_title: "مجالات النشاط والاهتمام",
+                focus_sub: "الميادين التي أخصص لها وقتاً واهتماماً مركزاً",
+                focus1_title: "العلوم الطبية والصحة",
+                focus1_desc: "مطالعة المباحث الطبية الأساسية والسريرية، ومراجعة الحالات العلمية، ومتابعة المستجدات الطبية للارتقاء بصحة المجتمع.",
+                focus2_title: "البحث ومطالعة الكتب الإسلامية",
+                focus2_desc: "شغوف بالبحث وتعلم اللغة العربية ومطالعة الكتب الإسلامية، خاصة في العقيدة والسيرة النبوية وتزكية النفس.",
+                focus3_title: "التقنية والمهارات الرقمية",
+                focus3_desc: "الاستفادة من الأدوات الرقمية الحديثة والذكاء الاصطناعي لتسريع البحث وإدارة المعرفة وتطبيق التقنية في الطب.",
+                reading_title: "محاور المطالعة والبحث",
+                reading_sub: "موضوعات حاضرة باستمرار في برنامجي اليومي للمطالعة",
+                read1_tag: "العلوم الطبية",
+                read1_title: "التشريح والباثولوجيا وعلم الأدوية والفيزيولوجيا",
+                read1_desc: "فهم التركيب الدقيق لجسم الإنسان وآلياته الحيوية.",
+                read2_tag: "العلوم الإسلامية",
+                read2_title: "العقيدة الإسلامية والسيرة النبوية وتزكية النفس",
+                read2_desc: "مطالعة مؤلفات العلماء في إصلاح القلب وتقوية الإيمان.",
+                read3_tag: "اللغويات",
+                read3_title: "اللغة العربية وآدابها",
+                read3_desc: "تعلم قواعد الصرف والنحو لفهم النصوص بعمق أكبر.",
+                read4_tag: "الابتكار",
+                read4_title: "الذكاء الاصطناعي في الطب",
+                read4_desc: "استكشاف دور التقنيات الحديثة في مستقبل التشخيص والعلاج.",
+                contact_title: "وسائل التواصل معي",
+                contact_sub: "يمكنك التواصل معي مباشرة عبر أي من القنوات التالية",
+                social_email: "البريد الإلكتروني",
+                social_telegram: "تيليجرام",
+                social_whatsapp: "واتساب",
+                social_instagram: "إنستغرام",
+                social_facebook: "فيسبوك",
+                copy_email: "تم نسخ البريد الإلكتروني!",
+                copy_telegram: "تم نسخ رابط تيليجرام!",
+                copy_whatsapp: "تم نسخ رابط واتساب!",
+                copy_instagram: "تم نسخ رابط إنستغرام!",
+                copy_facebook: "تم نسخ رابط فيسبوك!",
+                form_title: "إرسال رسالة مباشرة عبر البريد الإلكتروني",
+                form_name_label: "اسمك",
+                form_name_placeholder: "اكتب اسمك هنا...",
+                form_subject_label: "موضوع الرسالة",
+                form_subject_placeholder: "مثال: استفسار علمي، تعاون...",
+                form_msg_label: "نص الرسالة",
+                form_msg_placeholder: "اكتب رسالتك هنا...",
+                form_submit: "إرسال عبر البريد الإلكتروني",
+                form_sent_toast: (name) => `شكراً لك يا ${name}! تم فتح تطبيق البريد الإلكتروني.`,
+                footer_rights: '© 2026 — جميع الحقوق محفوظة لـ <strong class="text-slate-800 dark:text-white">أحمد فريد شيرزاد</strong>.',
+                footer_top: "العودة إلى الأعلى",
+                typewriter: [
+                    "طالب طب علاجي في جامعة تاج",
+                    "مهتم بالعلم والمعرفة والبحث",
+                    "باحث في العلوم الطبية والكتب الإسلامية",
+                    "مقيم في ميمنة، فارياب، أفغانستان"
+                ]
+            }
+        };
+
+        let phrases = translations.fa.typewriter;
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        let typewriterTimer = null;
+        const typeElement = document.getElementById('typewriter-text');
+
+        function applyLanguage(lang) {
+            currentLang = lang;
+            const dict = translations[lang] || translations.fa;
+            const html = document.documentElement;
+
+            html.lang = lang;
+            html.dir = lang === 'en' ? 'ltr' : 'rtl';
+            document.title = dict.page_title;
+
+            const selectEl = document.getElementById('lang-select');
+            if (selectEl && selectEl.value !== lang) {
+                selectEl.value = lang;
+            }
+
+            const arrow = document.getElementById('cta-arrow');
+            if (arrow) {
+                arrow.classList.remove('fa-arrow-left', 'fa-arrow-right');
+                arrow.classList.add(lang === 'en' ? 'fa-arrow-right' : 'fa-arrow-left');
+            }
+
+            document.querySelectorAll('[data-i18n]').forEach((el) => {
+                const key = el.getAttribute('data-i18n');
+                if (dict[key] && typeof dict[key] === 'string') {
+                    el.innerHTML = dict[key];
+                }
+            });
+
+            const nameInput = document.getElementById('sender-name');
+            const subjInput = document.getElementById('sender-contact');
+            const msgInput = document.getElementById('sender-message');
+            if (nameInput) nameInput.placeholder = dict.form_name_placeholder;
+            if (subjInput) subjInput.placeholder = dict.form_subject_placeholder;
+            if (msgInput) msgInput.placeholder = dict.form_msg_placeholder;
+
+            phrases = dict.typewriter;
+            phraseIndex = 0;
+            charIndex = 0;
+            isDeleting = false;
+            if (typewriterTimer) clearTimeout(typewriterTimer);
+            typeEffect();
+        }
+
         // تغییر تم روشن و تاریک
         function toggleTheme() {
             const html = document.documentElement;
@@ -607,17 +947,6 @@
         }
 
         // افکت تایپ متن در بخش Hero
-        const phrases = [
-            "محصل طب معالجوی پوهنتون تاج",
-            "علاقه‌مند به علم، دانش و پژوهش",
-            "پژوهشگر علوم طبی و مطالعه کتب اسلامی",
-            "ساکن میمنه، فاریاب، افغانستان"
-        ];
-        let phraseIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-        const typeElement = document.getElementById('typewriter-text');
-
         function typeEffect() {
             const currentPhrase = phrases[phraseIndex];
             if (isDeleting) {
@@ -639,7 +968,7 @@
                 speed = 400;
             }
 
-            setTimeout(typeEffect, speed);
+            typewriterTimer = setTimeout(typeEffect, speed);
         }
         document.addEventListener('DOMContentLoaded', typeEffect);
 
@@ -670,11 +999,12 @@
         }
 
         // کپی کردن متن (با پشتیبانی مدرن و قدیمی)
-        function copyText(elementId, successMessage) {
+        function copyText(elementId, messageKey) {
             const text = document.getElementById(elementId).textContent.trim();
+            const msg = translations[currentLang][messageKey] || messageKey;
             if (navigator.clipboard && window.isSecureContext) {
                 navigator.clipboard.writeText(text).then(() => {
-                    showToast(successMessage);
+                    showToast(msg);
                 });
             } else {
                 const tempInput = document.createElement('textarea');
@@ -683,7 +1013,7 @@
                 tempInput.select();
                 document.execCommand('copy');
                 document.body.removeChild(tempInput);
-                showToast(successMessage);
+                showToast(msg);
             }
         }
 
@@ -694,10 +1024,10 @@
             const subject = document.getElementById('sender-contact').value.trim();
             const message = document.getElementById('sender-message').value.trim();
             
-            const mailtoLink = `mailto:faridlim973@gmail.com?subject=${encodeURIComponent(subject + ' - از طرف ' + name)}&body=${encodeURIComponent(message)}`;
+            const mailtoLink = `mailto:faridlim973@gmail.com?subject=${encodeURIComponent(subject + ' - ' + name)}&body=${encodeURIComponent(message)}`;
             window.location.href = mailtoLink;
             
-            showToast(`سپاس ${name} عزیز! برنامه ایمیل شما باز شد.`);
+            showToast(translations[currentLang].form_sent_toast(name));
             event.target.reset();
         }
     </script>
