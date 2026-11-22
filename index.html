@@ -124,7 +124,7 @@
             transform: translateX(140%);
         }
 
-        /* ۱. ماژول زمان و نبض ضربان قلب (بدون متن‌های حذف‌شده) */
+        /* ۱. ماژول زمان و نبض ضربان قلب */
         .pulse-time-fusion {
             position: relative;
             background: linear-gradient(135deg, rgba(255, 255, 255, 0.88), rgba(236, 253, 245, 0.78), rgba(240, 249, 255, 0.76));
@@ -175,7 +175,7 @@
             animation: pulseBeatCore 1.15s cubic-bezier(0.22, 1, 0.36, 1) infinite;
         }
 
-        /* گرافیک محیط بیوگرافی با عمق نوری، خطوط مشبک ظریف و هارمونی کارت‌های هم‌راستا */
+        /* گرافیک محیط بیوگرافی */
         .bio-architect-stage {
             position: relative;
             background-color: #f4fcf9;
@@ -252,7 +252,114 @@
             opacity: 1;
         }
 
-        /* ۶. گرافیک کاملاً جدید و جسورانه برای ۴ گزینه ارتباطی (تلگرام، واتساپ، اینستاگرام، فیسبوک) */
+        /* محیط خاص و سلیقه‌ای بخش راه‌های ارتباط با من همراه با چراغ‌های LED رنگارنگ دلبر */
+        .contact-delbar-stage {
+            position: relative;
+            border-radius: 2.35rem;
+            background:
+                radial-gradient(ellipse 80% 55% at 12% 8%, rgba(236, 72, 153, 0.16), transparent 62%),
+                radial-gradient(ellipse 75% 55% at 88% 14%, rgba(56, 189, 248, 0.16), transparent 62%),
+                radial-gradient(ellipse 75% 60% at 50% 100%, rgba(16, 185, 129, 0.15), transparent 65%),
+                linear-gradient(155deg, rgba(255, 255, 255, 0.93), rgba(253, 242, 248, 0.84), rgba(236, 253, 245, 0.86));
+            border: 1px solid rgba(236, 72, 153, 0.28);
+            box-shadow:
+                0 30px 70px -26px rgba(190, 24, 93, 0.18),
+                0 0 38px -16px rgba(56, 189, 248, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.88);
+        }
+        .dark .contact-delbar-stage {
+            background:
+                radial-gradient(ellipse 82% 55% at 12% 8%, rgba(244, 63, 94, 0.22), transparent 62%),
+                radial-gradient(ellipse 78% 55% at 88% 12%, rgba(56, 189, 248, 0.22), transparent 62%),
+                radial-gradient(ellipse 75% 55% at 50% 96%, rgba(16, 185, 129, 0.18), transparent 65%),
+                linear-gradient(160deg, #12091d 0%, #071122 52%, #061b1e 100%);
+            border: 1px solid rgba(244, 114, 182, 0.32);
+            box-shadow:
+                0 34px 78px -28px rgba(0, 0, 0, 0.9),
+                0 0 48px -14px rgba(236, 72, 153, 0.22),
+                inset 0 1px 0 rgba(251, 207, 232, 0.16);
+        }
+        .contact-delbar-grid {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            background-image:
+                radial-gradient(rgba(244, 114, 182, 0.14) 1px, transparent 1px),
+                linear-gradient(to right, rgba(56, 189, 248, 0.045) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(16, 185, 129, 0.045) 1px, transparent 1px);
+            background-size: 26px 26px, 26px 26px, 26px 26px;
+            mask-image: radial-gradient(circle at 50% 40%, rgba(0,0,0,0.92), transparent 85%);
+        }
+
+        /* نوار چراغ‌های LED رنگارنگ دلبر در محیط بخش ارتباط */
+        .delbar-led-strip {
+            display: flex;
+            align-items: center;
+            gap: 0.55rem;
+            padding: 0.45rem 0.75rem;
+            border-radius: 9999px;
+            background: rgba(255, 255, 255, 0.75);
+            border: 1px solid rgba(244, 114, 182, 0.28);
+            box-shadow: 0 8px 20px -12px rgba(236, 72, 153, 0.35);
+        }
+        .dark .delbar-led-strip {
+            background: rgba(7, 15, 30, 0.78);
+            border: 1px solid rgba(244, 114, 182, 0.26);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+        }
+        @keyframes delbarLedGlow {
+            0%, 100% {
+                transform: scale(0.95);
+                opacity: 0.72;
+            }
+            50% {
+                transform: scale(1.25);
+                opacity: 1;
+            }
+        }
+        .delbar-led-bulb {
+            width: 9px;
+            height: 9px;
+            border-radius: 9999px;
+            animation: delbarLedGlow 2.2s ease-in-out infinite;
+        }
+        .delbar-led-bulb.b-rose {
+            background: #fb7185;
+            box-shadow: 0 0 10px #fb7185, 0 0 18px #f43f5e;
+            animation-delay: 0s;
+        }
+        .delbar-led-bulb.b-sky {
+            background: #38bdf8;
+            box-shadow: 0 0 10px #38bdf8, 0 0 18px #0ea5e9;
+            animation-delay: 0.35s;
+        }
+        .delbar-led-bulb.b-emerald {
+            background: #34d399;
+            box-shadow: 0 0 10px #34d399, 0 0 18px #10b981;
+            animation-delay: 0.7s;
+        }
+        .delbar-led-bulb.b-amber {
+            background: #fbbf24;
+            box-shadow: 0 0 10px #fbbf24, 0 0 18px #f59e0b;
+            animation-delay: 1.05s;
+        }
+        .delbar-led-bulb.b-violet {
+            background: #c084fc;
+            box-shadow: 0 0 10px #c084fc, 0 0 18px #a855f7;
+            animation-delay: 1.4s;
+        }
+
+        /* چراغ‌های LED رنگارنگ شناور و دلبر در گوشه‌ها و حاشیه محیط */
+        .delbar-corner-led {
+            position: absolute;
+            width: 11px;
+            height: 11px;
+            border-radius: 9999px;
+            pointer-events: none;
+            animation: delbarLedGlow 2.6s ease-in-out infinite;
+        }
+
+        /* ۶. گرافیک کاملاً جدید و جسورانه برای ۴ گزینه ارتباطی */
         .social-orbit-card {
             position: relative;
             overflow: hidden;
@@ -285,125 +392,501 @@
             box-shadow: 0 22px 42px -16px rgba(59, 130, 246, 0.38);
         }
 
-        /* کارت‌های حوزه‌های فعالیت */
-        .focus-royal-card {
+        /* =====================================================================
+           بخش حوزه‌های فعالیت و علاقه‌مندی: گزینه‌های کوچک و خوش‌فرم + قاب نور چرخان چندرنگ + چراغ‌های LED در گردش
+           ===================================================================== */
+        .focus-ultra-stage {
             position: relative;
-            background: linear-gradient(160deg, rgba(255, 255, 255, 0.88), rgba(240, 253, 250, 0.74));
-            transition: transform 0.38s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.38s ease, border-color 0.38s ease;
-        }
-        .dark .focus-royal-card {
-            background: linear-gradient(160deg, rgba(11, 23, 41, 0.86), rgba(6, 14, 26, 0.82));
-        }
-        .focus-royal-card:hover {
-            transform: translateY(-7px);
-        }
-        .modern-emblem-ring {
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease;
-        }
-        .focus-royal-card:hover .modern-emblem-ring {
-            transform: scale(1.08) rotate(-2deg);
-        }
-
-        /* دکمه فیلتر فعال در بخش مطالعات */
-        .filter-btn.active-filter {
-            background: linear-gradient(to left, #059669, #14b8a6);
-            color: #ffffff;
-            border-color: transparent;
-            box-shadow: 0 8px 20px -6px rgba(16, 185, 129, 0.5);
-        }
-
-/* گرافیک فوق‌العاده برای محورهای مطالعه و تحقیق با چیدمان پلکانی / ماژولار */
-        .study-cosmos-stage {
-            position: relative;
-            background-color: #f4fbf9;
-            background-image:
-                radial-gradient(circle at 10% 15%, rgba(16, 185, 129, 0.16), transparent 45%),
-                radial-gradient(circle at 90% 20%, rgba(245, 158, 11, 0.12), transparent 45%),
-                radial-gradient(circle at 80% 88%, rgba(56, 189, 248, 0.14), transparent 48%),
-                radial-gradient(circle at 20% 90%, rgba(168, 85, 247, 0.12), transparent 46%),
-                linear-gradient(to right, rgba(13, 148, 136, 0.05) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(13, 148, 136, 0.05) 1px, transparent 1px);
-            background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%, 30px 30px, 30px 30px;
-            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 2.35rem;
+            background:
+                radial-gradient(ellipse 85% 55% at 15% 5%, rgba(14, 165, 233, 0.20), transparent 62%),
+                radial-gradient(ellipse 80% 55% at 88% 12%, rgba(236, 72, 153, 0.14), transparent 62%),
+                radial-gradient(ellipse 85% 60% at 50% 100%, rgba(16, 185, 129, 0.18), transparent 68%),
+                linear-gradient(160deg, #e8f8fb 0%, #e6f2fe 52%, #d7f8f0 100%);
+            border: 1px solid rgba(14, 165, 233, 0.34);
             box-shadow:
-                0 34px 75px -30px rgba(13, 148, 136, 0.25),
-                inset 0 1px 0 rgba(255, 255, 255, 0.72);
+                0 30px 70px -26px rgba(2, 132, 199, 0.24),
+                0 0 38px -14px rgba(168, 85, 247, 0.18),
+                inset 0 1px 0 rgba(255, 255, 255, 0.88);
         }
-        .dark .study-cosmos-stage {
-            background-color: #050f1c;
-            background-image:
-                radial-gradient(circle at 12% 14%, rgba(16, 185, 129, 0.2), transparent 45%),
-                radial-gradient(circle at 90% 18%, rgba(245, 158, 11, 0.13), transparent 45%),
-                radial-gradient(circle at 82% 88%, rgba(56, 189, 248, 0.15), transparent 50%),
-                radial-gradient(circle at 18% 90%, rgba(168, 85, 247, 0.14), transparent 48%),
-                linear-gradient(to right, rgba(52, 211, 153, 0.055) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(52, 211, 153, 0.055) 1px, transparent 1px);
-            background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%, 30px 30px, 30px 30px;
+        .dark .focus-ultra-stage {
+            background:
+                radial-gradient(ellipse 85% 55% at 14% 4%, rgba(56, 189, 248, 0.22), transparent 62%),
+                radial-gradient(ellipse 80% 55% at 88% 12%, rgba(244, 114, 182, 0.18), transparent 64%),
+                radial-gradient(ellipse 88% 62% at 50% 100%, rgba(168, 85, 247, 0.20), transparent 68%),
+                linear-gradient(165deg, #051326 0%, #07182e 52%, #041020 100%);
+            border: 1px solid rgba(56, 189, 248, 0.34);
+            box-shadow:
+                0 36px 80px -28px rgba(0, 0, 0, 0.92),
+                0 0 50px -14px rgba(56, 189, 248, 0.24),
+                inset 0 1px 0 rgba(186, 230, 253, 0.2);
+        }
+
+        @keyframes seaWaveDrift {
+            0% { transform: translateX(0); }
+            50% { transform: translateX(-3.5%); }
+            100% { transform: translateX(0); }
+        }
+        .sea-wave-layer {
+            position: absolute;
+            inset-inline: -6%;
+            bottom: 0;
+            height: 135px;
+            pointer-events: none;
+            animation: seaWaveDrift 11s ease-in-out infinite;
+        }
+
+        @keyframes ledOrbitSpin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes ledLampPulse {
+            0%, 100% {
+                transform: scale(0.9);
+                opacity: 0.72;
+            }
+            50% {
+                transform: scale(1.35);
+                opacity: 1;
+            }
+        }
+
+        /* چراغ‌های LED پراکنده و در گردش در محیط بخش */
+        .focus-ambient-led {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            border-radius: 9999px;
+            pointer-events: none;
+            animation: ledLampPulse 2.4s ease-in-out infinite;
+        }
+
+        /* پوسته بیرونی هر گزینه کوچک: دارای نور چرخان چندرنگ در اطرافش */
+        .focus-compact-wrapper {
+            position: relative;
+            border-radius: 1.45rem;
+            padding: 2px;
+            overflow: hidden;
+            transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.28s ease;
+        }
+        .focus-compact-wrapper:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 16px 32px -12px rgba(56, 189, 248, 0.35), 0 0 22px -4px rgba(244, 114, 182, 0.3);
+        }
+
+        /* هاله نوری چندرنگ در حال چرخش در اطراف گزینه */
+        .focus-rgb-spinner {
+            position: absolute;
+            inset: -140%;
+            background: conic-gradient(
+                from 0deg,
+                #22d3ee,
+                #f472b6,
+                #fbbf24,
+                #34d399,
+                #c084fc,
+                #38bdf8,
+                #22d3ee
+            );
+            animation: ledOrbitSpin 5.5s linear infinite;
+            opacity: 0.78;
+            transition: opacity 0.28s ease, animation-duration 0.28s ease;
+        }
+        .focus-compact-wrapper:hover .focus-rgb-spinner {
+            opacity: 1;
+            animation-duration: 2.8s;
+        }
+
+        /* بدنه کوچک و خوش‌فرم گزینه */
+        .focus-compact-body {
+            position: relative;
+            z-index: 2;
+            height: 100%;
+            border-radius: calc(1.45rem - 2px);
+            padding: 0.9rem 1rem;
+            background: linear-gradient(150deg, rgba(255, 255, 255, 0.95), rgba(240, 249, 255, 0.90));
+            backdrop-filter: blur(14px);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 0.55rem;
+        }
+        .dark .focus-compact-body {
+            background: linear-gradient(150deg, rgba(7, 21, 41, 0.95), rgba(4, 12, 26, 0.96));
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+        }
+
+        /* چراغ‌های LED رنگی کوچک در اطراف هر گزینه */
+        .card-led-ring-dot {
+            position: absolute;
+            z-index: 4;
+            width: 6px;
+            height: 6px;
+            border-radius: 9999px;
+            pointer-events: none;
+            animation: ledLampPulse 2s ease-in-out infinite;
+        }
+        .card-led-ring-dot.d-tl { top: 5px; inset-inline-start: 7px; }
+        .card-led-ring-dot.d-tr { top: 5px; inset-inline-end: 7px; animation-delay: 0.5s; }
+        .card-led-ring-dot.d-bl { bottom: 5px; inset-inline-start: 7px; animation-delay: 1s; }
+        .card-led-ring-dot.d-br { bottom: 5px; inset-inline-end: 7px; animation-delay: 1.5s; }
+
+        .led-c-cyan   { background: #22d3ee; box-shadow: 0 0 8px #22d3ee, 0 0 14px #06b6d4; }
+        .led-c-pink   { background: #f472b6; box-shadow: 0 0 8px #f472b6, 0 0 14px #ec4899; }
+        .led-c-amber  { background: #fbbf24; box-shadow: 0 0 8px #fbbf24, 0 0 14px #f59e0b; }
+        .led-c-emerald{ background: #34d399; box-shadow: 0 0 8px #34d399, 0 0 14px #10b981; }
+        .led-c-violet { background: #c084fc; box-shadow: 0 0 8px #c084fc, 0 0 14px #a855f7; }
+        .led-c-rose   { background: #fb7185; box-shadow: 0 0 8px #fb7185, 0 0 14px #f43f5e; }
+
+        /* نوار کوچک چندرنگ در پایین هر گزینه */
+        .focus-mini-spectrum {
+            height: 2.5px;
+            border-radius: 9999px;
+            background: linear-gradient(90deg, #22d3ee, #f472b6, #fbbf24, #34d399, #c084fc);
+            opacity: 0.85;
+        }
+
+        /* محیط مدرن و LED بخش محورهای مطالعه و تحقیق */
+        .reading-modern-stage {
+            position: relative;
+            border-radius: 2.35rem;
+            background: linear-gradient(155deg, rgba(255, 255, 255, 0.92), rgba(236, 253, 245, 0.82), rgba(240, 249, 255, 0.82));
+            border: 1px solid rgba(16, 185, 129, 0.32);
+            box-shadow:
+                0 28px 66px -26px rgba(13, 148, 136, 0.25),
+                inset 0 1px 0 rgba(255, 255, 255, 0.85);
+        }
+        .dark .reading-modern-stage {
+            background:
+                radial-gradient(ellipse 75% 50% at 15% 0%, rgba(16, 185, 129, 0.18), transparent 65%),
+                radial-gradient(ellipse 75% 50% at 85% 100%, rgba(56, 189, 248, 0.14), transparent 65%),
+                linear-gradient(160deg, #061322 0%, #050d18 55%, #071926 100%);
             border: 1px solid rgba(52, 211, 153, 0.28);
             box-shadow:
-                0 38px 85px -30px rgba(0, 0, 0, 0.9),
-                0 0 48px -18px rgba(16, 185, 129, 0.22),
-                inset 0 1px 0 rgba(110, 231, 183, 0.15);
+                0 34px 76px -28px rgba(0, 0, 0, 0.9),
+                0 0 46px -16px rgba(16, 185, 129, 0.22),
+                inset 0 1px 0 rgba(110, 231, 183, 0.16);
         }
-        .study-pillar-card {
-            position: relative;
-            border-radius: 1.85rem;
-            background: linear-gradient(155deg, rgba(255, 255, 255, 0.92), rgba(240, 253, 250, 0.82));
-            border: 1px solid rgba(16, 185, 129, 0.24);
-            box-shadow: 0 16px 36px -20px rgba(13, 148, 136, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.85);
-            transition: transform 0.36s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.36s ease, border-color 0.36s ease;
-        }
-        .dark .study-pillar-card {
-            background: linear-gradient(155deg, rgba(10, 24, 42, 0.92), rgba(5, 15, 28, 0.9));
-            border: 1px solid rgba(52, 211, 153, 0.22);
-            box-shadow: 0 20px 42px -22px rgba(0, 0, 0, 0.82), inset 0 1px 0 rgba(110, 231, 183, 0.12);
-        }
-        .study-pillar-card:hover {
-            transform: translateY(-6px);
-        }
-        .study-pillar-card.pillar-medical:hover {
-            border-color: rgba(16, 185, 129, 0.75);
-            box-shadow: 0 24px 46px -18px rgba(16, 185, 129, 0.35);
-        }
-        .study-pillar-card.pillar-islamic:hover {
-            border-color: rgba(245, 158, 11, 0.75);
-            box-shadow: 0 24px 46px -18px rgba(245, 158, 11, 0.32);
-        }
-        .study-pillar-card.pillar-arabic:hover {
-            border-color: rgba(56, 189, 248, 0.75);
-            box-shadow: 0 24px 46px -18px rgba(56, 189, 248, 0.34);
-        }
-        .study-pillar-card.pillar-ai:hover {
-            border-color: rgba(168, 85, 247, 0.75);
-            box-shadow: 0 24px 46px -18px rgba(168, 85, 247, 0.34);
-        }
-        .study-watermark-num {
+        .reading-grid-overlay {
             position: absolute;
-            top: 0.75rem;
-            inset-inline-end: 1.25rem;
-            font-size: 3.25rem;
-            line-height: 1;
-            font-weight: 900;
-            letter-spacing: -0.04em;
-            opacity: 0.08;
+            inset: 0;
             pointer-events: none;
-            user-select: none;
-            transition: opacity 0.35s ease, transform 0.35s ease;
-        }
-        .dark .study-watermark-num {
-            opacity: 0.11;
-        }
-        .study-pillar-card:hover .study-watermark-num {
-            opacity: 0.2;
-            transform: scale(1.06);
+            background-image:
+                linear-gradient(to right, rgba(16, 185, 129, 0.055) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(16, 185, 129, 0.055) 1px, transparent 1px);
+            background-size: 28px 28px;
+            mask-image: radial-gradient(circle at 50% 35%, rgba(0,0,0,0.9), transparent 82%);
         }
 
+        /* نوار دکمه‌های فیلتر با چراغ و نور LED هنگام کلیک */
+        .reading-filter-dock {
+            position: relative;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.4rem;
+            border-radius: 1.35rem;
+            background: rgba(241, 245, 249, 0.88);
+            border: 1px solid rgba(148, 163, 184, 0.28);
+        }
+        .dark .reading-filter-dock {
+            background: rgba(4, 12, 22, 0.86);
+            border: 1px solid rgba(52, 211, 153, 0.22);
+            box-shadow: inset 0 1px 0 rgba(110, 231, 183, 0.08);
+        }
+
+        .reading-led-btn {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.45rem 0.85rem;
+            border-radius: 0.95rem;
+            font-size: 0.75rem;
+            font-weight: 800;
+            color: #475569;
+            background: transparent;
+            border: 1px solid transparent;
+            transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+            cursor: pointer;
+            overflow: hidden;
+        }
+        .dark .reading-led-btn {
+            color: #cbd5e1;
+        }
+        .reading-led-btn .led-lamp-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 9999px;
+            background: rgba(148, 163, 184, 0.45);
+            box-shadow: none;
+            transition: all 0.25s ease;
+            flex-shrink: 0;
+        }
+        .reading-led-btn:hover {
+            color: #0f172a;
+            background: rgba(255, 255, 255, 0.75);
+            border-color: rgba(16, 185, 129, 0.28);
+        }
+        .dark .reading-led-btn:hover {
+            color: #ffffff;
+            background: rgba(15, 32, 54, 0.85);
+            border-color: rgba(52, 211, 153, 0.32);
+        }
+
+        .reading-led-btn.active-led {
+            color: #064e3b;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(45, 212, 191, 0.16));
+            border-color: rgba(16, 185, 129, 0.72);
+            box-shadow:
+                0 0 18px -2px rgba(16, 185, 129, 0.55),
+                inset 0 0 10px rgba(52, 211, 153, 0.2);
+        }
+        .dark .reading-led-btn.active-led {
+            color: #ecfdf5;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.28), rgba(6, 78, 59, 0.55));
+            border-color: rgba(52, 211, 153, 0.85);
+            box-shadow:
+                0 0 22px rgba(16, 185, 129, 0.55),
+                0 0 8px rgba(110, 231, 183, 0.45),
+                inset 0 1px 0 rgba(167, 243, 208, 0.35);
+        }
+        .reading-led-btn.active-led .led-lamp-dot {
+            background: #34d399;
+            box-shadow: 0 0 10px #34d399, 0 0 18px #10b981;
+            transform: scale(1.2);
+        }
+
+        .reading-led-btn[data-filter="medical"].active-led {
+            border-color: rgba(52, 211, 153, 0.9);
+            box-shadow: 0 0 22px rgba(16, 185, 129, 0.58), inset 0 1px 0 rgba(167, 243, 208, 0.35);
+        }
+        .reading-led-btn[data-filter="medical"].active-led .led-lamp-dot {
+            background: #34d399;
+            box-shadow: 0 0 10px #34d399, 0 0 20px #10b981;
+        }
+
+        .reading-led-btn[data-filter="islamic"].active-led {
+            color: #fef3c7;
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.26), rgba(120, 53, 15, 0.5));
+            border-color: rgba(251, 191, 36, 0.9);
+            box-shadow: 0 0 22px rgba(245, 158, 11, 0.58), inset 0 1px 0 rgba(253, 230, 138, 0.35);
+        }
+        .reading-led-btn[data-filter="islamic"].active-led .led-lamp-dot {
+            background: #fbbf24;
+            box-shadow: 0 0 10px #fbbf24, 0 0 20px #f59e0b;
+        }
+
+        .reading-led-btn[data-filter="arabic"].active-led {
+            color: #e0f2fe;
+            background: linear-gradient(135deg, rgba(14, 165, 233, 0.28), rgba(12, 74, 110, 0.52));
+            border-color: rgba(56, 189, 248, 0.9);
+            box-shadow: 0 0 22px rgba(56, 189, 248, 0.58), inset 0 1px 0 rgba(186, 230, 253, 0.35);
+        }
+        .reading-led-btn[data-filter="arabic"].active-led .led-lamp-dot {
+            background: #38bdf8;
+            box-shadow: 0 0 10px #38bdf8, 0 0 20px #0ea5e9;
+        }
+
+        .reading-led-btn[data-filter="ai"].active-led {
+            color: #f3e8ff;
+            background: linear-gradient(135deg, rgba(168, 85, 247, 0.28), rgba(88, 28, 135, 0.52));
+            border-color: rgba(192, 132, 252, 0.9);
+            box-shadow: 0 0 22px rgba(168, 85, 247, 0.58), inset 0 1px 0 rgba(233, 213, 255, 0.35);
+        }
+        .reading-led-btn[data-filter="ai"].active-led .led-lamp-dot {
+            background: #c084fc;
+            box-shadow: 0 0 10px #c084fc, 0 0 20px #a855f7;
+        }
+
+        .reading-card {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(155deg, rgba(255, 255, 255, 0.94), rgba(240, 253, 250, 0.84));
+            border: 1px solid rgba(148, 163, 184, 0.28);
+            box-shadow: 0 14px 32px -18px rgba(15, 23, 42, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.85);
+            transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.32s ease, box-shadow 0.32s ease;
+        }
+        .dark .reading-card {
+            background: linear-gradient(155deg, rgba(10, 24, 42, 0.92), rgba(5, 14, 27, 0.94));
+            border: 1px solid rgba(52, 211, 153, 0.2);
+            box-shadow: 0 18px 38px -20px rgba(0, 0, 0, 0.85), inset 0 1px 0 rgba(110, 231, 183, 0.12);
+        }
+        .reading-card::before {
+            content: "";
+            position: absolute;
+            inset-inline-start: 0;
+            top: 0;
+            bottom: 0;
+            width: 3.5px;
+            opacity: 0.55;
+            transition: opacity 0.3s ease, box-shadow 0.3s ease;
+        }
+        .reading-card[data-category="medical"]::before {
+            background: linear-gradient(to bottom, #34d399, #10b981, #2dd4bf);
+        }
+        .reading-card[data-category="islamic"]::before {
+            background: linear-gradient(to bottom, #fbbf24, #f59e0b, #fb923c);
+        }
+        .reading-card[data-category="arabic"]::before {
+            background: linear-gradient(to bottom, #38bdf8, #0ea5e9, #2dd4bf);
+        }
+        .reading-card[data-category="ai"]::before {
+            background: linear-gradient(to bottom, #c084fc, #a855f7, #f472b6);
+        }
+
+        .reading-led-beacon {
+            width: 9px;
+            height: 9px;
+            border-radius: 9999px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+            flex-shrink: 0;
+        }
+        .reading-card[data-category="medical"] .reading-led-beacon {
+            background: #34d399;
+            box-shadow: 0 0 8px rgba(52, 211, 153, 0.65);
+        }
+        .reading-card[data-category="islamic"] .reading-led-beacon {
+            background: #fbbf24;
+            box-shadow: 0 0 8px rgba(251, 191, 36, 0.65);
+        }
+        .reading-card[data-category="arabic"] .reading-led-beacon {
+            background: #38bdf8;
+            box-shadow: 0 0 8px rgba(56, 189, 248, 0.65);
+        }
+        .reading-card[data-category="ai"] .reading-led-beacon {
+            background: #c084fc;
+            box-shadow: 0 0 8px rgba(192, 132, 252, 0.65);
+        }
+
+        @keyframes ledLampFlash {
+            0% { transform: translateY(-2px) scale(0.99); }
+            45% { transform: translateY(-5px) scale(1.015); }
+            100% { transform: translateY(-3px) scale(1.005); }
+        }
+
+        .reading-card.led-lit {
+            transform: translateY(-3px);
+            animation: ledLampFlash 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .reading-card.led-lit::before {
+            opacity: 1;
+            width: 4.5px;
+        }
+        .reading-card.led-lit .reading-led-beacon {
+            transform: scale(1.45);
+        }
+        .reading-card.led-lit .study-card-icon {
+            transform: scale(1.08);
+        }
+
+        .reading-card[data-category="medical"].led-lit,
+        .reading-card[data-category="medical"]:hover {
+            border-color: rgba(52, 211, 153, 0.85);
+            box-shadow:
+                0 22px 46px -14px rgba(16, 185, 129, 0.45),
+                0 0 24px -4px rgba(52, 211, 153, 0.35),
+                inset 0 0 18px rgba(16, 185, 129, 0.14);
+        }
+        .reading-card[data-category="medical"].led-lit .reading-led-beacon {
+            box-shadow: 0 0 14px #34d399, 0 0 26px #10b981;
+        }
+
+        .reading-card[data-category="islamic"].led-lit,
+        .reading-card[data-category="islamic"]:hover {
+            border-color: rgba(251, 191, 36, 0.85);
+            box-shadow:
+                0 22px 46px -14px rgba(245, 158, 11, 0.45),
+                0 0 24px -4px rgba(251, 191, 36, 0.35),
+                inset 0 0 18px rgba(245, 158, 11, 0.14);
+        }
+        .reading-card[data-category="islamic"].led-lit .reading-led-beacon {
+            box-shadow: 0 0 14px #fbbf24, 0 0 26px #f59e0b;
+        }
+
+        .reading-card[data-category="arabic"].led-lit,
+        .reading-card[data-category="arabic"]:hover {
+            border-color: rgba(56, 189, 248, 0.85);
+            box-shadow:
+                0 22px 46px -14px rgba(14, 165, 233, 0.45),
+                0 0 24px -4px rgba(56, 189, 248, 0.35),
+                inset 0 0 18px rgba(56, 189, 248, 0.14);
+        }
+        .reading-card[data-category="arabic"].led-lit .reading-led-beacon {
+            box-shadow: 0 0 14px #38bdf8, 0 0 26px #0ea5e9;
+        }
+
+        .reading-card[data-category="ai"].led-lit,
+        .reading-card[data-category="ai"]:hover {
+            border-color: rgba(192, 132, 252, 0.85);
+            box-shadow:
+                0 22px 46px -14px rgba(168, 85, 247, 0.45),
+                0 0 24px -4px rgba(192, 132, 252, 0.35),
+                inset 0 0 18px rgba(168, 85, 247, 0.14);
+        }
+        .reading-card[data-category="ai"].led-lit .reading-led-beacon {
+            box-shadow: 0 0 14px #c084fc, 0 0 26px #a855f7;
+        }
+
+        #reading-cards-grid[data-view="all"] {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 0.65rem;
+        }
+        @media (min-width: 640px) {
+            #reading-cards-grid[data-view="all"] {
+                gap: 0.9rem;
+            }
+        }
+        #reading-cards-grid[data-view="all"] .reading-card:not(.hidden) {
+            padding: 0.75rem 0.85rem;
+            gap: 0.65rem;
+            border-radius: 1rem;
+        }
+        @media (min-width: 640px) {
+            #reading-cards-grid[data-view="all"] .reading-card:not(.hidden) {
+                padding: 1rem 1.15rem;
+                gap: 0.85rem;
+                border-radius: 1.25rem;
+            }
+        }
+        #reading-cards-grid[data-view="all"] .reading-card:not(.hidden) .study-card-icon {
+            width: 2.15rem;
+            height: 2.15rem;
+            font-size: 0.85rem;
+            border-radius: 0.65rem;
+        }
+        @media (min-width: 640px) {
+            #reading-cards-grid[data-view="all"] .reading-card:not(.hidden) .study-card-icon {
+                width: 2.5rem;
+                height: 2.5rem;
+                font-size: 1rem;
+            }
+        }
+        #reading-cards-grid[data-view="all"] .reading-card:not(.hidden) .study-card-title {
+            font-size: 0.76rem;
+            line-height: 1.45;
+        }
+        @media (min-width: 640px) {
+            #reading-cards-grid[data-view="all"] .reading-card:not(.hidden) .study-card-title {
+                font-size: 0.92rem;
+            }
+        }
+        #reading-cards-grid[data-view="all"] .reading-card:not(.hidden) .study-card-desc {
+            font-size: 0.68rem;
+            line-height: 1.55;
+            margin-top: 0.2rem;
+        }
+        @media (min-width: 640px) {
+            #reading-cards-grid[data-view="all"] .reading-card:not(.hidden) .study-card-desc {
+                font-size: 0.78rem;
+            }
+        }
 
         #reading-cards-grid[data-view="single"] {
+            display: grid;
             grid-template-columns: minmax(0, 1fr);
         }
         #reading-cards-grid[data-view="single"] .reading-card:not(.hidden) {
@@ -433,7 +916,126 @@
             line-height: 1.85;
         }
 
-        /* انیمیشن ظاهر شدن بخش‌ها هنگام اسکرول */
+        /* گرافیک جدید بخش سرگرمی */
+        .stadium-ultra-stage {
+            position: relative;
+            border-radius: 2.25rem;
+            background:
+                radial-gradient(ellipse 80% 55% at 15% 0%, rgba(168, 85, 247, 0.25), transparent 65%),
+                radial-gradient(ellipse 75% 50% at 85% 15%, rgba(245, 158, 11, 0.20), transparent 65%),
+                radial-gradient(ellipse 65% 50% at 50% 100%, rgba(244, 63, 94, 0.16), transparent 65%),
+                linear-gradient(165deg, #130b24 0%, #0b0d1e 55%, #160918 100%);
+            border: 1px solid rgba(192, 132, 252, 0.34);
+            box-shadow:
+                0 30px 70px -28px rgba(0, 0, 0, 0.85),
+                0 0 50px -16px rgba(168, 85, 247, 0.25),
+                inset 0 1px 0 rgba(240, 171, 252, 0.22);
+        }
+        html:not(.dark) .stadium-ultra-stage {
+            background:
+                radial-gradient(ellipse 80% 55% at 15% 0%, rgba(168, 85, 247, 0.16), transparent 65%),
+                radial-gradient(ellipse 75% 50% at 85% 15%, rgba(245, 158, 11, 0.15), transparent 65%),
+                radial-gradient(ellipse 65% 50% at 50% 100%, rgba(244, 63, 94, 0.12), transparent 65%),
+                linear-gradient(165deg, #1b1033 0%, #10142c 55%, #210d22 100%);
+            border: 1px solid rgba(192, 132, 252, 0.38);
+            color: #f8fafc;
+        }
+
+        .pitch-lines-overlay {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            opacity: 0.22;
+            background-image:
+                radial-gradient(rgba(216, 180, 254, 0.35) 1px, transparent 1px),
+                linear-gradient(135deg, rgba(251, 191, 36, 0.06) 25%, transparent 25%, transparent 50%, rgba(251, 191, 36, 0.06) 50%, rgba(251, 191, 36, 0.06) 75%, transparent 75%, transparent);
+            background-size: 24px 24px, 48px 48px;
+            mask-image: linear-gradient(to bottom, transparent, rgba(0,0,0,0.9) 20%, rgba(0,0,0,0.9) 85%, transparent);
+        }
+
+        .floodlight-beam {
+            position: absolute;
+            top: -100px;
+            width: 300px;
+            height: 300px;
+            border-radius: 9999px;
+            filter: blur(80px);
+            pointer-events: none;
+            animation: floodlightPulse 5s ease-in-out infinite alternate;
+        }
+        @keyframes floodlightPulse {
+            0% { opacity: 0.5; transform: scale(0.95); }
+            100% { opacity: 0.9; transform: scale(1.06); }
+        }
+
+        .leisure-card-pitch {
+            position: relative;
+            border-radius: 1.75rem;
+            background: linear-gradient(155deg, rgba(34, 24, 58, 0.92), rgba(16, 17, 36, 0.95));
+            border: 1px solid rgba(251, 191, 36, 0.34);
+            box-shadow:
+                0 18px 38px -18px rgba(0, 0, 0, 0.72),
+                inset 0 1px 0 rgba(253, 230, 138, 0.16);
+            transition: border-color 0.25s ease, box-shadow 0.25s ease;
+        }
+        .leisure-card-pitch:hover {
+            border-color: rgba(251, 191, 36, 0.72);
+            box-shadow:
+                0 22px 44px -18px rgba(245, 158, 11, 0.28),
+                inset 0 1px 0 rgba(253, 230, 138, 0.24);
+        }
+
+        .leisure-card-hud {
+            position: relative;
+            border-radius: 1.75rem;
+            background: linear-gradient(155deg, rgba(30, 20, 56, 0.92), rgba(14, 15, 34, 0.95));
+            border: 1px solid rgba(192, 132, 252, 0.36);
+            box-shadow:
+                0 18px 38px -18px rgba(0, 0, 0, 0.72),
+                inset 0 1px 0 rgba(240, 171, 252, 0.16);
+            transition: border-color 0.25s ease, box-shadow 0.25s ease;
+        }
+        .leisure-card-hud:hover {
+            border-color: rgba(216, 180, 254, 0.75);
+            box-shadow:
+                0 22px 44px -18px rgba(168, 85, 247, 0.3),
+                inset 0 1px 0 rgba(240, 171, 252, 0.24);
+        }
+
+        .sport-emblem-box {
+            position: relative;
+            width: 2.85rem;
+            height: 2.85rem;
+            border-radius: 0.95rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            color: #ffffff;
+            flex-shrink: 0;
+        }
+
+        .stat-bar-track {
+            height: 5px;
+            border-radius: 9999px;
+            background: rgba(148, 163, 184, 0.18);
+            overflow: hidden;
+        }
+        .stat-bar-fill-pitch {
+            height: 100%;
+            width: 88%;
+            border-radius: 9999px;
+            background: linear-gradient(90deg, #f59e0b, #fbbf24, #fde68a);
+            box-shadow: 0 0 10px rgba(251, 191, 36, 0.55);
+        }
+        .stat-bar-fill-hud {
+            height: 100%;
+            width: 94%;
+            border-radius: 9999px;
+            background: linear-gradient(90deg, #9333ea, #c084fc, #f472b6);
+            box-shadow: 0 0 10px rgba(192, 132, 252, 0.55);
+        }
+
         .reveal {
             opacity: 0;
             transform: translateY(25px);
@@ -444,7 +1046,6 @@
             transform: translateY(0);
         }
 
-        /* اسکرول‌بار سفارشی */
         ::-webkit-scrollbar {
             width: 8px;
         }
@@ -485,15 +1086,14 @@
                 </div>
             </a>
 
-            <!-- لینک‌های منو (مسیر علمی حذف شده) -->
             <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600 dark:text-slate-300">
                 <a href="#about" data-i18n="nav_about" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">بیوگرافی</a>
                 <a href="#focus" data-i18n="nav_focus" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">حوزه‌های فعالیت</a>
                 <a href="#reading" data-i18n="nav_reading" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">مطالعات</a>
+                <a href="#leisure" data-i18n="nav_leisure" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">سرگرمی</a>
                 <a href="#contact" data-i18n="nav_contact" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">ارتباط</a>
             </div>
 
-            <!-- انتخاب زبان، دکمه تغییر تم، دکمه تماس و منوی موبایل -->
             <div class="flex items-center gap-2">
                 <div class="relative">
                     <select id="lang-select" onchange="applyLanguage(this.value)" aria-label="Language switcher" class="h-10 ps-3 pe-7 rounded-xl bg-slate-100 dark:bg-slate-800/80 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-emerald-400 text-xs font-bold transition-all cursor-pointer border border-slate-200/60 dark:border-slate-700/60 outline-none appearance-none">
@@ -522,6 +1122,7 @@
                 <a href="#about" data-i18n="nav_about" onclick="closeMobileMenu()" class="px-3 py-2 rounded-xl hover:bg-emerald-500/10 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">بیوگرافی</a>
                 <a href="#focus" data-i18n="nav_focus" onclick="closeMobileMenu()" class="px-3 py-2 rounded-xl hover:bg-emerald-500/10 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">حوزه‌های فعالیت</a>
                 <a href="#reading" data-i18n="nav_reading" onclick="closeMobileMenu()" class="px-3 py-2 rounded-xl hover:bg-emerald-500/10 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">مطالعات</a>
+                <a href="#leisure" data-i18n="nav_leisure" onclick="closeMobileMenu()" class="px-3 py-2 rounded-xl hover:bg-emerald-500/10 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">سرگرمی</a>
                 <a href="#contact" data-i18n="nav_contact" onclick="closeMobileMenu()" class="px-3 py-2 rounded-xl hover:bg-emerald-500/10 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">ارتباط</a>
             </div>
         </div>
@@ -582,7 +1183,6 @@
                         <span data-i18n="hero_name_first">احمد فرید</span> <span data-i18n="hero_name_last" class="text-transparent bg-clip-text bg-gradient-to-l from-emerald-500 to-teal-400">شیرزاد</span>
                     </h1>
 
-                    <!-- تایپوگرافی متحرک تخصص‌ها -->
                     <div class="text-lg sm:text-2xl font-bold text-slate-700 dark:text-slate-300 flex items-center justify-center md:justify-start gap-2 h-8">
                         <span class="text-emerald-600 dark:text-emerald-400"><i class="fa-solid fa-heart-pulse"></i></span>
                         <span id="typewriter-text">محصل طب معالجوی پوهنتون تاج</span>
@@ -593,13 +1193,12 @@
                         علاقه‌مند به علوم طبی، پژوهش‌های علمی، زبان عربی و مطالعه کتب اسلامی. این فضا برای به اشتراک‌گذاری مسیر علمی، دیدگاه‌ها و ایجاد پل ارتباطی مستقیم طراحی شده است.
                     </p>
 
-                    <!-- ۱. ماژول زمان و نبض ضربان قلب (بدون متن‌های حذف‌شده) -->
+                    <!-- ماژول زمان و نبض ضربان قلب -->
                     <div id="live-status" class="max-w-2xl mx-auto md:mx-0 pulse-time-fusion rounded-3xl p-4 sm:p-5 backdrop-blur-xl overflow-hidden">
                         <div class="pointer-events-none absolute -top-16 -end-16 w-44 h-44 rounded-full bg-emerald-400/15 blur-2xl"></div>
                         <div class="pointer-events-none absolute -bottom-16 -start-16 w-44 h-44 rounded-full bg-cyan-400/15 blur-2xl"></div>
 
                         <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-3.5 items-center">
-                            <!-- ستون زمان و تاریخ -->
                             <div class="lg:col-span-5 grid grid-cols-2 lg:grid-cols-1 gap-2.5 text-start">
                                 <div class="rounded-2xl px-3.5 py-2.5 bg-white/80 dark:bg-slate-950/65 border border-emerald-500/20 flex items-center gap-3">
                                     <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-emerald-500/20 to-teal-500/10 border border-emerald-400/30 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-sm shrink-0">
@@ -622,7 +1221,6 @@
                                 </div>
                             </div>
 
-                            <!-- ستون موج نبض ضربان قلب و وضعیت فعلی -->
                             <div class="lg:col-span-7 rounded-2xl p-3 bg-slate-950/80 dark:bg-[#030b14]/90 border border-emerald-400/25 flex flex-col justify-between gap-2.5">
                                 <div class="relative h-14 w-full overflow-hidden rounded-xl bg-emerald-950/35 border border-emerald-500/15 px-1">
                                     <svg viewBox="0 0 440 64" class="w-full h-full fill-none" preserveAspectRatio="none">
@@ -646,7 +1244,6 @@
                         </div>
                     </div>
 
-                    <!-- دکمه‌های اصلی -->
                     <div class="pt-2 flex flex-wrap items-center justify-center md:justify-start gap-3.5">
                         <a href="#contact" class="px-7 py-3.5 rounded-2xl bg-gradient-to-l from-emerald-600 to-teal-500 hover:from-emerald-500 hover:to-teal-400 text-white font-bold text-sm shadow-lg shadow-emerald-600/30 transition-all hover:-translate-y-0.5 flex items-center gap-2.5">
                             <i class="fa-solid fa-paper-plane"></i>
@@ -665,12 +1262,11 @@
     <!-- محتوای اصلی -->
     <main class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-20">
 
-        <!-- ۲، ۳ و ۴. بیوگرافی با گرافیک کاملاً جدید و ۵ گزینه دوتایی کنار هم -->
+        <!-- بیوگرافی -->
         <section id="about" class="reveal bio-architect-stage rounded-[2.5rem] p-6 sm:p-10 space-y-8 overflow-hidden">
             <div class="pointer-events-none absolute -top-28 -end-28 w-72 h-72 rounded-full bg-emerald-400/12 blur-3xl"></div>
             <div class="pointer-events-none absolute -bottom-28 -start-28 w-72 h-72 rounded-full bg-cyan-400/12 blur-3xl"></div>
 
-            <!-- هدر تمیز بیوگرافی (بدون متن اضافی) -->
             <div class="relative z-10 flex items-center gap-4 pb-5 border-b border-emerald-500/20">
                 <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-emerald-600 via-teal-500 to-cyan-400 text-white flex items-center justify-center text-2xl shadow-lg shadow-emerald-500/30">
                     <i class="fa-solid fa-stethoscope"></i>
@@ -681,7 +1277,6 @@
                 </div>
             </div>
 
-            <!-- متن بیوگرافی + نقل‌قول -->
             <div class="relative z-10 bio-narrative-panel rounded-3xl p-6 sm:p-8 backdrop-blur-xl space-y-5">
                 <div class="space-y-4 text-slate-600 dark:text-slate-300 leading-8 text-sm sm:text-base text-start">
                     <p data-i18n="about_p1">
@@ -697,10 +1292,7 @@
                 </div>
             </div>
 
-            <!-- پنج گزینه بیوگرافی: دو تا در ردیف اول، دو تا در ردیف دوم، و پنجمی دقیقاً در وسط ردیف سوم هم‌اندازه و هم‌خوان با بالایی‌ها -->
             <div class="relative z-10 grid grid-cols-2 gap-2.5 sm:gap-4">
-
-                <!-- گزینه ۱: مکتب -->
                 <div class="bio-pill-card rounded-2xl overflow-hidden">
                     <button type="button" onclick="toggleInfoPanel('school-details', 'school-chevron')" aria-expanded="false" aria-controls="school-details" class="w-full px-3 sm:px-5 py-3.5 sm:py-4 flex items-center justify-between gap-2 sm:gap-3 text-start cursor-pointer">
                         <div class="flex items-center gap-3.5 min-w-0">
@@ -720,7 +1312,6 @@
                     </div>
                 </div>
 
-                <!-- گزینه ۲: رشته و پوهنتون -->
                 <div class="bio-pill-card rounded-2xl overflow-hidden">
                     <button type="button" onclick="toggleInfoPanel('uni-details', 'uni-chevron')" aria-expanded="false" aria-controls="uni-details" class="w-full px-3 sm:px-5 py-3.5 sm:py-4 flex items-center justify-between gap-2 sm:gap-3 text-start cursor-pointer">
                         <div class="flex items-center gap-3.5 min-w-0">
@@ -741,7 +1332,6 @@
                     </div>
                 </div>
 
-                <!-- گزینه ۳: مکان -->
                 <div class="bio-pill-card rounded-2xl overflow-hidden">
                     <button type="button" onclick="toggleInfoPanel('loc-details', 'loc-chevron')" aria-expanded="false" aria-controls="loc-details" class="w-full px-3 sm:px-5 py-3.5 sm:py-4 flex items-center justify-between gap-2 sm:gap-3 text-start cursor-pointer">
                         <div class="flex items-center gap-3.5 min-w-0">
@@ -760,7 +1350,6 @@
                     </div>
                 </div>
 
-                <!-- گزینه ۴: زبان‌ها -->
                 <div class="bio-pill-card rounded-2xl overflow-hidden">
                     <button type="button" onclick="toggleInfoPanel('lang-details', 'lang-chevron')" aria-expanded="false" aria-controls="lang-details" class="w-full px-3 sm:px-5 py-3.5 sm:py-4 flex items-center justify-between gap-2 sm:gap-3 text-start cursor-pointer">
                         <div class="flex items-center gap-3.5 min-w-0">
@@ -778,7 +1367,6 @@
                     </div>
                 </div>
 
-                <!-- گزینه ۵: تمرکز اصلی (در وسط ردیف سوم و هم‌اندازه با کارت‌های بالایی) -->
                 <div class="col-span-2 flex justify-center">
                     <div class="bio-pill-card w-[calc(50%-0.3125rem)] sm:w-[calc(50%-0.5rem)] rounded-2xl overflow-hidden">
                         <button type="button" onclick="toggleInfoPanel('focus-info-details', 'focus-info-chevron')" aria-expanded="false" aria-controls="focus-info-details" class="w-full px-3 sm:px-5 py-3.5 sm:py-4 flex items-center justify-between gap-2 sm:gap-3 text-start cursor-pointer">
@@ -797,106 +1385,155 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </section>
 
-        <!-- بخش حوزه‌های فعالیت و علاقه‌مندی -->
-        <section id="focus" class="reveal space-y-7">
-            <div class="flex items-center justify-between flex-wrap gap-4">
-                <div class="flex items-center gap-3.5">
-                    <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-emerald-500/20 to-cyan-500/20 border border-emerald-400/35 text-emerald-600 dark:text-emerald-300 flex items-center justify-center text-xl shadow-lg shadow-emerald-500/10">
-                        <i class="fa-solid fa-atom"></i>
+        <!-- بخش حوزه‌های فعالیت و علاقه‌مندی: گزینه‌های کوچک + قاب نور چرخان چندرنگ + چراغ‌های LED در گردش -->
+        <section id="focus" class="reveal focus-ultra-stage p-5 sm:p-8 space-y-6 overflow-hidden">
+            <div class="pointer-events-none absolute -top-24 -end-24 w-72 h-72 rounded-full bg-cyan-400/20 blur-3xl"></div>
+            <div class="pointer-events-none absolute -bottom-24 -start-24 w-72 h-72 rounded-full bg-pink-500/15 blur-3xl"></div>
+
+            <!-- امواج دریایی در پایین محیط بخش -->
+            <div class="sea-wave-layer" aria-hidden="true">
+                <svg viewBox="0 0 1440 160" class="w-full h-full" preserveAspectRatio="none">
+                    <path fill="rgba(14, 165, 233, 0.14)" d="M0,78 C240,135 480,22 720,76 C960,130 1200,26 1440,80 L1440,160 L0,160 Z"></path>
+                    <path fill="rgba(34, 211, 238, 0.16)" d="M0,104 C300,52 600,152 900,96 C1140,52 1300,118 1440,98 L1440,160 L0,160 Z"></path>
+                </svg>
+            </div>
+
+            <!-- چراغ‌های LED رنگارنگ در اطراف و محیط بخش -->
+            <span class="focus-ambient-led led-c-cyan top-4 start-5"></span>
+            <span class="focus-ambient-led led-c-pink top-4 end-5" style="animation-delay:0.4s;"></span>
+            <span class="focus-ambient-led led-c-amber top-1/2 start-3" style="animation-delay:0.8s;"></span>
+            <span class="focus-ambient-led led-c-violet top-1/2 end-3" style="animation-delay:1.2s;"></span>
+            <span class="focus-ambient-led led-c-emerald bottom-4 start-6" style="animation-delay:1.6s;"></span>
+            <span class="focus-ambient-led led-c-rose bottom-4 end-6" style="animation-delay:2s;"></span>
+
+            <!-- هدر بخش -->
+            <div class="relative z-10 flex items-center justify-between flex-wrap gap-3 pb-4 border-b border-sky-400/25">
+                <div class="flex items-center gap-3">
+                    <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-tr from-sky-500 via-fuchsia-500 to-amber-400 text-white flex items-center justify-center text-lg sm:text-xl shadow-lg shadow-cyan-500/25 shrink-0">
+                        <i class="fa-solid fa-layer-group"></i>
                     </div>
                     <div>
-                        <h2 data-i18n="focus_title" class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">حوزه‌های فعالیت و علاقه‌مندی</h2>
-                        <p data-i18n="focus_sub" class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">زمینه‌هایی که به صورت تخصصی روی آن‌ها وقت می‌گذارم</p>
+                        <h2 data-i18n="focus_title" class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white tracking-tight">حوزه‌های فعالیت و علاقه‌مندی</h2>
+                        <p data-i18n="focus_sub" class="text-[11px] sm:text-xs text-slate-600 dark:text-sky-200/80 mt-0.5">زمینه‌هایی که به صورت تخصصی روی آن‌ها وقت می‌گذارم</p>
                     </div>
+                </div>
+
+                <!-- حلقه کوچک چراغ‌های LED در گردش -->
+                <div class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/70 dark:bg-slate-950/75 border border-sky-400/25" aria-hidden="true">
+                    <span class="w-2 h-2 rounded-full led-c-cyan animate-ping"></span>
+                    <span class="w-2 h-2 rounded-full led-c-pink" style="animation: ledLampPulse 1.8s infinite;"></span>
+                    <span class="w-2 h-2 rounded-full led-c-amber" style="animation: ledLampPulse 1.8s 0.4s infinite;"></span>
+                    <span class="w-2 h-2 rounded-full led-c-emerald" style="animation: ledLampPulse 1.8s 0.8s infinite;"></span>
+                    <span class="w-2 h-2 rounded-full led-c-violet" style="animation: ledLampPulse 1.8s 1.2s infinite;"></span>
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- کارت ۱ -->
-                <div class="focus-royal-card group rounded-[2rem] p-7 border border-emerald-500/25 dark:border-emerald-400/20 hover:border-emerald-400 hover:shadow-2xl hover:shadow-emerald-500/20 overflow-hidden flex flex-col justify-between">
-                    <div class="absolute -top-14 -end-14 w-36 h-36 rounded-full bg-gradient-to-br from-emerald-400/25 to-teal-500/5 blur-2xl group-hover:scale-125 transition-transform duration-500"></div>
-                    <div class="relative z-10">
-                        <div class="flex items-center justify-between gap-2 mb-6">
-                            <div class="modern-emblem-ring w-16 h-16 rounded-2xl bg-gradient-to-tr from-emerald-600 via-emerald-500 to-teal-300 p-[2px] shadow-xl shadow-emerald-500/30">
-                                <div class="w-full h-full rounded-[14px] bg-slate-950/90 dark:bg-[#061220] flex items-center justify-center text-emerald-300 text-2xl relative overflow-hidden">
-                                    <span class="absolute inset-0 bg-gradient-to-t from-emerald-500/20 to-transparent"></span>
-                                    <i class="fa-solid fa-heart-circle-bolt relative z-10"></i>
+            <!-- گزینه‌های کوچک و فشرده با نور چرخان چندرنگ و چراغ‌های LED رنگی در اطراف -->
+            <div class="relative z-10 grid grid-cols-1 sm:grid-cols-3 gap-3.5 sm:gap-4">
+
+                <!-- گزینه ۱: علوم طبی و سلامت -->
+                <div class="focus-compact-wrapper group">
+                    <div class="focus-rgb-spinner"></div>
+                    <span class="card-led-ring-dot d-tl led-c-cyan"></span>
+                    <span class="card-led-ring-dot d-tr led-c-emerald"></span>
+                    <span class="card-led-ring-dot d-bl led-c-amber"></span>
+                    <span class="card-led-ring-dot d-br led-c-pink"></span>
+
+                    <div class="focus-compact-body">
+                        <div class="space-y-2">
+                            <div class="flex items-center justify-between gap-2">
+                                <div class="flex items-center gap-2.5 min-w-0">
+                                    <span class="w-8 h-8 rounded-lg bg-gradient-to-br from-cyan-500/20 to-emerald-500/20 border border-cyan-400/35 text-cyan-600 dark:text-cyan-300 flex items-center justify-center text-sm shrink-0">
+                                        <i class="fa-solid fa-heart-circle-bolt"></i>
+                                    </span>
+                                    <h3 data-i18n="focus1_title" class="font-extrabold text-sm text-slate-900 dark:text-white truncate">علوم طبی و سلامت</h3>
                                 </div>
+                                <span class="text-[10px] font-black px-1.5 py-0.5 rounded-md bg-cyan-500/15 text-cyan-700 dark:text-cyan-300 shrink-0" dir="ltr">01</span>
                             </div>
+
+                            <p data-i18n="focus1_desc" class="text-[11px] sm:text-xs text-slate-600 dark:text-slate-300/90 leading-6">
+                                مطالعه مباحث پایه و کلینیکی طب، بررسی کیس‌های علمی و آشنایی با تازه‌ترین دستاوردهای پزشکی برای ارتقای سلامت جامعه.
+                            </p>
                         </div>
 
-                        <h3 data-i18n="focus1_title" class="font-black text-xl text-slate-900 dark:text-white mb-3 tracking-tight">علوم طبی و سلامت</h3>
-                        <p data-i18n="focus1_desc" class="text-sm text-slate-600 dark:text-slate-300/90 leading-7">
-                            مطالعه مباحث پایه و کلینیکی طب، بررسی کیس‌های علمی و آشنایی با تازه‌ترین دستاوردهای پزشکی برای ارتقای سلامت جامعه.
-                        </p>
-                    </div>
-                    <div class="relative z-10 mt-6 pt-4 border-t border-emerald-500/15 flex items-center justify-end text-emerald-600 dark:text-emerald-400">
-                        <i class="fa-solid fa-arrow-up-left text-xs transition-transform group-hover:-translate-x-0.5 group-hover:-translate-y-0.5"></i>
+                        <div class="focus-mini-spectrum mt-1"></div>
                     </div>
                 </div>
 
-                <!-- کارت ۲ -->
-                <div class="focus-royal-card group rounded-[2rem] p-7 border border-teal-500/25 dark:border-teal-400/20 hover:border-teal-400 hover:shadow-2xl hover:shadow-teal-500/20 overflow-hidden flex flex-col justify-between">
-                    <div class="absolute -top-14 -end-14 w-36 h-36 rounded-full bg-gradient-to-br from-teal-400/25 to-emerald-500/5 blur-2xl group-hover:scale-125 transition-transform duration-500"></div>
-                    <div class="relative z-10">
-                        <div class="flex items-center justify-between gap-2 mb-6">
-                            <div class="modern-emblem-ring w-16 h-16 rounded-2xl bg-gradient-to-tr from-teal-600 via-teal-400 to-amber-300 p-[2px] shadow-xl shadow-teal-500/30">
-                                <div class="w-full h-full rounded-[14px] bg-slate-950/90 dark:bg-[#061220] flex items-center justify-center text-teal-300 text-2xl relative overflow-hidden">
-                                    <span class="absolute inset-0 bg-gradient-to-t from-teal-500/20 to-transparent"></span>
-                                    <i class="fa-solid fa-book-bookmark relative z-10"></i>
+                <!-- گزینه ۲: پژوهش و مطالعه کتب اسلامی -->
+                <div class="focus-compact-wrapper group">
+                    <div class="focus-rgb-spinner" style="animation-direction: reverse; animation-duration: 6.2s;"></div>
+                    <span class="card-led-ring-dot d-tl led-c-pink"></span>
+                    <span class="card-led-ring-dot d-tr led-c-amber"></span>
+                    <span class="card-led-ring-dot d-bl led-c-violet"></span>
+                    <span class="card-led-ring-dot d-br led-c-cyan"></span>
+
+                    <div class="focus-compact-body">
+                        <div class="space-y-2">
+                            <div class="flex items-center justify-between gap-2">
+                                <div class="flex items-center gap-2.5 min-w-0">
+                                    <span class="w-8 h-8 rounded-lg bg-gradient-to-br from-pink-500/20 to-amber-500/20 border border-pink-400/35 text-pink-600 dark:text-pink-300 flex items-center justify-center text-sm shrink-0">
+                                        <i class="fa-solid fa-book-bookmark"></i>
+                                    </span>
+                                    <h3 data-i18n="focus2_title" class="font-extrabold text-sm text-slate-900 dark:text-white truncate">پژوهش و مطالعه کتب اسلامی</h3>
                                 </div>
+                                <span class="text-[10px] font-black px-1.5 py-0.5 rounded-md bg-pink-500/15 text-pink-700 dark:text-pink-300 shrink-0" dir="ltr">02</span>
                             </div>
+
+                            <p data-i18n="focus2_desc" class="text-[11px] sm:text-xs text-slate-600 dark:text-slate-300/90 leading-6">
+                                علاقه‌مند به تحقیق، یادگیری زبان عربی و مطالعه کتب اسلامی به‌ویژه در زمینه‌های عقاید، سیرة النبی و تزکیه نفس.
+                            </p>
                         </div>
 
-                        <h3 data-i18n="focus2_title" class="font-black text-xl text-slate-900 dark:text-white mb-3 tracking-tight">پژوهش و مطالعه کتب اسلامی</h3>
-                        <p data-i18n="focus2_desc" class="text-sm text-slate-600 dark:text-slate-300/90 leading-7">
-                            علاقه‌مند به تحقیق، یادگیری زبان عربی و مطالعه کتب اسلامی به‌ویژه در زمینه‌های عقاید، سیرة النبی و تزکیه نفس.
-                        </p>
-                    </div>
-                    <div class="relative z-10 mt-6 pt-4 border-t border-teal-500/15 flex items-center justify-end text-teal-600 dark:text-teal-400">
-                        <i class="fa-solid fa-arrow-up-left text-xs transition-transform group-hover:-translate-x-0.5 group-hover:-translate-y-0.5"></i>
+                        <div class="focus-mini-spectrum mt-1"></div>
                     </div>
                 </div>
 
-                <!-- کارت ۳ -->
-                <div class="focus-royal-card group rounded-[2rem] p-7 border border-cyan-500/25 dark:border-cyan-400/20 hover:border-cyan-400 hover:shadow-2xl hover:shadow-cyan-500/20 overflow-hidden flex flex-col justify-between">
-                    <div class="absolute -top-14 -end-14 w-36 h-36 rounded-full bg-gradient-to-br from-cyan-400/25 to-sky-500/5 blur-2xl group-hover:scale-125 transition-transform duration-500"></div>
-                    <div class="relative z-10">
-                        <div class="flex items-center justify-between gap-2 mb-6">
-                            <div class="modern-emblem-ring w-16 h-16 rounded-2xl bg-gradient-to-tr from-cyan-600 via-sky-400 to-emerald-300 p-[2px] shadow-xl shadow-cyan-500/30">
-                                <div class="w-full h-full rounded-[14px] bg-slate-950/90 dark:bg-[#061220] flex items-center justify-center text-cyan-300 text-2xl relative overflow-hidden">
-                                    <span class="absolute inset-0 bg-gradient-to-t from-cyan-500/20 to-transparent"></span>
-                                    <i class="fa-solid fa-microchip relative z-10"></i>
+                <!-- گزینه ۳: تکنولوژی و مهارت‌های دیجیتال -->
+                <div class="focus-compact-wrapper group">
+                    <div class="focus-rgb-spinner" style="animation-duration: 4.8s;"></div>
+                    <span class="card-led-ring-dot d-tl led-c-violet"></span>
+                    <span class="card-led-ring-dot d-tr led-c-rose"></span>
+                    <span class="card-led-ring-dot d-bl led-c-emerald"></span>
+                    <span class="card-led-ring-dot d-br led-c-amber"></span>
+
+                    <div class="focus-compact-body">
+                        <div class="space-y-2">
+                            <div class="flex items-center justify-between gap-2">
+                                <div class="flex items-center gap-2.5 min-w-0">
+                                    <span class="w-8 h-8 rounded-lg bg-gradient-to-br from-purple-500/20 to-cyan-500/20 border border-purple-400/35 text-purple-600 dark:text-purple-300 flex items-center justify-center text-sm shrink-0">
+                                        <i class="fa-solid fa-microchip"></i>
+                                    </span>
+                                    <h3 data-i18n="focus3_title" class="font-extrabold text-sm text-slate-900 dark:text-white truncate">تکنولوژی و مهارت‌های دیجیتال</h3>
                                 </div>
+                                <span class="text-[10px] font-black px-1.5 py-0.5 rounded-md bg-purple-500/15 text-purple-700 dark:text-purple-300 shrink-0" dir="ltr">03</span>
                             </div>
+
+                            <p data-i18n="focus3_desc" class="text-[11px] sm:text-xs text-slate-600 dark:text-slate-300/90 leading-6">
+                                بهره‌گیری از ابزارهای مدرن دیجیتال و هوش مصنوعی برای پژوهش سریع‌تر، مدیریت دانش و کاربرد فناوری در علوم طبی.
+                            </p>
                         </div>
 
-                        <h3 data-i18n="focus3_title" class="font-black text-xl text-slate-900 dark:text-white mb-3 tracking-tight">تکنولوژی و مهارت‌های دیجیتال</h3>
-                        <p data-i18n="focus3_desc" class="text-sm text-slate-600 dark:text-slate-300/90 leading-7">
-                            بهره‌گیری از ابزارهای مدرن دیجیتال و هوش مصنوعی برای پژوهش سریع‌تر، مدیریت دانش و کاربرد فناوری در علوم طبی.
-                        </p>
-                    </div>
-                    <div class="relative z-10 mt-6 pt-4 border-t border-cyan-500/15 flex items-center justify-end text-cyan-600 dark:text-cyan-400">
-                        <i class="fa-solid fa-arrow-up-left text-xs transition-transform group-hover:-translate-x-0.5 group-hover:-translate-y-0.5"></i>
+                        <div class="focus-mini-spectrum mt-1"></div>
                     </div>
                 </div>
+
             </div>
         </section>
 
-        <!-- بخش محورهای مطالعه و تحقیق با گرافیک جدید و چیدمان پلکانی / ماژولار -->
-        <section id="reading" class="reveal study-cosmos-stage rounded-[2.5rem] p-6 sm:p-10 space-y-8 overflow-hidden">
-            <div class="pointer-events-none absolute -top-24 -start-24 w-72 h-72 rounded-full bg-emerald-400/14 blur-3xl"></div>
-            <div class="pointer-events-none absolute -bottom-24 -end-24 w-72 h-72 rounded-full bg-purple-500/12 blur-3xl"></div>
+        <!-- بخش محورهای مطالعه و تحقیق -->
+        <section id="reading" class="reveal reading-modern-stage p-6 sm:p-10 space-y-7 overflow-hidden">
+            <div class="reading-grid-overlay"></div>
+            <div class="pointer-events-none absolute -top-24 -end-24 w-72 h-72 rounded-full bg-emerald-400/15 blur-3xl"></div>
+            <div class="pointer-events-none absolute -bottom-24 -start-24 w-72 h-72 rounded-full bg-cyan-400/15 blur-3xl"></div>
 
-            <!-- هدر و نوار فیلتر -->
-            <div class="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-4 pb-5 border-b border-emerald-500/20">
+            <div class="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-4 border-b border-emerald-500/20 pb-5">
                 <div class="flex items-center gap-3.5">
-                    <div class="w-13 h-13 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-tr from-emerald-600 via-teal-500 to-amber-400 text-white flex items-center justify-center text-xl sm:text-2xl shadow-lg shadow-emerald-500/25 shrink-0">
-                        <i class="fa-solid fa-book-open-reader"></i>
+                    <div class="w-13 h-13 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-tr from-emerald-600 via-teal-500 to-cyan-400 text-white flex items-center justify-center text-xl sm:text-2xl shadow-lg shadow-emerald-500/25 shrink-0">
+                        <i class="fa-solid fa-lightbulb"></i>
                     </div>
                     <div>
                         <h2 data-i18n="reading_title" class="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white tracking-tight">محورهای مطالعه و تحقیق</h2>
@@ -904,122 +1541,218 @@
                     </div>
                 </div>
 
-                <div class="inline-flex flex-wrap items-center gap-1.5 p-1.5 rounded-2xl bg-white/75 dark:bg-slate-950/70 backdrop-blur-md border border-emerald-500/20 self-start md:self-auto">
-                    <button type="button" data-filter="all" data-i18n="filter_all" onclick="filterReading('all', this)" class="filter-btn active-filter px-3.5 py-2 rounded-xl text-xs font-bold text-slate-700 dark:text-slate-300 transition-all cursor-pointer">همه</button>
-                    <button type="button" data-filter="medical" data-i18n="read1_tag" onclick="filterReading('medical', this)" class="filter-btn px-3.5 py-2 rounded-xl text-xs font-bold text-slate-700 dark:text-slate-300 hover:bg-emerald-500/10 hover:text-emerald-600 dark:hover:text-emerald-400 transition-all cursor-pointer">علوم طبی</button>
-                    <button type="button" data-filter="islamic" data-i18n="read2_tag" onclick="filterReading('islamic', this)" class="filter-btn px-3.5 py-2 rounded-xl text-xs font-bold text-slate-700 dark:text-slate-300 hover:bg-amber-500/10 hover:text-amber-600 dark:hover:text-amber-400 transition-all cursor-pointer">معارف اسلامی</button>
-                    <button type="button" data-filter="arabic" data-i18n="read3_tag" onclick="filterReading('arabic', this)" class="filter-btn px-3.5 py-2 rounded-xl text-xs font-bold text-slate-700 dark:text-slate-300 hover:bg-sky-500/10 hover:text-sky-600 dark:hover:text-sky-400 transition-all cursor-pointer">زبان‌شناسی</button>
-                    <button type="button" data-filter="ai" data-i18n="read4_tag" onclick="filterReading('ai', this)" class="filter-btn px-3.5 py-2 rounded-xl text-xs font-bold text-slate-700 dark:text-slate-300 hover:bg-purple-500/10 hover:text-purple-600 dark:hover:text-purple-400 transition-all cursor-pointer">نوآوری</button>
+                <div class="reading-filter-dock self-start lg:self-auto">
+                    <button type="button" data-filter="all" onclick="filterReading('all', this)" class="reading-led-btn filter-btn active-led">
+                        <span class="led-lamp-dot"></span>
+                        <span data-i18n="filter_all">همه</span>
+                    </button>
+                    <button type="button" data-filter="medical" onclick="filterReading('medical', this)" class="reading-led-btn filter-btn">
+                        <span class="led-lamp-dot"></span>
+                        <span data-i18n="read1_tag">علوم طبی</span>
+                    </button>
+                    <button type="button" data-filter="islamic" onclick="filterReading('islamic', this)" class="reading-led-btn filter-btn">
+                        <span class="led-lamp-dot"></span>
+                        <span data-i18n="read2_tag">معارف اسلامی</span>
+                    </button>
+                    <button type="button" data-filter="arabic" onclick="filterReading('arabic', this)" class="reading-led-btn filter-btn">
+                        <span class="led-lamp-dot"></span>
+                        <span data-i18n="read3_tag">زبان‌شناسی</span>
+                    </button>
+                    <button type="button" data-filter="ai" onclick="filterReading('ai', this)" class="reading-led-btn filter-btn">
+                        <span class="led-lamp-dot"></span>
+                        <span data-i18n="read4_tag">نوآوری</span>
+                    </button>
                 </div>
             </div>
 
-            <!-- چیدمان جدید ماژولار/پلکانی (۱۲ ستونه با ریتم متفاوت برای هر محور) -->
-            <div id="reading-cards-grid" data-view="all" class="relative z-10 grid grid-cols-2 gap-3.5 sm:gap-5">
-
-                <!-- محور ۱: علوم طبی (کارت شاخص عریض - ۷ ستون) -->
-                <div data-category="medical" class="reading-card study-pillar-card pillar-medical group p-4 sm:p-5 overflow-hidden flex flex-col justify-between gap-3">
-                    <span class="study-watermark-num text-emerald-500" dir="ltr">01</span>
-                    <div class="absolute -bottom-16 -start-16 w-44 h-44 rounded-full bg-emerald-400/15 blur-2xl group-hover:scale-125 transition-transform duration-500"></div>
-
-                    <div class="relative z-10 flex items-start justify-between gap-4">
-                        <div class="flex items-center gap-4">
-                            <div class="study-card-icon w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-400 text-white flex items-center justify-center text-base sm:text-xl shadow-lg shadow-emerald-500/30 shrink-0 group-hover:scale-105 transition-transform">
-                                <i class="fa-solid fa-dna"></i>
-                            </div>
-                            <span data-i18n="read1_tag" class="inline-flex items-center gap-1.5 text-xs font-extrabold px-3 py-1 rounded-full bg-emerald-500/12 border border-emerald-500/25 text-emerald-700 dark:text-emerald-300">علوم طبی</span>
-                        </div>
-                        <span class="text-xs font-black px-2.5 py-1 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400" dir="ltr">#01</span>
+            <div id="reading-cards-grid" data-view="all" class="relative z-10 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div data-category="medical" onclick="igniteReadingCard(this)" class="reading-card p-5 rounded-2xl flex items-start gap-4 cursor-pointer">
+                    <div class="study-card-icon w-11 h-11 rounded-xl bg-emerald-500/15 border border-emerald-400/25 text-emerald-500 dark:text-emerald-300 flex items-center justify-center shrink-0 mt-0.5 transition-all">
+                        <i class="fa-solid fa-dna"></i>
                     </div>
-
-                    <div class="relative z-10 space-y-2">
-                        <h4 data-i18n="read1_title" class="study-card-title font-black text-slate-900 dark:text-white text-sm sm:text-base leading-snug">آناتومی، پتالوژی، فارمکولوژی و فیزیولوژی</h4>
-                        <p data-i18n="read1_desc" class="study-card-desc text-[11px] sm:text-xs text-slate-600 dark:text-slate-300/90 leading-relaxed">درک ساختار دقیق بدن انسان و مکانیزم‌های حیاتی آن.</p>
+                    <div class="flex-1 min-w-0">
+                        <div class="flex items-center justify-between gap-2 mb-1.5">
+                            <span data-i18n="read1_tag" class="inline-block text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-emerald-500/15 text-emerald-600 dark:text-emerald-300">علوم طبی</span>
+                            <span class="reading-led-beacon"></span>
+                        </div>
+                        <h4 data-i18n="read1_title" class="study-card-title font-extrabold text-slate-900 dark:text-white text-sm sm:text-base transition-all">آناتومی، پتالوژی، فارمکولوژی و فیزیولوژی</h4>
+                        <p data-i18n="read1_desc" class="study-card-desc text-xs text-slate-500 dark:text-slate-300/85 mt-1 leading-relaxed transition-all">درک ساختار دقیق بدن انسان و مکانیزم‌های حیاتی آن.</p>
                     </div>
                 </div>
 
-                <!-- محور ۲: معارف اسلامی (کارت مکمل پلکانی - ۵ ستون) -->
-                <div data-category="islamic" class="reading-card study-pillar-card pillar-islamic group p-4 sm:p-5 overflow-hidden flex flex-col justify-between gap-3">
-                    <span class="study-watermark-num text-amber-500" dir="ltr">02</span>
-                    <div class="absolute -bottom-16 -end-16 w-40 h-40 rounded-full bg-amber-400/15 blur-2xl group-hover:scale-125 transition-transform duration-500"></div>
-
-                    <div class="relative z-10 flex items-start justify-between gap-3">
-                        <div class="flex items-center gap-3.5">
-                            <div class="study-card-icon w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br from-amber-500 to-orange-400 text-white flex items-center justify-center text-base sm:text-xl shadow-lg shadow-amber-500/30 shrink-0 group-hover:scale-105 transition-transform">
-                                <i class="fa-solid fa-mosque"></i>
-                            </div>
-                            <span data-i18n="read2_tag" class="inline-flex items-center gap-1.5 text-xs font-extrabold px-3 py-1 rounded-full bg-amber-500/12 border border-amber-500/25 text-amber-700 dark:text-amber-300">معارف اسلامی</span>
-                        </div>
-                        <span class="text-xs font-black px-2.5 py-1 rounded-lg bg-amber-500/10 text-amber-600 dark:text-amber-400" dir="ltr">#02</span>
+                <div data-category="islamic" onclick="igniteReadingCard(this)" class="reading-card p-5 rounded-2xl flex items-start gap-4 cursor-pointer">
+                    <div class="study-card-icon w-11 h-11 rounded-xl bg-amber-500/15 border border-amber-400/25 text-amber-500 dark:text-amber-300 flex items-center justify-center shrink-0 mt-0.5 transition-all">
+                        <i class="fa-solid fa-mosque"></i>
                     </div>
-
-                    <div class="relative z-10 space-y-2">
-                        <h4 data-i18n="read2_title" class="study-card-title font-black text-slate-900 dark:text-white text-sm sm:text-base leading-snug">عقیده اسلامی، سیرة النبی و تزکیه نفس</h4>
-                        <p data-i18n="read2_desc" class="study-card-desc text-[11px] sm:text-xs text-slate-600 dark:text-slate-300/90 leading-relaxed">مطالعه آثار علمای برجسته در زمینه اصلاح قلب و تقویت ایمان.</p>
+                    <div class="flex-1 min-w-0">
+                        <div class="flex items-center justify-between gap-2 mb-1.5">
+                            <span data-i18n="read2_tag" class="inline-block text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-amber-500/15 text-amber-600 dark:text-amber-300">معارف اسلامی</span>
+                            <span class="reading-led-beacon"></span>
+                        </div>
+                        <h4 data-i18n="read2_title" class="study-card-title font-extrabold text-slate-900 dark:text-white text-sm sm:text-base transition-all">عقیده اسلامی، سیرة النبی و تزکیه نفس</h4>
+                        <p data-i18n="read2_desc" class="study-card-desc text-xs text-slate-500 dark:text-slate-300/85 mt-1 leading-relaxed transition-all">مطالعه آثار علمای برجسته در زمینه اصلاح قلب و تقویت ایمان.</p>
                     </div>
                 </div>
 
-                <!-- محور ۳: زبان‌شناسی / عربی (کارت معکوس پلکانی - ۵ ستون) -->
-                <div data-category="arabic" class="reading-card study-pillar-card pillar-arabic group p-4 sm:p-5 overflow-hidden flex flex-col justify-between gap-3">
-                    <span class="study-watermark-num text-sky-500" dir="ltr">03</span>
-                    <div class="absolute -bottom-16 -start-16 w-40 h-40 rounded-full bg-sky-400/15 blur-2xl group-hover:scale-125 transition-transform duration-500"></div>
-
-                    <div class="relative z-10 flex items-start justify-between gap-3">
-                        <div class="flex items-center gap-3.5">
-                            <div class="study-card-icon w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br from-sky-500 to-cyan-400 text-white flex items-center justify-center text-base sm:text-xl shadow-lg shadow-sky-500/30 shrink-0 group-hover:scale-105 transition-transform">
-                                <i class="fa-solid fa-spell-check"></i>
-                            </div>
-                            <span data-i18n="read3_tag" class="inline-flex items-center gap-1.5 text-xs font-extrabold px-3 py-1 rounded-full bg-sky-500/12 border border-sky-500/25 text-sky-700 dark:text-sky-300">زبان‌شناسی</span>
-                        </div>
-                        <span class="text-xs font-black px-2.5 py-1 rounded-lg bg-sky-500/10 text-sky-600 dark:text-sky-400" dir="ltr">#03</span>
+                <div data-category="arabic" onclick="igniteReadingCard(this)" class="reading-card p-5 rounded-2xl flex items-start gap-4 cursor-pointer">
+                    <div class="study-card-icon w-11 h-11 rounded-xl bg-sky-500/15 border border-sky-400/25 text-sky-500 dark:text-sky-300 flex items-center justify-center shrink-0 mt-0.5 transition-all">
+                        <i class="fa-solid fa-spell-check"></i>
                     </div>
-
-                    <div class="relative z-10 space-y-2">
-                        <h4 data-i18n="read3_title" class="study-card-title font-black text-slate-900 dark:text-white text-sm sm:text-base leading-snug">زبان و ادبیات عربی</h4>
-                        <p data-i18n="read3_desc" class="study-card-desc text-[11px] sm:text-xs text-slate-600 dark:text-slate-300/90 leading-relaxed">یادگیری قواعد صرف و نحو برای فهم عمیق‌تر متون دینی.</p>
+                    <div class="flex-1 min-w-0">
+                        <div class="flex items-center justify-between gap-2 mb-1.5">
+                            <span data-i18n="read3_tag" class="inline-block text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-sky-500/15 text-sky-600 dark:text-sky-300">زبان‌شناسی</span>
+                            <span class="reading-led-beacon"></span>
+                        </div>
+                        <h4 data-i18n="read3_title" class="study-card-title font-extrabold text-slate-900 dark:text-white text-sm sm:text-base transition-all">زبان و ادبیات عربی</h4>
+                        <p data-i18n="read3_desc" class="study-card-desc text-xs text-slate-500 dark:text-slate-300/85 mt-1 leading-relaxed transition-all">یادگیری قواعد صرف و نحو برای فهم عمیق‌تر متون دینی.</p>
                     </div>
                 </div>
 
-                <!-- محور ۴: هوش مصنوعی در طب (کارت شاخص عریض پایینی - ۷ ستون) -->
-                <div data-category="ai" class="reading-card study-pillar-card pillar-ai group p-4 sm:p-5 overflow-hidden flex flex-col justify-between gap-3">
-                    <span class="study-watermark-num text-purple-500" dir="ltr">04</span>
-                    <div class="absolute -bottom-16 -end-16 w-44 h-44 rounded-full bg-purple-400/15 blur-2xl group-hover:scale-125 transition-transform duration-500"></div>
-
-                    <div class="relative z-10 flex items-start justify-between gap-4">
-                        <div class="flex items-center gap-4">
-                            <div class="study-card-icon w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br from-purple-500 to-indigo-400 text-white flex items-center justify-center text-base sm:text-xl shadow-lg shadow-purple-500/30 shrink-0 group-hover:scale-105 transition-transform">
-                                <i class="fa-solid fa-brain"></i>
-                            </div>
-                            <span data-i18n="read4_tag" class="inline-flex items-center gap-1.5 text-xs font-extrabold px-3 py-1 rounded-full bg-purple-500/12 border border-purple-500/25 text-purple-700 dark:text-purple-300">نوآوری</span>
-                        </div>
-                        <span class="text-xs font-black px-2.5 py-1 rounded-lg bg-purple-500/10 text-purple-600 dark:text-purple-400" dir="ltr">#04</span>
+                <div data-category="ai" onclick="igniteReadingCard(this)" class="reading-card p-5 rounded-2xl flex items-start gap-4 cursor-pointer">
+                    <div class="study-card-icon w-11 h-11 rounded-xl bg-purple-500/15 border border-purple-400/25 text-purple-500 dark:text-purple-300 flex items-center justify-center shrink-0 mt-0.5 transition-all">
+                        <i class="fa-solid fa-brain"></i>
                     </div>
-
-                    <div class="relative z-10 space-y-2">
-                        <h4 data-i18n="read4_title" class="study-card-title font-black text-slate-900 dark:text-white text-sm sm:text-base leading-snug">هوش مصنوعی در طب</h4>
-                        <p data-i18n="read4_desc" class="study-card-desc text-[11px] sm:text-xs text-slate-600 dark:text-slate-300/90 leading-relaxed">بررسی نقش تکنولوژی‌های نوین در آینده تشخیص و درمان.</p>
+                    <div class="flex-1 min-w-0">
+                        <div class="flex items-center justify-between gap-2 mb-1.5">
+                            <span data-i18n="read4_tag" class="inline-block text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-purple-500/15 text-purple-600 dark:text-purple-300">نوآوری</span>
+                            <span class="reading-led-beacon"></span>
+                        </div>
+                        <h4 data-i18n="read4_title" class="study-card-title font-extrabold text-slate-900 dark:text-white text-sm sm:text-base transition-all">هوش مصنوعی در طب</h4>
+                        <p data-i18n="read4_desc" class="study-card-desc text-xs text-slate-500 dark:text-slate-300/85 mt-1 leading-relaxed transition-all">بررسی نقش تکنولوژی‌های نوین در آینده تشخیص و درمان.</p>
                     </div>
                 </div>
-
             </div>
         </section>
 
-        <!-- ۶. راه‌های ارتباط با من (بدون متن اضافی و با گرافیک کاملاً جدید برای ۴ گزینه ارتباطی) -->
-        <section id="contact" class="reveal glass rounded-[2.25rem] p-6 sm:p-10 border border-emerald-500/25 dark:border-emerald-400/20 shadow-2xl shadow-emerald-950/15 space-y-9 overflow-hidden">
-            <!-- هدر تمیز بخش ارتباط -->
-            <div class="flex items-center gap-4 border-b border-emerald-500/15 pb-6">
-                <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-emerald-600 via-teal-500 to-cyan-400 text-white flex items-center justify-center text-xl shadow-xl shadow-emerald-500/30">
-                    <i class="fa-solid fa-satellite-dish"></i>
+        <!-- بخش سرگرمی -->
+        <section id="leisure" class="reveal stadium-ultra-stage p-5 sm:p-7 space-y-5 overflow-hidden text-white">
+            <div class="pitch-lines-overlay"></div>
+            <div class="floodlight-beam -start-16 bg-purple-500/25"></div>
+            <div class="floodlight-beam -end-16 bg-amber-400/20" style="animation-delay: 1.8s;"></div>
+
+            <div class="relative z-10 flex items-center justify-between gap-3 pb-4 border-b border-purple-300/15">
+                <div class="flex items-center gap-3">
+                    <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-purple-600 via-fuchsia-500 to-amber-400 text-white flex items-center justify-center text-lg shadow-lg shadow-purple-500/30 shrink-0">
+                        <i class="fa-solid fa-trophy"></i>
+                    </div>
+                    <div>
+                        <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-amber-400/15 border border-amber-300/30 text-amber-200 text-[10px] font-bold mb-1">
+                            <span class="w-1.5 h-1.5 rounded-full bg-amber-300 animate-ping"></span>
+                            <span data-i18n="leisure_live_tag">حالت فراغت و رقابت</span>
+                        </div>
+                        <h2 data-i18n="leisure_title" class="text-xl sm:text-2xl font-black text-white tracking-tight">سرگرمی</h2>
+                        <p data-i18n="leisure_sub" class="text-[11px] sm:text-xs text-slate-300/80">لحظه‌های پرانرژی بیرون از فضای درس و مطالعه</p>
+                    </div>
                 </div>
-                <div>
-                    <h2 data-i18n="contact_title" class="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white tracking-tight">راه‌های ارتباط با من</h2>
-                    <p data-i18n="contact_sub" class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-0.5">از طریق شبکه‌های اجتماعی زیر می‌توانید مستقیماً با من در تماس باشید</p>
+
+                <div class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white/5 border border-purple-300/15 text-[11px] font-extrabold text-amber-200" dir="ltr">
+                    <i class="fa-solid fa-sparkles text-fuchsia-300"></i>
+                    <span>PITCH • eFOOTBALL</span>
                 </div>
             </div>
 
-            <!-- ۴ گزینه ارتباطی با گرافیک کاملاً جدید (کارت‌های عمودی-مدرن با حلقه نوری اختصاصی هر پلتفرم) -->
-            <div class="grid grid-cols-2 gap-3 sm:gap-5">
+            <div class="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 items-stretch">
+                <div class="leisure-card-pitch p-5 sm:p-6 flex flex-col justify-between gap-4 overflow-hidden">
+                    <div class="pointer-events-none absolute -top-12 -end-12 w-32 h-32 rounded-full bg-amber-400/12 blur-2xl"></div>
 
-                <!-- تلگرام -->
+                    <div class="relative z-10 flex items-center justify-between gap-3">
+                        <div class="flex items-center gap-3.5 min-w-0">
+                            <div class="sport-emblem-box bg-gradient-to-br from-amber-500 via-orange-500 to-rose-500 shadow-md shadow-amber-500/30">
+                                <i class="fa-solid fa-futbol"></i>
+                            </div>
+                            <div class="min-w-0">
+                                <span data-i18n="leisure1_badge" class="inline-flex items-center gap-1 text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-amber-400/15 border border-amber-300/25 text-amber-200 mb-1">
+                                    میدان و رفاقت
+                                </span>
+                                <h3 data-i18n="leisure1_title" class="text-base sm:text-lg font-extrabold text-white truncate">فوتبال</h3>
+                            </div>
+                        </div>
+                        <span class="text-xs font-black px-2.5 py-1 rounded-lg bg-amber-400/10 border border-amber-300/20 text-amber-200 shrink-0" dir="ltr">01</span>
+                    </div>
+
+                    <p data-i18n="leisure1_desc" class="relative z-10 text-xs sm:text-sm text-slate-200/90 leading-7">
+                        دویدن در میدان، تحرک، روحیه تیمی و تازه کردن نفس در کنار دوستان بعد از ساعت‌های مطالعه و درس.
+                    </p>
+
+                    <div class="relative z-10 space-y-1.5 pt-1">
+                        <div class="flex items-center justify-between text-[11px] font-bold text-amber-200/90">
+                            <span data-i18n="leisure1_stat_label">انرژی و روحیه تیمی</span>
+                            <span dir="ltr">88%</span>
+                        </div>
+                        <div class="stat-bar-track">
+                            <div class="stat-bar-fill-pitch"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="leisure-card-hud p-5 sm:p-6 flex flex-col justify-between gap-4 overflow-hidden">
+                    <div class="pointer-events-none absolute -top-12 -end-12 w-32 h-32 rounded-full bg-purple-400/14 blur-2xl"></div>
+
+                    <div class="relative z-10 flex items-center justify-between gap-3">
+                        <div class="flex items-center gap-3.5 min-w-0">
+                            <div class="sport-emblem-box bg-gradient-to-br from-purple-600 via-fuchsia-500 to-pink-500 shadow-md shadow-purple-500/30">
+                                <i class="fa-solid fa-gamepad"></i>
+                            </div>
+                            <div class="min-w-0">
+                                <span data-i18n="leisure2_badge" class="inline-flex items-center gap-1 text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-purple-400/15 border border-purple-300/25 text-purple-200 mb-1">
+                                    مسابقه موبایلی
+                                </span>
+                                <h3 data-i18n="leisure2_title" class="text-base sm:text-lg font-extrabold text-white truncate">eFootball موبایل</h3>
+                            </div>
+                        </div>
+                        <span class="text-xs font-black px-2.5 py-1 rounded-lg bg-purple-400/10 border border-purple-300/20 text-purple-200 shrink-0" dir="ltr">02</span>
+                    </div>
+
+                    <p data-i18n="leisure2_desc" class="relative z-10 text-xs sm:text-sm text-slate-200/90 leading-7">
+                        چیدن ترکیب، بازی‌های تاکتیکی و رقابتی روی موبایل برای سرگرمی و استراحت ذهنی در اوقات فراغت.
+                    </p>
+
+                    <div class="relative z-10 space-y-1.5 pt-1">
+                        <div class="flex items-center justify-between text-[11px] font-bold text-purple-200/90">
+                            <span data-i18n="leisure2_stat_label">تاکتیک و هیجان مسابقه</span>
+                            <span dir="ltr">94%</span>
+                        </div>
+                        <div class="stat-bar-track">
+                            <div class="stat-bar-fill-hud"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- راه‌های ارتباط با من -->
+        <section id="contact" class="reveal contact-delbar-stage p-6 sm:p-10 space-y-9 overflow-hidden">
+            <div class="contact-delbar-grid"></div>
+            <div class="pointer-events-none absolute -top-24 -end-24 w-72 h-72 rounded-full bg-rose-400/15 blur-3xl"></div>
+            <div class="pointer-events-none absolute -bottom-24 -start-24 w-72 h-72 rounded-full bg-sky-400/15 blur-3xl"></div>
+            <div class="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 rounded-full bg-emerald-400/10 blur-3xl"></div>
+
+            <span class="delbar-corner-led top-5 start-5 bg-rose-400 shadow-[0_0_12px_#fb7185,0_0_22px_#f43f5e]"></span>
+            <span class="delbar-corner-led top-5 end-5 bg-sky-400 shadow-[0_0_12px_#38bdf8,0_0_22px_#0ea5e9]" style="animation-delay:0.5s;"></span>
+            <span class="delbar-corner-led bottom-5 start-5 bg-emerald-400 shadow-[0_0_12px_#34d399,0_0_22px_#10b981]" style="animation-delay:1s;"></span>
+            <span class="delbar-corner-led bottom-5 end-5 bg-amber-300 shadow-[0_0_12px_#fbbf24,0_0_22px_#f59e0b]" style="animation-delay:1.5s;"></span>
+
+            <div class="relative z-10 flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-pink-400/20 pb-6">
+                <div class="flex items-center gap-4">
+                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-rose-500 via-pink-500 to-sky-400 text-white flex items-center justify-center text-xl shadow-xl shadow-pink-500/30">
+                        <i class="fa-solid fa-satellite-dish"></i>
+                    </div>
+                    <div>
+                        <h2 data-i18n="contact_title" class="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white tracking-tight">راه‌های ارتباط با من</h2>
+                        <p data-i18n="contact_sub" class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-0.5">از طریق شبکه‌های اجتماعی زیر می‌توانید مستقیماً با من در تماس باشید</p>
+                    </div>
+                </div>
+
+                <div class="delbar-led-strip self-start sm:self-auto" aria-hidden="true">
+                    <span class="delbar-led-bulb b-rose"></span>
+                    <span class="delbar-led-bulb b-sky"></span>
+                    <span class="delbar-led-bulb b-emerald"></span>
+                    <span class="delbar-led-bulb b-amber"></span>
+                    <span class="delbar-led-bulb b-violet"></span>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-3 sm:gap-5">
                 <a href="https://t.me/A_farid_shirzad" target="_blank" rel="noopener noreferrer" class="social-orbit-card tg group p-4 sm:p-6 flex flex-col items-center text-center gap-3 sm:gap-4">
                     <div class="absolute -top-12 inset-x-0 mx-auto w-28 h-28 rounded-full bg-sky-400/15 blur-2xl group-hover:scale-125 transition-transform duration-500"></div>
                     <div class="relative z-10 w-16 h-16 rounded-full p-[2px] bg-gradient-to-tr from-sky-500 via-cyan-400 to-teal-300 shadow-lg shadow-sky-500/25">
@@ -1036,7 +1769,6 @@
                     </div>
                 </a>
 
-                <!-- واتساپ -->
                 <a href="https://wa.me/93795609162" target="_blank" rel="noopener noreferrer" class="social-orbit-card wa group p-4 sm:p-6 flex flex-col items-center text-center gap-3 sm:gap-4">
                     <div class="absolute -top-12 inset-x-0 mx-auto w-28 h-28 rounded-full bg-emerald-400/15 blur-2xl group-hover:scale-125 transition-transform duration-500"></div>
                     <div class="relative z-10 w-16 h-16 rounded-full p-[2px] bg-gradient-to-tr from-emerald-500 via-teal-400 to-lime-300 shadow-lg shadow-emerald-500/25">
@@ -1053,7 +1785,6 @@
                     </div>
                 </a>
 
-                <!-- اینستاگرام -->
                 <a href="https://www.instagram.com/farid___shirzad?hvrq=b3FsMjAwaWNlZjRl" target="_blank" rel="noopener noreferrer" class="social-orbit-card ig group p-4 sm:p-6 flex flex-col items-center text-center gap-3 sm:gap-4">
                     <div class="absolute -top-12 inset-x-0 mx-auto w-28 h-28 rounded-full bg-rose-400/15 blur-2xl group-hover:scale-125 transition-transform duration-500"></div>
                     <div class="relative z-10 w-16 h-16 rounded-full p-[2px] bg-gradient-to-tr from-amber-500 via-pink-500 to-purple-500 shadow-lg shadow-pink-500/25">
@@ -1070,7 +1801,6 @@
                     </div>
                 </a>
 
-                <!-- فیسبوک -->
                 <a href="https://www.facebook.com/farid.shirzad19" target="_blank" rel="noopener noreferrer" class="social-orbit-card fb group p-4 sm:p-6 flex flex-col items-center text-center gap-3 sm:gap-4">
                     <div class="absolute -top-12 inset-x-0 mx-auto w-28 h-28 rounded-full bg-blue-400/15 blur-2xl group-hover:scale-125 transition-transform duration-500"></div>
                     <div class="relative z-10 w-16 h-16 rounded-full p-[2px] bg-gradient-to-tr from-blue-600 via-sky-500 to-indigo-400 shadow-lg shadow-blue-500/25">
@@ -1086,10 +1816,8 @@
                         </span>
                     </div>
                 </a>
-
             </div>
 
-            <!-- فرم ارسال پیام مستقیم -->
             <div class="pt-7 border-t border-emerald-500/20">
                 <h3 class="font-extrabold text-lg text-slate-900 dark:text-white mb-5 flex items-center gap-2.5">
                     <span class="w-9 h-9 rounded-xl bg-emerald-500/15 border border-emerald-400/25 text-emerald-500 flex items-center justify-center text-sm">
@@ -1154,6 +1882,7 @@
                 nav_about: "بیوگرافی",
                 nav_focus: "حوزه‌های فعالیت",
                 nav_reading: "مطالعات",
+                nav_leisure: "سرگرمی",
                 nav_contact: "ارتباط",
                 nav_cta: "تماس مستقیم",
                 hero_badge_uni: "محصل طب معالجوی • پوهنتون تاج",
@@ -1214,6 +1943,17 @@
                 read4_tag: "نوآوری",
                 read4_title: "هوش مصنوعی در طب",
                 read4_desc: "بررسی نقش تکنولوژی‌های نوین در آینده تشخیص و درمان.",
+                leisure_live_tag: "حالت فراغت و رقابت",
+                leisure_title: "سرگرمی",
+                leisure_sub: "لحظه‌های پرانرژی بیرون از فضای درس و مطالعه",
+                leisure1_badge: "میدان و رفاقت",
+                leisure1_title: "فوتبال",
+                leisure1_desc: "دویدن در میدان، تحرک، روحیه تیمی و تازه کردن نفس در کنار دوستان بعد از ساعت‌های مطالعه و درس.",
+                leisure1_stat_label: "انرژی و روحیه تیمی",
+                leisure2_badge: "مسابقه موبایلی",
+                leisure2_title: "eFootball موبایل",
+                leisure2_desc: "چیدن ترکیب، بازی‌های تاکتیکی و رقابتی روی موبایل برای سرگرمی و استراحت ذهنی در اوقات فراغت.",
+                leisure2_stat_label: "تاکتیک و هیجان مسابقه",
                 contact_title: "راه‌های ارتباط با من",
                 contact_sub: "از طریق شبکه‌های اجتماعی زیر می‌توانید مستقیماً با من در تماس باشید",
                 social_telegram: "تلگرام",
@@ -1245,6 +1985,7 @@
                 nav_about: "Biography",
                 nav_focus: "Focus Areas",
                 nav_reading: "Studies",
+                nav_leisure: "Leisure",
                 nav_contact: "Contact",
                 nav_cta: "Get in Touch",
                 hero_badge_uni: "Medical Student • Taj University",
@@ -1305,6 +2046,17 @@
                 read4_tag: "Innovation",
                 read4_title: "AI in Medicine",
                 read4_desc: "Exploring the role of emerging technologies in the future of diagnosis and care.",
+                leisure_live_tag: "Leisure & Match Mode",
+                leisure_title: "Leisure & Fun",
+                leisure_sub: "Energetic moments outside studying and coursework",
+                leisure1_badge: "Pitch & Teamwork",
+                leisure1_title: "Football",
+                leisure1_desc: "Running on the pitch, staying active, team spirit, and unwinding with friends after study hours.",
+                leisure1_stat_label: "Team Energy & Stamina",
+                leisure2_badge: "Mobile Match",
+                leisure2_title: "eFootball Mobile",
+                leisure2_desc: "Building squads and playing tactical, competitive matches on mobile to unwind in free time.",
+                leisure2_stat_label: "Tactics & Match Rush",
                 contact_title: "Contact Channels",
                 contact_sub: "You can reach out to me directly through any of the channels below",
                 social_telegram: "Telegram",
@@ -1336,6 +2088,7 @@
                 nav_about: "نبذة تعريفية",
                 nav_focus: "مجالات الاهتمام",
                 nav_reading: "الدراسات",
+                nav_leisure: "الترفيه",
                 nav_contact: "تواصل",
                 nav_cta: "تواصل مباشر",
                 hero_badge_uni: "طالب طب علاجي • جامعة تاج",
@@ -1396,6 +2149,17 @@
                 read4_tag: "الابتكار",
                 read4_title: "الذكاء الاصطناعي في الطب",
                 read4_desc: "استكشاف دور التقنيات الحديثة في مستقبل التشخيص والعلاج.",
+                leisure_live_tag: "وضع الفراغ والمنافسة",
+                leisure_title: "الترفيه",
+                leisure_sub: "أوقات مليئة بالحيوية خارج أجواء الدراسة والمطالعة",
+                leisure1_badge: "الملعب والروح الجماعية",
+                leisure1_title: "كرة القدم",
+                leisure1_desc: "الحركة في الملعب والروح الجماعية وتجديد النشاط مع الأصدقاء بعد ساعات الدراسة.",
+                leisure1_stat_label: "الحيوية والروح الجماعية",
+                leisure2_badge: "مباراة الموبايل",
+                leisure2_title: "eFootball موبايل",
+                leisure2_desc: "تشكيل الفرق وخوض المباريات التكتيكية والحماسية على الموبايل للترفيه في أوقات الفراغ.",
+                leisure2_stat_label: "التكتيك وحماس المباراة",
                 contact_title: "وسائل التواصل معي",
                 contact_sub: "يمكنك التواصل معي مباشرة عبر أي من القنوات التالية",
                 social_telegram: "تيليجرام",
@@ -1560,12 +2324,19 @@
             }
         }
 
+        function igniteReadingCard(card) {
+            if (!card) return;
+            card.classList.remove('led-lit');
+            void card.offsetWidth;
+            card.classList.add('led-lit');
+        }
+
         function filterReading(category, clickedBtn) {
             document.querySelectorAll('.filter-btn').forEach((btn) => {
-                btn.classList.remove('active-filter');
+                btn.classList.remove('active-filter', 'active-led');
             });
             if (clickedBtn) {
-                clickedBtn.classList.add('active-filter');
+                clickedBtn.classList.add('active-filter', 'active-led');
             }
 
             const grid = document.getElementById('reading-cards-grid');
@@ -1575,8 +2346,13 @@
 
             document.querySelectorAll('.reading-card').forEach((card) => {
                 const cardCat = card.getAttribute('data-category');
+                card.classList.remove('led-lit');
                 if (category === 'all' || cardCat === category) {
                     card.classList.remove('hidden');
+                    if (category !== 'all' && cardCat === category) {
+                        void card.offsetWidth;
+                        card.classList.add('led-lit');
+                    }
                 } else {
                     card.classList.add('hidden');
                 }
