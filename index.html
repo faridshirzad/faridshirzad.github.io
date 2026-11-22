@@ -70,6 +70,27 @@
             background-size: 28px 28px;
         }
 
+        /* قاب مدرن و هاله چرخان عکس پروفایل */
+        @keyframes spinOrbit {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .profile-orbit-ring {
+            background: conic-gradient(from 0deg, #10b981, #2dd4bf, #38bdf8, transparent 55%, #10b981);
+            animation: spinOrbit 9s linear infinite;
+        }
+        .profile-frame {
+            box-shadow: 0 24px 55px -15px rgba(6, 11, 20, 0.65), 0 0 35px -8px rgba(16, 185, 129, 0.35);
+        }
+        .profile-sheen {
+            background: linear-gradient(120deg, transparent 25%, rgba(255, 255, 255, 0.28) 50%, transparent 75%);
+            transform: translateX(-140%);
+            transition: transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .group:hover .profile-sheen {
+            transform: translateX(140%);
+        }
+
         /* مانیتور مدرن ضربان قلب (Modern ECG Monitor) */
         .ecg-monitor {
             background: linear-gradient(135deg, rgba(16, 185, 129, 0.08), rgba(20, 184, 166, 0.04));
@@ -192,19 +213,46 @@
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row items-center gap-10 md:gap-14">
                 
-                <!-- کارت تصویر پروفایل با افکت مدرن -->
-                <div class="relative shrink-0 animate-float">
-                    <div class="absolute -inset-1.5 bg-gradient-to-tr from-emerald-500 via-teal-400 to-cyan-500 rounded-[2rem] blur opacity-60 dark:opacity-75"></div>
-                    <div class="relative w-44 h-44 sm:w-52 sm:h-52 rounded-[1.8rem] p-1.5 bg-white dark:bg-darkcard border border-slate-200 dark:border-slate-700 shadow-2xl">
-                        <img id="profile-img" 
-                             src="profile.jpg" 
-                             onerror="this.src='https://placehold.co/500x500/0d1526/10b981?text=Ahmad+Farid'"
-                             alt="احمد فرید شیرزاد" 
-                             class="w-full h-full object-cover rounded-[1.4rem]">
-                        
-                        <!-- نشان وضعیت آنلاین / محصل -->
-                        <div class="absolute -bottom-3 right-1/2 translate-x-1/2 whitespace-nowrap px-3.5 py-1 rounded-full bg-slate-900 dark:bg-emerald-950 border border-emerald-500/40 text-emerald-400 text-xs font-semibold shadow-lg flex items-center gap-1.5">
-                            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                <!-- کارت تصویر پروفایل فوق‌مدرن (Modern Glass & Orbit Profile Card) -->
+                <div class="relative shrink-0 group animate-float select-none">
+                    <!-- هاله نوری نرم پشت قاب -->
+                    <div class="absolute -inset-4 rounded-[2.6rem] bg-gradient-to-tr from-emerald-500/35 via-teal-400/25 to-cyan-500/35 blur-2xl opacity-75 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                    <!-- قاب چرخان گرادیان -->
+                    <div class="relative w-48 h-48 sm:w-56 sm:h-56 rounded-[2.2rem] p-[2.5px] overflow-hidden profile-frame">
+                        <div class="absolute inset-[-50%] profile-orbit-ring opacity-90 group-hover:opacity-100 transition-opacity"></div>
+
+                        <!-- بدنه شیشه‌ای داخلی -->
+                        <div class="relative w-full h-full rounded-[2.05rem] p-2 bg-white/90 dark:bg-darkcard/95 backdrop-blur-xl">
+                            <div class="relative w-full h-full rounded-[1.6rem] overflow-hidden ring-1 ring-emerald-500/25">
+                                <img id="profile-img" 
+                                     src="profile.jpg" 
+                                     onerror="this.src='https://placehold.co/500x500/0d1526/10b981?text=Ahmad+Farid'"
+                                     alt="احمد فرید شیرزاد" 
+                                     class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105">
+                                
+                                <!-- گرادیان ظریف پایین عکس و افکت بازتاب نوری هنگام هاور -->
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/55 via-transparent to-transparent pointer-events-none"></div>
+                                <div class="absolute inset-0 profile-sheen pointer-events-none"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- بج شناور بالا (نشان علمی / طب) -->
+                    <div class="absolute -top-3 -start-3 px-3 py-1.5 rounded-2xl glass border border-emerald-400/40 shadow-lg shadow-emerald-950/20 flex items-center gap-1.5 backdrop-blur-xl transition-transform duration-300 group-hover:-translate-y-0.5" dir="ltr">
+                        <span class="w-6 h-6 rounded-lg bg-gradient-to-br from-emerald-500 to-teal-500 text-white flex items-center justify-center text-[11px] shadow-sm">
+                            <i class="fa-solid fa-heart-pulse"></i>
+                        </span>
+                        <span class="text-[11px] font-extrabold tracking-wide text-slate-800 dark:text-emerald-300">MD • TAJ</span>
+                    </div>
+
+                    <!-- نشان وضعیت شناور پایین عکس -->
+                    <div class="absolute -bottom-3.5 inset-x-0 flex justify-center">
+                        <div class="whitespace-nowrap px-4 py-1.5 rounded-2xl bg-slate-900/95 dark:bg-emerald-950/90 backdrop-blur-xl border border-emerald-400/40 text-emerald-300 text-xs font-bold shadow-xl shadow-emerald-950/30 flex items-center gap-2">
+                            <span class="relative flex h-2.5 w-2.5">
+                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-400"></span>
+                            </span>
                             <span data-i18n="hero_badge_uni">محصل طب معالجوی • پوهنتون تاج</span>
                         </div>
                     </div>
