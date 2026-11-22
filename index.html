@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>احمد فرید شیرزاد | محصل طب معالجوی، پژوهشگر و پروفایل رسمی</title>
+    <title>احمد فرید شیرزاد | محصل طب، پژوهشگر و پروفایل رسمی</title>
     <meta name="description" content="پروفایل رسمی و شخصی احمد فرید شیرزاد - محصل طب پوهنتون تاج، علاقه‌مند به علم، دانش، پژوهش و مطالعات اسلامی.">
     <meta name="keywords" content="احمد فرید شیرزاد, محصل طب, پوهنتون تاج, مزار شریف, بیوگرافی احمد فرید شیرزاد">
     
@@ -70,16 +70,45 @@
             background-size: 28px 28px;
         }
 
-        /* خط ضربان قلب (ECG) */
-        .ecg-line {
-            stroke-dasharray: 1000;
-            stroke-dashoffset: 1000;
-            animation: dash 3.5s linear infinite;
+        /* مانیتور مدرن ضربان قلب (Modern ECG Monitor) */
+        .ecg-monitor {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.08), rgba(20, 184, 166, 0.04));
+            border: 1px solid rgba(16, 185, 129, 0.25);
+            box-shadow: inset 0 0 24px rgba(16, 185, 129, 0.06), 0 10px 25px -10px rgba(16, 185, 129, 0.25);
         }
-        @keyframes dash {
-            to {
+        .dark .ecg-monitor {
+            background: linear-gradient(135deg, rgba(6, 18, 24, 0.9), rgba(10, 28, 34, 0.75));
+            border: 1px solid rgba(52, 211, 153, 0.25);
+        }
+        .ecg-wave-path {
+            stroke-dasharray: 260 540;
+            stroke-dashoffset: 800;
+            animation: ecgSweep 2.4s linear infinite;
+            filter: drop-shadow(0 0 6px rgba(16, 185, 129, 0.75));
+        }
+        .ecg-base-path {
+            opacity: 0.22;
+        }
+        @keyframes ecgSweep {
+            0% {
+                stroke-dashoffset: 800;
+            }
+            100% {
                 stroke-dashoffset: 0;
             }
+        }
+        @keyframes beatPing {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.45);
+                opacity: 0.55;
+            }
+        }
+        .heartbeat-dot {
+            animation: beatPing 1.1s ease-in-out infinite;
         }
 
         /* انیمیشن ظاهر شدن بخش‌ها هنگام اسکرول */
@@ -203,11 +232,26 @@
                         علاقه‌مند به علوم طبی، پژوهش‌های علمی، زبان عربی و مطالعه کتب اسلامی. این فضا برای به اشتراک‌گذاری مسیر علمی، دیدگاه‌ها و ایجاد پل ارتباطی مستقیم طراحی شده است.
                     </p>
 
-                    <!-- خط ضربان قلب تزئینی (ECG SVG) -->
-                    <div class="max-w-xs mx-auto md:mx-0 opacity-70">
-                        <svg viewBox="0 0 300 40" class="w-full h-8 stroke-emerald-500 fill-none" stroke-width="2">
-                            <path class="ecg-line" d="M0,20 L70,20 L80,10 L90,30 L100,5 L110,35 L120,20 L180,20 L190,12 L200,28 L210,20 L300,20" />
-                        </svg>
+                    <!-- مانیتور مدرن ضربان قلب (Modern ECG Strip) -->
+                    <div class="max-w-md mx-auto md:mx-0 ecg-monitor rounded-2xl px-3.5 py-2.5 flex items-center gap-3 backdrop-blur-md">
+                        <div class="flex items-center gap-1.5 shrink-0 text-[11px] font-bold text-emerald-600 dark:text-emerald-400" dir="ltr">
+                            <span class="w-2 h-2 rounded-full bg-emerald-400 heartbeat-dot"></span>
+                            <span>72 BPM</span>
+                        </div>
+                        <div class="relative flex-1 h-9 overflow-hidden rounded-xl">
+                            <svg viewBox="0 0 420 56" class="w-full h-full fill-none" preserveAspectRatio="none">
+                                <defs>
+                                    <linearGradient id="ecgGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                        <stop offset="0%" stop-color="#10b981" />
+                                        <stop offset="55%" stop-color="#2dd4bf" />
+                                        <stop offset="100%" stop-color="#38bdf8" />
+                                    </linearGradient>
+                                </defs>
+                                <path class="ecg-base-path stroke-emerald-500" stroke-width="1.6" d="M0,28 L65,28 L76,22 L86,28 L102,28 L112,11 L122,46 L133,6 L143,49 L154,28 L174,28 L186,19 L198,28 L275,28 L286,22 L296,28 L312,28 L322,11 L332,46 L343,6 L353,49 L364,28 L384,28 L396,19 L408,28 L420,28" />
+                                <path class="ecg-wave-path" stroke="url(#ecgGradient)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M0,28 L65,28 L76,22 L86,28 L102,28 L112,11 L122,46 L133,6 L143,49 L154,28 L174,28 L186,19 L198,28 L275,28 L286,22 L296,28 L312,28 L322,11 L332,46 L343,6 L353,49 L364,28 L384,28 L396,19 L408,28 L420,28" />
+                            </svg>
+                        </div>
+                        <span class="hidden sm:inline-block shrink-0 text-[10px] font-semibold tracking-wider uppercase text-teal-600 dark:text-teal-300/80" dir="ltr">ECG • SINUS</span>
                     </div>
 
                     <!-- دکمه‌های اصلی -->
