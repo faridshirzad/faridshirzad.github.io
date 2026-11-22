@@ -412,18 +412,54 @@
                     </div>
                 </div>
 
-                <!-- گرید اطلاعات سریع (Bento Cards) -->
-                <div class="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
-                    <div class="glass rounded-2xl p-4 border border-slate-200/80 dark:border-slate-800/80 flex items-center gap-4 hover:border-emerald-500/50 transition-colors">
-                        <div class="w-12 h-12 rounded-xl bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-xl shrink-0">
-                            <i class="fa-solid fa-graduation-cap"></i>
-                        </div>
-                        <div>
-                            <span data-i18n="info_uni_label" class="block text-xs text-slate-400">رشته و پوهنتون</span>
-                            <span data-i18n="info_uni_val" class="font-bold text-sm sm:text-base text-slate-900 dark:text-white">محصل طب — پوهنتون تاج</span>
+                <!-- گرید اطلاعات سریع (Bento Cards با قابلیت باز شدن جزئیات) -->
+                <div class="lg:col-span-5 grid grid-cols-1 gap-4">
+
+                    <!-- ۱. رشته و پوهنتون (کلیک‌شونده برای باز شدن جزئیات) -->
+                    <div class="glass rounded-2xl border border-slate-200/80 dark:border-slate-800/80 hover:border-emerald-500/50 transition-all overflow-hidden">
+                        <button type="button" onclick="toggleInfoPanel('uni-details', 'uni-chevron')" aria-expanded="false" aria-controls="uni-details" class="w-full p-4 flex items-center justify-between gap-3 text-start cursor-pointer">
+                            <div class="flex items-center gap-4 min-w-0">
+                                <div class="w-12 h-12 rounded-xl bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-xl shrink-0">
+                                    <i class="fa-solid fa-graduation-cap"></i>
+                                </div>
+                                <div class="min-w-0">
+                                    <span data-i18n="info_uni_label" class="block text-xs text-slate-400">رشته و پوهنتون</span>
+                                    <span data-i18n="info_uni_val" class="font-bold text-sm sm:text-base text-slate-900 dark:text-white">محصل طب — پوهنتون تاج</span>
+                                </div>
+                            </div>
+                            <i id="uni-chevron" class="fa-solid fa-chevron-down text-xs text-emerald-600 dark:text-emerald-400 transition-transform duration-300 shrink-0"></i>
+                        </button>
+                        <div id="uni-details" class="hidden px-4 pb-4 pt-1 border-t border-slate-200/60 dark:border-slate-800/80">
+                            <div class="mt-2.5 p-3.5 rounded-xl bg-emerald-500/10 dark:bg-emerald-500/15 text-xs sm:text-sm text-slate-700 dark:text-emerald-100 space-y-1.5 leading-relaxed">
+                                <p data-i18n="uni_entry_year"><strong class="text-emerald-700 dark:text-emerald-300">سال شمولیت به پوهنتون:</strong> ۱۴۰۲ هـ.ش</p>
+                                <p data-i18n="uni_current_sem"><strong class="text-emerald-700 dark:text-emerald-300">سمستر فعلی:</strong> سمستر هفتم استم</p>
+                            </div>
                         </div>
                     </div>
 
+                    <!-- ۲. مکتب (جدید و کلیک‌شونده برای باز شدن جزئیات) -->
+                    <div class="glass rounded-2xl border border-slate-200/80 dark:border-slate-800/80 hover:border-amber-500/50 transition-all overflow-hidden">
+                        <button type="button" onclick="toggleInfoPanel('school-details', 'school-chevron')" aria-expanded="false" aria-controls="school-details" class="w-full p-4 flex items-center justify-between gap-3 text-start cursor-pointer">
+                            <div class="flex items-center gap-4 min-w-0">
+                                <div class="w-12 h-12 rounded-xl bg-amber-500/15 text-amber-600 dark:text-amber-400 flex items-center justify-center text-xl shrink-0">
+                                    <i class="fa-solid fa-school"></i>
+                                </div>
+                                <div class="min-w-0">
+                                    <span data-i18n="info_school_label" class="block text-xs text-slate-400">مکتب</span>
+                                    <span data-i18n="info_school_val" class="font-bold text-sm sm:text-base text-slate-900 dark:text-white">لیسه عالی تجربوی عربخانه</span>
+                                </div>
+                            </div>
+                            <i id="school-chevron" class="fa-solid fa-chevron-down text-xs text-amber-600 dark:text-amber-400 transition-transform duration-300 shrink-0"></i>
+                        </button>
+                        <div id="school-details" class="hidden px-4 pb-4 pt-1 border-t border-slate-200/60 dark:border-slate-800/80">
+                            <div class="mt-2.5 p-3.5 rounded-xl bg-amber-500/10 dark:bg-amber-500/15 text-xs sm:text-sm text-slate-700 dark:text-amber-100 space-y-1.5 leading-relaxed">
+                                <p data-i18n="school_entry_year"><strong class="text-amber-700 dark:text-amber-300">سال شمولیت:</strong> ۱۳۹۰ هـ.ش</p>
+                                <p data-i18n="school_grad_year"><strong class="text-amber-700 dark:text-amber-300">سال فراغت:</strong> ۱۴۰۱ هـ.ش</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ۳. موقعیت جغرافیایی -->
                     <div class="glass rounded-2xl p-4 border border-slate-200/80 dark:border-slate-800/80 flex items-center gap-4 hover:border-teal-500/50 transition-colors">
                         <div class="w-12 h-12 rounded-xl bg-teal-500/15 text-teal-600 dark:text-teal-400 flex items-center justify-center text-xl shrink-0">
                             <i class="fa-solid fa-location-dot"></i>
@@ -434,6 +470,7 @@
                         </div>
                     </div>
 
+                    <!-- ۴. زبان‌ها -->
                     <div class="glass rounded-2xl p-4 border border-slate-200/80 dark:border-slate-800/80 flex items-center gap-4 hover:border-cyan-500/50 transition-colors">
                         <div class="w-12 h-12 rounded-xl bg-cyan-500/15 text-cyan-600 dark:text-cyan-400 flex items-center justify-center text-xl shrink-0">
                             <i class="fa-solid fa-language"></i>
@@ -444,6 +481,7 @@
                         </div>
                     </div>
 
+                    <!-- ۵. تمرکز اصلی -->
                     <div class="glass rounded-2xl p-4 border border-slate-200/80 dark:border-slate-800/80 flex items-center gap-4 hover:border-indigo-500/50 transition-colors">
                         <div class="w-12 h-12 rounded-xl bg-indigo-500/15 text-indigo-600 dark:text-indigo-400 flex items-center justify-center text-xl shrink-0">
                             <i class="fa-solid fa-microscope"></i>
@@ -645,97 +683,56 @@
                 </div>
             </div>
 
-            <!-- کارت‌های شبکه‌های اجتماعی -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                
-                <!-- ایمیل -->
-                <div class="group p-4 rounded-2xl bg-white/60 dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800 hover:border-rose-500/60 transition-all flex items-center justify-between gap-3">
-                    <a href="mailto:faridlim973@gmail.com" class="flex items-center gap-3.5 min-w-0 flex-1">
-                        <div class="w-11 h-11 rounded-xl bg-rose-500/15 text-rose-500 group-hover:bg-rose-500 group-hover:text-white transition-colors flex items-center justify-center text-lg shrink-0">
-                            <i class="fa-solid fa-envelope"></i>
-                        </div>
-                        <div class="min-w-0">
-                            <span data-i18n="social_email" class="block text-sm font-bold text-slate-900 dark:text-white">ایمیل آدرس</span>
-                            <span class="block text-xs text-slate-500 truncate" dir="ltr">faridlim973@gmail.com</span>
-                            <span id="email-text" class="hidden">faridlim973@gmail.com</span>
-                        </div>
-                    </a>
-                    <button onclick="copyText('email-text', 'copy_email')" class="w-9 h-9 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-rose-500 hover:text-white text-slate-600 dark:text-slate-300 transition-colors flex items-center justify-center cursor-pointer shrink-0" title="کپی کردن ایمیل">
-                        <i class="fa-regular fa-copy text-xs"></i>
-                    </button>
-                </div>
+            <!-- کارت‌های شبکه‌های اجتماعی (فقط نام اپلیکیشن بدون نمایش آیدی/شماره) -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
 
                 <!-- تلگرام -->
-                <div class="group p-4 rounded-2xl bg-white/60 dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800 hover:border-sky-500/60 transition-all flex items-center justify-between gap-3">
-                    <a href="https://t.me/A_farid_shirzad" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3.5 min-w-0 flex-1">
+                <a href="https://t.me/A_farid_shirzad" target="_blank" rel="noopener noreferrer" class="group p-4 rounded-2xl bg-white/60 dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800 hover:border-sky-500/60 transition-all flex items-center justify-between gap-3">
+                    <div class="flex items-center gap-3.5">
                         <div class="w-11 h-11 rounded-xl bg-sky-500/15 text-sky-500 group-hover:bg-sky-500 group-hover:text-white transition-colors flex items-center justify-center text-lg shrink-0">
                             <i class="fa-brands fa-telegram"></i>
                         </div>
-                        <div class="min-w-0">
-                            <span data-i18n="social_telegram" class="block text-sm font-bold text-slate-900 dark:text-white">تلگرام</span>
-                            <span class="block text-xs text-slate-500 truncate" dir="ltr">@A_farid_shirzad</span>
-                            <span id="telegram-text" class="hidden">https://t.me/A_farid_shirzad</span>
-                        </div>
-                    </a>
-                    <button onclick="copyText('telegram-text', 'copy_telegram')" class="w-9 h-9 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-sky-500 hover:text-white text-slate-600 dark:text-slate-300 transition-colors flex items-center justify-center cursor-pointer shrink-0" title="کپی لینک تلگرام">
-                        <i class="fa-regular fa-copy text-xs"></i>
-                    </button>
-                </div>
+                        <span data-i18n="social_telegram" class="text-sm font-bold text-slate-900 dark:text-white">تلگرام</span>
+                    </div>
+                    <i class="fa-solid fa-arrow-up-left text-xs text-slate-400 group-hover:text-sky-500 transition-colors"></i>
+                </a>
 
                 <!-- واتساپ -->
-                <div class="group p-4 rounded-2xl bg-white/60 dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800 hover:border-emerald-500/60 transition-all flex items-center justify-between gap-3">
-                    <a href="https://wa.me/93795609162" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3.5 min-w-0 flex-1">
+                <a href="https://wa.me/93795609162" target="_blank" rel="noopener noreferrer" class="group p-4 rounded-2xl bg-white/60 dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800 hover:border-emerald-500/60 transition-all flex items-center justify-between gap-3">
+                    <div class="flex items-center gap-3.5">
                         <div class="w-11 h-11 rounded-xl bg-emerald-500/15 text-emerald-500 group-hover:bg-emerald-500 group-hover:text-white transition-colors flex items-center justify-center text-lg shrink-0">
                             <i class="fa-brands fa-whatsapp"></i>
                         </div>
-                        <div class="min-w-0">
-                            <span data-i18n="social_whatsapp" class="block text-sm font-bold text-slate-900 dark:text-white">واتساپ</span>
-                            <span class="block text-xs text-slate-500 truncate" dir="ltr">+93 79 560 9162</span>
-                            <span id="whatsapp-text" class="hidden">https://wa.me/93795609162</span>
-                        </div>
-                    </a>
-                    <button onclick="copyText('whatsapp-text', 'copy_whatsapp')" class="w-9 h-9 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-emerald-500 hover:text-white text-slate-600 dark:text-slate-300 transition-colors flex items-center justify-center cursor-pointer shrink-0" title="کپی لینک واتساپ">
-                        <i class="fa-regular fa-copy text-xs"></i>
-                    </button>
-                </div>
+                        <span data-i18n="social_whatsapp" class="text-sm font-bold text-slate-900 dark:text-white">واتساپ</span>
+                    </div>
+                    <i class="fa-solid fa-arrow-up-left text-xs text-slate-400 group-hover:text-emerald-500 transition-colors"></i>
+                </a>
 
                 <!-- اینستاگرام -->
-                <div class="group p-4 rounded-2xl bg-white/60 dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800 hover:border-pink-500/60 transition-all flex items-center justify-between gap-3">
-                    <a href="https://www.instagram.com/farid___shirzad?hvrq=b3FsMjAwaWNlZjRl" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3.5 min-w-0 flex-1">
+                <a href="https://www.instagram.com/farid___shirzad?hvrq=b3FsMjAwaWNlZjRl" target="_blank" rel="noopener noreferrer" class="group p-4 rounded-2xl bg-white/60 dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800 hover:border-pink-500/60 transition-all flex items-center justify-between gap-3">
+                    <div class="flex items-center gap-3.5">
                         <div class="w-11 h-11 rounded-xl bg-pink-500/15 text-pink-500 group-hover:bg-pink-500 group-hover:text-white transition-colors flex items-center justify-center text-lg shrink-0">
                             <i class="fa-brands fa-instagram"></i>
                         </div>
-                        <div class="min-w-0">
-                            <span data-i18n="social_instagram" class="block text-sm font-bold text-slate-900 dark:text-white">اینستاگرام</span>
-                            <span class="block text-xs text-slate-500 truncate" dir="ltr">@farid___shirzad</span>
-                            <span id="instagram-text" class="hidden">https://www.instagram.com/farid___shirzad?hvrq=b3FsMjAwaWNlZjRl</span>
-                        </div>
-                    </a>
-                    <button onclick="copyText('instagram-text', 'copy_instagram')" class="w-9 h-9 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-pink-500 hover:text-white text-slate-600 dark:text-slate-300 transition-colors flex items-center justify-center cursor-pointer shrink-0" title="کپی لینک اینستاگرام">
-                        <i class="fa-regular fa-copy text-xs"></i>
-                    </button>
-                </div>
+                        <span data-i18n="social_instagram" class="text-sm font-bold text-slate-900 dark:text-white">اینستاگرام</span>
+                    </div>
+                    <i class="fa-solid fa-arrow-up-left text-xs text-slate-400 group-hover:text-pink-500 transition-colors"></i>
+                </a>
 
                 <!-- فیسبوک -->
-                <div class="group p-4 rounded-2xl bg-white/60 dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800 hover:border-blue-500/60 transition-all flex items-center justify-between gap-3">
-                    <a href="https://www.facebook.com/farid.shirzad19" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3.5 min-w-0 flex-1">
+                <a href="https://www.facebook.com/farid.shirzad19" target="_blank" rel="noopener noreferrer" class="group p-4 rounded-2xl bg-white/60 dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800 hover:border-blue-500/60 transition-all flex items-center justify-between gap-3">
+                    <div class="flex items-center gap-3.5">
                         <div class="w-11 h-11 rounded-xl bg-blue-500/15 text-blue-500 group-hover:bg-blue-500 group-hover:text-white transition-colors flex items-center justify-center text-lg shrink-0">
                             <i class="fa-brands fa-facebook-f"></i>
                         </div>
-                        <div class="min-w-0">
-                            <span data-i18n="social_facebook" class="block text-sm font-bold text-slate-900 dark:text-white">فیسبوک</span>
-                            <span class="block text-xs text-slate-500 truncate" dir="ltr">farid.shirzad19</span>
-                            <span id="facebook-text" class="hidden">https://www.facebook.com/farid.shirzad19</span>
-                        </div>
-                    </a>
-                    <button onclick="copyText('facebook-text', 'copy_facebook')" class="w-9 h-9 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-blue-500 hover:text-white text-slate-600 dark:text-slate-300 transition-colors flex items-center justify-center cursor-pointer shrink-0" title="کپی لینک فیسبوک">
-                        <i class="fa-regular fa-copy text-xs"></i>
-                    </button>
-                </div>
+                        <span data-i18n="social_facebook" class="text-sm font-bold text-slate-900 dark:text-white">فیسبوک</span>
+                    </div>
+                    <i class="fa-solid fa-arrow-up-left text-xs text-slate-400 group-hover:text-blue-500 transition-colors"></i>
+                </a>
 
             </div>
 
-            <!-- فرم ارسال پیام مستقیم (متصل به ایمیل واقعی + دکمه سریع واتساپ) -->
+            <!-- فرم ارسال پیام مستقیم (متصل به ایمیل واقعی) -->
             <div class="pt-6 border-t border-slate-200/70 dark:border-slate-800">
                 <h3 class="font-bold text-lg text-slate-900 dark:text-white mb-4 flex items-center gap-2">
                     <i class="fa-solid fa-envelope-open-text text-emerald-500"></i>
@@ -754,11 +751,7 @@
                         <label for="sender-message" data-i18n="form_msg_label" class="block text-xs font-semibold text-slate-600 dark:text-slate-400 mb-1.5">متن پیام</label>
                         <textarea id="sender-message" rows="3" required placeholder="پیام خود را اینجا بنویسید..." class="w-full px-4 py-3 rounded-xl bg-white/80 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-700 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none text-sm transition-all text-slate-900 dark:text-white"></textarea>
                     </div>
-                    <div class="sm:col-span-2 flex flex-wrap items-center justify-end gap-3">
-                        <a href="https://wa.me/93795609162" target="_blank" rel="noopener noreferrer" class="px-5 py-3.5 rounded-xl bg-emerald-500/15 hover:bg-emerald-500/25 text-emerald-700 dark:text-emerald-300 border border-emerald-500/30 font-bold text-sm transition-all flex items-center gap-2">
-                            <i class="fa-brands fa-whatsapp text-base"></i>
-                            <span data-i18n="form_whatsapp">پیام در واتساپ</span>
-                        </a>
+                    <div class="sm:col-span-2 flex justify-end">
                         <button type="submit" class="px-7 py-3.5 rounded-xl bg-gradient-to-l from-emerald-600 to-teal-500 hover:from-emerald-500 hover:to-teal-400 text-white font-bold text-sm transition-all shadow-lg shadow-emerald-600/25 cursor-pointer flex items-center gap-2">
                             <i class="fa-solid fa-paper-plane"></i>
                             <span data-i18n="form_submit">ارسال از طریق ایمیل</span>
@@ -819,6 +812,12 @@
                 about_quote: "«طلب علم عبادت است؛ هر گامی که در راه دانش و شناخت برداشته می‌شود، نوری است برای روشن‌تر ساختن آینده خود و جامعه.»",
                 info_uni_label: "رشته و پوهنتون",
                 info_uni_val: "محصل طب — پوهنتون تاج",
+                uni_entry_year: '<strong class="text-emerald-700 dark:text-emerald-300">سال شمولیت به پوهنتون:</strong> ۱۴۰۲ هـ.ش',
+                uni_current_sem: '<strong class="text-emerald-700 dark:text-emerald-300">سمستر فعلی:</strong> سمستر هفتم استم',
+                info_school_label: "مکتب",
+                info_school_val: "لیسه عالی تجربوی عربخانه",
+                school_entry_year: '<strong class="text-amber-700 dark:text-amber-300">سال شمولیت:</strong> ۱۳۹۰ هـ.ش',
+                school_grad_year: '<strong class="text-amber-700 dark:text-amber-300">سال فراغت:</strong> ۱۴۰۱ هـ.ش',
                 info_loc_label: "موقعیت جغرافیایی",
                 info_loc_val: "میمنه، فاریاب، افغانستان",
                 info_lang_label: "زبان‌ها",
@@ -861,16 +860,10 @@
                 read4_desc: "بررسی نقش تکنولوژی‌های نوین در آینده تشخیص و درمان.",
                 contact_title: "راه‌های ارتباط با من",
                 contact_sub: "از طریق شبکه‌های اجتماعی زیر می‌توانید مستقیماً با من در تماس باشید",
-                social_email: "ایمیل آدرس",
                 social_telegram: "تلگرام",
                 social_whatsapp: "واتساپ",
                 social_instagram: "اینستاگرام",
                 social_facebook: "فیسبوک",
-                copy_email: "ایمیل آدرس کپی شد!",
-                copy_telegram: "لینک تلگرام کپی شد!",
-                copy_whatsapp: "لینک واتساپ کپی شد!",
-                copy_instagram: "لینک اینستاگرام کپی شد!",
-                copy_facebook: "لینک فیسبوک کپی شد!",
                 form_title: "ارسال پیام مستقیم به ایمیل",
                 form_name_label: "نام شما",
                 form_name_placeholder: "نام خود را بنویسید...",
@@ -878,7 +871,6 @@
                 form_subject_placeholder: "مثلاً: پرسش علمی، همکاری...",
                 form_msg_label: "متن پیام",
                 form_msg_placeholder: "پیام خود را اینجا بنویسید...",
-                form_whatsapp: "پیام در واتساپ",
                 form_submit: "ارسال از طریق ایمیل",
                 form_sent_toast: (name) => `سپاس ${name} عزیز! برنامه ایمیل شما باز شد.`,
                 footer_rights: '© ۱۴۰۵ — تمامی حقوق این صفحه متعلق به <strong class="text-slate-800 dark:text-white">احمد فرید شیرزاد</strong> است.',
@@ -914,6 +906,12 @@
                 about_quote: "“Seeking knowledge is an act of worship; every step taken on the path of learning and discovery is a light to brighten one’s future and society.”",
                 info_uni_label: "Major & University",
                 info_uni_val: "Medical Student — Taj University",
+                uni_entry_year: '<strong class="text-emerald-700 dark:text-emerald-300">University Enrollment Year:</strong> 1402 SH',
+                uni_current_sem: '<strong class="text-emerald-700 dark:text-emerald-300">Current Semester:</strong> 7th Semester',
+                info_school_label: "High School",
+                info_school_val: "Arabkhana Experimental High School",
+                school_entry_year: '<strong class="text-amber-700 dark:text-amber-300">Enrollment Year:</strong> 1390 SH',
+                school_grad_year: '<strong class="text-amber-700 dark:text-amber-300">Graduation Year:</strong> 1401 SH',
                 info_loc_label: "Location",
                 info_loc_val: "Maymana, Faryab, Afghanistan",
                 info_lang_label: "Languages",
@@ -956,16 +954,10 @@
                 read4_desc: "Exploring the role of emerging technologies in the future of diagnosis and care.",
                 contact_title: "Contact Channels",
                 contact_sub: "You can reach out to me directly through any of the channels below",
-                social_email: "Email Address",
                 social_telegram: "Telegram",
                 social_whatsapp: "WhatsApp",
                 social_instagram: "Instagram",
                 social_facebook: "Facebook",
-                copy_email: "Email address copied!",
-                copy_telegram: "Telegram link copied!",
-                copy_whatsapp: "WhatsApp link copied!",
-                copy_instagram: "Instagram link copied!",
-                copy_facebook: "Facebook link copied!",
                 form_title: "Send a Direct Email Message",
                 form_name_label: "Your Name",
                 form_name_placeholder: "Enter your name...",
@@ -973,7 +965,6 @@
                 form_subject_placeholder: "e.g., Academic inquiry, collaboration...",
                 form_msg_label: "Message",
                 form_msg_placeholder: "Write your message here...",
-                form_whatsapp: "Message on WhatsApp",
                 form_submit: "Send via Email",
                 form_sent_toast: (name) => `Thank you, ${name}! Your email client has been opened.`,
                 footer_rights: '© 2026 — All rights reserved for <strong class="text-slate-800 dark:text-white">Ahmad Farid Shirzad</strong>.',
@@ -1009,6 +1000,12 @@
                 about_quote: "«طلب العلم عبادة؛ فكل خطوة في طريق المعرفة والفهم نور يضيء المستقبل للفرد والمجتمع.»",
                 info_uni_label: "التخصص والجامعة",
                 info_uni_val: "طالب طب — جامعة تاج",
+                uni_entry_year: '<strong class="text-emerald-700 dark:text-emerald-300">سنة الالتحاق بالجامعة:</strong> ۱۴۰۲ هـ.ش',
+                uni_current_sem: '<strong class="text-emerald-700 dark:text-emerald-300">الفصل الدراسي الحالي:</strong> الفصل السابع',
+                info_school_label: "المدرسة",
+                info_school_val: "ثانوية عربخانة التجريبية",
+                school_entry_year: '<strong class="text-amber-700 dark:text-amber-300">سنة الالتحاق:</strong> ۱۳۹۰ هـ.ش',
+                school_grad_year: '<strong class="text-amber-700 dark:text-amber-300">سنة التخرج:</strong> ۱۴۰۱ هـ.ش',
                 info_loc_label: "الموقع الجغرافي",
                 info_loc_val: "ميمنة، فارياب، أفغانستان",
                 info_lang_label: "اللغات",
@@ -1051,16 +1048,10 @@
                 read4_desc: "استكشاف دور التقنيات الحديثة في مستقبل التشخيص والعلاج.",
                 contact_title: "وسائل التواصل معي",
                 contact_sub: "يمكنك التواصل معي مباشرة عبر أي من القنوات التالية",
-                social_email: "البريد الإلكتروني",
                 social_telegram: "تيليجرام",
                 social_whatsapp: "واتساب",
                 social_instagram: "إنستغرام",
                 social_facebook: "فيسبوك",
-                copy_email: "تم نسخ البريد الإلكتروني!",
-                copy_telegram: "تم نسخ رابط تيليجرام!",
-                copy_whatsapp: "تم نسخ رابط واتساب!",
-                copy_instagram: "تم نسخ رابط إنستغرام!",
-                copy_facebook: "تم نسخ رابط فيسبوك!",
                 form_title: "إرسال رسالة مباشرة عبر البريد الإلكتروني",
                 form_name_label: "اسمك",
                 form_name_placeholder: "اكتب اسمك هنا...",
@@ -1068,7 +1059,6 @@
                 form_subject_placeholder: "مثال: استفسار علمي، تعاون...",
                 form_msg_label: "نص الرسالة",
                 form_msg_placeholder: "اكتب رسالتك هنا...",
-                form_whatsapp: "رسالة على واتساب",
                 form_submit: "إرسال عبر البريد الإلكتروني",
                 form_sent_toast: (name) => `شكراً لك يا ${name}! تم فتح تطبيق البريد الإلكتروني.`,
                 footer_rights: '© 2026 — جميع الحقوق محفوظة لـ <strong class="text-slate-800 dark:text-white">أحمد فريد شيرزاد</strong>.',
@@ -1129,6 +1119,22 @@
             isDeleting = false;
             if (typewriterTimer) clearTimeout(typewriterTimer);
             typeEffect();
+        }
+
+        // باز و بسته کردن جزئیات پوهنتون و مکتب
+        function toggleInfoPanel(panelId, chevronId) {
+            const panel = document.getElementById(panelId);
+            const chevron = document.getElementById(chevronId);
+            if (!panel) return;
+            const isHidden = panel.classList.contains('hidden');
+            panel.classList.toggle('hidden');
+            if (chevron) {
+                chevron.classList.toggle('rotate-180', isHidden);
+            }
+            const btn = panel.previousElementSibling;
+            if (btn) {
+                btn.setAttribute('aria-expanded', String(isHidden));
+            }
         }
 
         // منوی موبایل
@@ -1243,25 +1249,6 @@
             setTimeout(() => {
                 toast.classList.add('translate-y-24', 'opacity-0');
             }, 3000);
-        }
-
-        // کپی کردن متن (با پشتیبانی مدرن و قدیمی)
-        function copyText(elementId, messageKey) {
-            const text = document.getElementById(elementId).textContent.trim();
-            const msg = translations[currentLang][messageKey] || messageKey;
-            if (navigator.clipboard && window.isSecureContext) {
-                navigator.clipboard.writeText(text).then(() => {
-                    showToast(msg);
-                });
-            } else {
-                const tempInput = document.createElement('textarea');
-                tempInput.value = text;
-                document.body.appendChild(tempInput);
-                tempInput.select();
-                document.execCommand('copy');
-                document.body.removeChild(tempInput);
-                showToast(msg);
-            }
         }
 
         // ارسال واقعی پیام از طریق برنامه ایمیل کاربر
