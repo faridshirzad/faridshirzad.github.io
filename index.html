@@ -170,7 +170,16 @@
             background: linear-gradient(to left, #059669, #14b8a6);
             color: #ffffff;
             border-color: transparent;
-            box-shadow: 0 8px 20px -6px rgba(16, 185, 129, 0.45);
+            box-shadow: 0 8px 20px -6px rgba(16, 185, 129, 0.5);
+        }
+
+        /* کارت افقی مدرن محورهای مطالعه */
+        .reading-horizontal-card {
+            position: relative;
+            transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.35s ease, box-shadow 0.35s ease;
+        }
+        .reading-horizontal-card:hover {
+            transform: translateY(-4px);
         }
 
         /* انیمیشن ظاهر شدن بخش‌ها هنگام اسکرول */
@@ -198,9 +207,6 @@
     </style>
 </head>
 <body class="med-bg-canvas text-slate-800 dark:text-slate-200 font-sans antialiased selection:bg-emerald-500 selection:text-white transition-colors duration-300 overflow-x-hidden">
-
-    <!-- عنصر صوتی نشید (فایل nasheed.mp3 را در کنار index.html قرار بده) -->
-    <audio id="nasheed-audio" src="nasheed.mp3" loop preload="metadata"></audio>
 
     <!-- نوار پیشرفت مطالعه در لبه بالای صفحه -->
     <div class="fixed top-0 inset-x-0 h-1 bg-slate-200/40 dark:bg-slate-900/60 z-[60] pointer-events-none">
@@ -622,11 +628,11 @@
             </div>
         </section>
 
-        <!-- بخش قفسه مطالعات و علاقه‌مندی‌های فکری با فیلتر دسته‌بندی -->
+        <!-- بخش قفسه مطالعات و علاقه‌مندی‌های فکری با چینش افقی مدرن -->
         <section id="reading" class="reveal space-y-6">
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                <div class="flex items-center gap-3">
-                    <div class="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-amber-600 dark:text-amber-400 flex items-center justify-center text-xl">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <div class="flex items-center gap-3.5">
+                    <div class="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-amber-600 dark:text-amber-400 flex items-center justify-center text-xl shrink-0">
                         <i class="fa-solid fa-book-open-reader"></i>
                     </div>
                     <div>
@@ -634,40 +640,81 @@
                         <p data-i18n="reading_sub" class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">موضوعاتی که همیشه در برنامه مطالعه روزانه من جای دارند</p>
                     </div>
                 </div>
+
+                <!-- نوار فیلتر دسته‌بندی افقی -->
+                <div class="inline-flex flex-wrap items-center gap-1.5 p-1.5 rounded-2xl glass border border-slate-200/80 dark:border-slate-800/80 self-start md:self-auto">
+                    <button type="button" data-filter="all" data-i18n="filter_all" onclick="filterReading('all', this)" class="filter-btn active-filter px-3.5 py-2 rounded-xl text-xs font-bold text-slate-700 dark:text-slate-300 transition-all cursor-pointer">همه</button>
+                    <button type="button" data-filter="medical" data-i18n="read1_tag" onclick="filterReading('medical', this)" class="filter-btn px-3.5 py-2 rounded-xl text-xs font-bold text-slate-700 dark:text-slate-300 hover:bg-emerald-500/10 hover:text-emerald-600 dark:hover:text-emerald-400 transition-all cursor-pointer">علوم طبی</button>
+                    <button type="button" data-filter="islamic" data-i18n="read2_tag" onclick="filterReading('islamic', this)" class="filter-btn px-3.5 py-2 rounded-xl text-xs font-bold text-slate-700 dark:text-slate-300 hover:bg-amber-500/10 hover:text-amber-600 dark:hover:text-amber-400 transition-all cursor-pointer">معارف اسلامی</button>
+                    <button type="button" data-filter="arabic" data-i18n="read3_tag" onclick="filterReading('arabic', this)" class="filter-btn px-3.5 py-2 rounded-xl text-xs font-bold text-slate-700 dark:text-slate-300 hover:bg-sky-500/10 hover:text-sky-600 dark:hover:text-sky-400 transition-all cursor-pointer">زبان‌شناسی</button>
+                    <button type="button" data-filter="ai" data-i18n="read4_tag" onclick="filterReading('ai', this)" class="filter-btn px-3.5 py-2 rounded-xl text-xs font-bold text-slate-700 dark:text-slate-300 hover:bg-purple-500/10 hover:text-purple-600 dark:hover:text-purple-400 transition-all cursor-pointer">نوآوری</button>
+                </div>
             </div>
 
-            <!-- دکمه‌های فیلتر دسته‌بندی -->
-            <div class="flex flex-wrap items-center gap-2">
-                <button type="button" data-filter="all" data-i18n="filter_all" onclick="filterReading('all', this)" class="filter-btn active-filter px-4 py-2 rounded-xl text-xs font-bold border border-slate-200 dark:border-slate-700 bg-white/70 dark:bg-slate-900/70 text-slate-700 dark:text-slate-300 transition-all cursor-pointer">همه</button>
-                <button type="button" data-filter="medical" data-i18n="read1_tag" onclick="filterReading('medical', this)" class="filter-btn px-4 py-2 rounded-xl text-xs font-bold border border-slate-200 dark:border-slate-700 bg-white/70 dark:bg-slate-900/70 text-slate-700 dark:text-slate-300 hover:border-emerald-500/50 transition-all cursor-pointer">علوم طبی</button>
-                <button type="button" data-filter="islamic" data-i18n="read2_tag" onclick="filterReading('islamic', this)" class="filter-btn px-4 py-2 rounded-xl text-xs font-bold border border-slate-200 dark:border-slate-700 bg-white/70 dark:bg-slate-900/70 text-slate-700 dark:text-slate-300 hover:border-amber-500/50 transition-all cursor-pointer">معارف اسلامی</button>
-                <button type="button" data-filter="arabic" data-i18n="read3_tag" onclick="filterReading('arabic', this)" class="filter-btn px-4 py-2 rounded-xl text-xs font-bold border border-slate-200 dark:border-slate-700 bg-white/70 dark:bg-slate-900/70 text-slate-700 dark:text-slate-300 hover:border-sky-500/50 transition-all cursor-pointer">زبان‌شناسی</button>
-                <button type="button" data-filter="ai" data-i18n="read4_tag" onclick="filterReading('ai', this)" class="filter-btn px-4 py-2 rounded-xl text-xs font-bold border border-slate-200 dark:border-slate-700 bg-white/70 dark:bg-slate-900/70 text-slate-700 dark:text-slate-300 hover:border-purple-500/50 transition-all cursor-pointer">نوآوری</button>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                <div data-category="medical" class="reading-card glass rounded-2xl p-5 border border-slate-200/80 dark:border-slate-800/80 hover:border-emerald-500/50 transition-all space-y-2.5">
-                    <span data-i18n="read1_tag" class="inline-block text-xs font-bold px-2.5 py-1 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">علوم طبی</span>
-                    <h4 data-i18n="read1_title" class="font-bold text-slate-900 dark:text-white text-base">آناتومی، پتالوژی، فارمکولوژی و فیزیولوژی</h4>
-                    <p data-i18n="read1_desc" class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">درک ساختار دقیق بدن انسان و مکانیزم‌های حیاتی آن.</p>
+            <!-- گرید افقی دو ستونه با کارت‌های افقی مدرن -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                <!-- محور ۱: علوم طبی -->
+                <div data-category="medical" class="reading-card reading-horizontal-card group glass rounded-2xl p-5 sm:p-6 border border-slate-200/80 dark:border-slate-800/80 hover:border-emerald-500/60 hover:shadow-xl hover:shadow-emerald-500/10 flex items-center gap-4 sm:gap-5 overflow-hidden">
+                    <span class="absolute inset-y-3 start-0 w-1 rounded-full bg-gradient-to-b from-emerald-500 to-teal-400"></span>
+                    <div class="w-13 h-13 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br from-emerald-500/20 to-teal-500/10 border border-emerald-500/25 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-xl sm:text-2xl shrink-0 group-hover:scale-105 transition-transform">
+                        <i class="fa-solid fa-dna"></i>
+                    </div>
+                    <div class="flex-1 min-w-0 space-y-1.5">
+                        <div class="flex items-center justify-between gap-2">
+                            <span data-i18n="read1_tag" class="inline-flex items-center gap-1.5 text-[11px] font-bold px-2.5 py-0.5 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">علوم طبی</span>
+                            <span class="text-xs font-black text-emerald-500/45" dir="ltr">01</span>
+                        </div>
+                        <h4 data-i18n="read1_title" class="font-extrabold text-slate-900 dark:text-white text-sm sm:text-base leading-snug">آناتومی، پتالوژی، فارمکولوژی و فیزیولوژی</h4>
+                        <p data-i18n="read1_desc" class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">درک ساختار دقیق بدن انسان و مکانیزم‌های حیاتی آن.</p>
+                    </div>
                 </div>
 
-                <div data-category="islamic" class="reading-card glass rounded-2xl p-5 border border-slate-200/80 dark:border-slate-800/80 hover:border-amber-500/50 transition-all space-y-2.5">
-                    <span data-i18n="read2_tag" class="inline-block text-xs font-bold px-2.5 py-1 rounded-lg bg-amber-500/10 text-amber-600 dark:text-amber-400">معارف اسلامی</span>
-                    <h4 data-i18n="read2_title" class="font-bold text-slate-900 dark:text-white text-base">عقیده اسلامی، سیرة النبی و تزکیه نفس</h4>
-                    <p data-i18n="read2_desc" class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">مطالعه آثار علمای برجسته در زمینه اصلاح قلب و تقویت ایمان.</p>
+                <!-- محور ۲: معارف اسلامی -->
+                <div data-category="islamic" class="reading-card reading-horizontal-card group glass rounded-2xl p-5 sm:p-6 border border-slate-200/80 dark:border-slate-800/80 hover:border-amber-500/60 hover:shadow-xl hover:shadow-amber-500/10 flex items-center gap-4 sm:gap-5 overflow-hidden">
+                    <span class="absolute inset-y-3 start-0 w-1 rounded-full bg-gradient-to-b from-amber-500 to-orange-400"></span>
+                    <div class="w-13 h-13 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br from-amber-500/20 to-orange-500/10 border border-amber-500/25 text-amber-600 dark:text-amber-400 flex items-center justify-center text-xl sm:text-2xl shrink-0 group-hover:scale-105 transition-transform">
+                        <i class="fa-solid fa-mosque"></i>
+                    </div>
+                    <div class="flex-1 min-w-0 space-y-1.5">
+                        <div class="flex items-center justify-between gap-2">
+                            <span data-i18n="read2_tag" class="inline-flex items-center gap-1.5 text-[11px] font-bold px-2.5 py-0.5 rounded-lg bg-amber-500/10 text-amber-600 dark:text-amber-400">معارف اسلامی</span>
+                            <span class="text-xs font-black text-amber-500/45" dir="ltr">02</span>
+                        </div>
+                        <h4 data-i18n="read2_title" class="font-extrabold text-slate-900 dark:text-white text-sm sm:text-base leading-snug">عقیده اسلامی، سیرة النبی و تزکیه نفس</h4>
+                        <p data-i18n="read2_desc" class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">مطالعه آثار علمای برجسته در زمینه اصلاح قلب و تقویت ایمان.</p>
+                    </div>
                 </div>
 
-                <div data-category="arabic" class="reading-card glass rounded-2xl p-5 border border-slate-200/80 dark:border-slate-800/80 hover:border-sky-500/50 transition-all space-y-2.5">
-                    <span data-i18n="read3_tag" class="inline-block text-xs font-bold px-2.5 py-1 rounded-lg bg-sky-500/10 text-sky-600 dark:text-sky-400">زبان‌شناسی</span>
-                    <h4 data-i18n="read3_title" class="font-bold text-slate-900 dark:text-white text-base">زبان و ادبیات عربی</h4>
-                    <p data-i18n="read3_desc" class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">یادگیری قواعد صرف و نحو برای فهم عمیق‌تر متون دینی.</p>
+                <!-- محور ۳: زبان‌شناسی -->
+                <div data-category="arabic" class="reading-card reading-horizontal-card group glass rounded-2xl p-5 sm:p-6 border border-slate-200/80 dark:border-slate-800/80 hover:border-sky-500/60 hover:shadow-xl hover:shadow-sky-500/10 flex items-center gap-4 sm:gap-5 overflow-hidden">
+                    <span class="absolute inset-y-3 start-0 w-1 rounded-full bg-gradient-to-b from-sky-500 to-cyan-400"></span>
+                    <div class="w-13 h-13 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br from-sky-500/20 to-cyan-500/10 border border-sky-500/25 text-sky-600 dark:text-sky-400 flex items-center justify-center text-xl sm:text-2xl shrink-0 group-hover:scale-105 transition-transform">
+                        <i class="fa-solid fa-spell-check"></i>
+                    </div>
+                    <div class="flex-1 min-w-0 space-y-1.5">
+                        <div class="flex items-center justify-between gap-2">
+                            <span data-i18n="read3_tag" class="inline-flex items-center gap-1.5 text-[11px] font-bold px-2.5 py-0.5 rounded-lg bg-sky-500/10 text-sky-600 dark:text-sky-400">زبان‌شناسی</span>
+                            <span class="text-xs font-black text-sky-500/45" dir="ltr">03</span>
+                        </div>
+                        <h4 data-i18n="read3_title" class="font-extrabold text-slate-900 dark:text-white text-sm sm:text-base leading-snug">زبان و ادبیات عربی</h4>
+                        <p data-i18n="read3_desc" class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">یادگیری قواعد صرف و نحو برای فهم عمیق‌تر متون دینی.</p>
+                    </div>
                 </div>
 
-                <div data-category="ai" class="reading-card glass rounded-2xl p-5 border border-slate-200/80 dark:border-slate-800/80 hover:border-purple-500/50 transition-all space-y-2.5">
-                    <span data-i18n="read4_tag" class="inline-block text-xs font-bold px-2.5 py-1 rounded-lg bg-purple-500/10 text-purple-600 dark:text-purple-400">نوآوری</span>
-                    <h4 data-i18n="read4_title" class="font-bold text-slate-900 dark:text-white text-base">هوش مصنوعی در طب</h4>
-                    <p data-i18n="read4_desc" class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">بررسی نقش تکنولوژی‌های نوین در آینده تشخیص و درمان.</p>
+                <!-- محور ۴: نوآوری -->
+                <div data-category="ai" class="reading-card reading-horizontal-card group glass rounded-2xl p-5 sm:p-6 border border-slate-200/80 dark:border-slate-800/80 hover:border-purple-500/60 hover:shadow-xl hover:shadow-purple-500/10 flex items-center gap-4 sm:gap-5 overflow-hidden">
+                    <span class="absolute inset-y-3 start-0 w-1 rounded-full bg-gradient-to-b from-purple-500 to-indigo-400"></span>
+                    <div class="w-13 h-13 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br from-purple-500/20 to-indigo-500/10 border border-purple-500/25 text-purple-600 dark:text-purple-400 flex items-center justify-center text-xl sm:text-2xl shrink-0 group-hover:scale-105 transition-transform">
+                        <i class="fa-solid fa-brain"></i>
+                    </div>
+                    <div class="flex-1 min-w-0 space-y-1.5">
+                        <div class="flex items-center justify-between gap-2">
+                            <span data-i18n="read4_tag" class="inline-flex items-center gap-1.5 text-[11px] font-bold px-2.5 py-0.5 rounded-lg bg-purple-500/10 text-purple-600 dark:text-purple-400">نوآوری</span>
+                            <span class="text-xs font-black text-purple-500/45" dir="ltr">04</span>
+                        </div>
+                        <h4 data-i18n="read4_title" class="font-extrabold text-slate-900 dark:text-white text-sm sm:text-base leading-snug">هوش مصنوعی در طب</h4>
+                        <p data-i18n="read4_desc" class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">بررسی نقش تکنولوژی‌های نوین در آینده تشخیص و درمان.</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -779,14 +826,6 @@
         </div>
     </footer>
 
-    <!-- دکمه شناور پخش و خاموش کردن نشید -->
-    <button id="nasheed-toggle-btn" type="button" onclick="toggleNasheed()" aria-pressed="false" class="fixed bottom-6 end-6 z-50 px-4 py-3 rounded-2xl glass border border-emerald-400/40 shadow-2xl shadow-emerald-950/30 text-slate-900 dark:text-white text-xs sm:text-sm font-bold flex items-center gap-2.5 hover:border-emerald-400 transition-all cursor-pointer">
-        <span id="nasheed-icon-wrap" class="w-8 h-8 rounded-xl bg-gradient-to-br from-emerald-600 to-teal-500 text-white flex items-center justify-center shadow-md shadow-emerald-500/30">
-            <i id="nasheed-icon" class="fa-solid fa-play text-xs"></i>
-        </span>
-        <span id="nasheed-btn-label" data-i18n="nasheed_play">پخش نشید</span>
-    </button>
-
     <!-- پیام اعلان (Toast Notification) -->
     <div id="toast" class="fixed bottom-6 left-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none">
         <div class="bg-slate-900 dark:bg-emerald-950 text-white px-5 py-3.5 rounded-2xl shadow-2xl border border-emerald-500/40 flex items-center gap-3 text-sm font-medium">
@@ -884,8 +923,6 @@
                 form_msg_placeholder: "پیام خود را اینجا بنویسید...",
                 form_submit: "ارسال از طریق ایمیل",
                 form_sent_toast: (name) => `سپاس ${name} عزیز! برنامه ایمیل شما باز شد.`,
-                nasheed_play: "پخش نشید",
-                nasheed_stop: "خاموش کردن نشید",
                 footer_rights: '© ۱۴۰۵ — تمامی حقوق این صفحه متعلق به <strong class="text-slate-800 dark:text-white">احمد فرید شیرزاد</strong> است.',
                 footer_top: "بازگشت به بالا",
                 typewriter: [
@@ -980,8 +1017,6 @@
                 form_msg_placeholder: "Write your message here...",
                 form_submit: "Send via Email",
                 form_sent_toast: (name) => `Thank you, ${name}! Your email client has been opened.`,
-                nasheed_play: "Play Nasheed",
-                nasheed_stop: "Stop Nasheed",
                 footer_rights: '© 2026 — All rights reserved for <strong class="text-slate-800 dark:text-white">Ahmad Farid Shirzad</strong>.',
                 footer_top: "Back to Top",
                 typewriter: [
@@ -1021,7 +1056,7 @@
                 info_school_val: "ثانوية عربخانة التجريبية",
                 school_entry_year: '<strong class="text-amber-700 dark:text-amber-300">سنة الالتحاق:</strong> ۱۳۹۰ هـ.ش',
                 school_grad_year: '<strong class="text-amber-700 dark:text-amber-300">سنة التخرج:</strong> ۱۴۰۱ هـ.ش',
-                info_loc_label: "الموقع الجغرافي",
+                info_loc_label: "الموقع الجغرافرافي",
                 info_loc_val: "ميمنة، فارياب، أفغانستان",
                 info_lang_label: "اللغات",
                 info_lang_val: "الفارسية (الدري)، الأوزبكية، الإنجليزية، العربية (قيد التعلم)",
@@ -1076,8 +1111,6 @@
                 form_msg_placeholder: "اكتب رسالتك هنا...",
                 form_submit: "إرسال عبر البريد الإلكتروني",
                 form_sent_toast: (name) => `شكراً لك يا ${name}! تم فتح تطبيق البريد الإلكتروني.`,
-                nasheed_play: "تشغيل النشيد",
-                nasheed_stop: "إيقاف النشيد",
                 footer_rights: '© 2026 — جميع الحقوق محفوظة لـ <strong class="text-slate-800 dark:text-white">أحمد فريد شيرزاد</strong>.',
                 footer_top: "العودة إلى الأعلى",
                 typewriter: [
@@ -1095,45 +1128,6 @@
         let isDeleting = false;
         let typewriterTimer = null;
         const typeElement = document.getElementById('typewriter-text');
-        const nasheedAudio = document.getElementById('nasheed-audio');
-
-        function syncNasheedButton() {
-            const btn = document.getElementById('nasheed-toggle-btn');
-            const label = document.getElementById('nasheed-btn-label');
-            const icon = document.getElementById('nasheed-icon');
-            const dict = translations[currentLang] || translations.fa;
-            const isPlaying = nasheedAudio && !nasheedAudio.paused;
-
-            if (btn) btn.setAttribute('aria-pressed', String(isPlaying));
-            if (label) label.textContent = isPlaying ? dict.nasheed_stop : dict.nasheed_play;
-            if (icon) {
-                icon.classList.remove('fa-play', 'fa-pause');
-                icon.classList.add(isPlaying ? 'fa-pause' : 'fa-play');
-            }
-        }
-
-        function toggleNasheed() {
-            if (!nasheedAudio) return;
-            if (nasheedAudio.paused) {
-                nasheedAudio.play().then(() => {
-                    syncNasheedButton();
-                }).catch(() => {
-                    syncNasheedButton();
-                });
-            } else {
-                nasheedAudio.pause();
-                syncNasheedButton();
-            }
-        }
-
-        if (nasheedAudio) {
-            nasheedAudio.addEventListener('play', syncNasheedButton);
-            nasheedAudio.addEventListener('pause', syncNasheedButton);
-        }
-
-        window.addEventListener('DOMContentLoaded', () => {
-            syncNasheedButton();
-        });
 
         function applyLanguage(lang) {
             currentLang = lang;
@@ -1161,8 +1155,6 @@
                     el.innerHTML = dict[key];
                 }
             });
-
-            syncNasheedButton();
 
             const nameInput = document.getElementById('sender-name');
             const subjInput = document.getElementById('sender-contact');
