@@ -199,6 +199,9 @@
 </head>
 <body class="med-bg-canvas text-slate-800 dark:text-slate-200 font-sans antialiased selection:bg-emerald-500 selection:text-white transition-colors duration-300 overflow-x-hidden">
 
+    <!-- عنصر صوتی نشید (فایل nasheed.mp3 را در کنار index.html قرار بده) -->
+    <audio id="nasheed-audio" src="nasheed.mp3" loop preload="metadata"></audio>
+
     <!-- نوار پیشرفت مطالعه در لبه بالای صفحه -->
     <div class="fixed top-0 inset-x-0 h-1 bg-slate-200/40 dark:bg-slate-900/60 z-[60] pointer-events-none">
         <div id="scroll-progress" class="h-full transition-all duration-150"></div>
@@ -776,6 +779,14 @@
         </div>
     </footer>
 
+    <!-- دکمه شناور پخش و خاموش کردن نشید -->
+    <button id="nasheed-toggle-btn" type="button" onclick="toggleNasheed()" aria-pressed="false" class="fixed bottom-6 end-6 z-50 px-4 py-3 rounded-2xl glass border border-emerald-400/40 shadow-2xl shadow-emerald-950/30 text-slate-900 dark:text-white text-xs sm:text-sm font-bold flex items-center gap-2.5 hover:border-emerald-400 transition-all cursor-pointer">
+        <span id="nasheed-icon-wrap" class="w-8 h-8 rounded-xl bg-gradient-to-br from-emerald-600 to-teal-500 text-white flex items-center justify-center shadow-md shadow-emerald-500/30">
+            <i id="nasheed-icon" class="fa-solid fa-play text-xs"></i>
+        </span>
+        <span id="nasheed-btn-label" data-i18n="nasheed_play">پخش نشید</span>
+    </button>
+
     <!-- پیام اعلان (Toast Notification) -->
     <div id="toast" class="fixed bottom-6 left-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none">
         <div class="bg-slate-900 dark:bg-emerald-950 text-white px-5 py-3.5 rounded-2xl shadow-2xl border border-emerald-500/40 flex items-center gap-3 text-sm font-medium">
@@ -873,6 +884,8 @@
                 form_msg_placeholder: "پیام خود را اینجا بنویسید...",
                 form_submit: "ارسال از طریق ایمیل",
                 form_sent_toast: (name) => `سپاس ${name} عزیز! برنامه ایمیل شما باز شد.`,
+                nasheed_play: "پخش نشید",
+                nasheed_stop: "خاموش کردن نشید",
                 footer_rights: '© ۱۴۰۵ — تمامی حقوق این صفحه متعلق به <strong class="text-slate-800 dark:text-white">احمد فرید شیرزاد</strong> است.',
                 footer_top: "بازگشت به بالا",
                 typewriter: [
@@ -967,6 +980,8 @@
                 form_msg_placeholder: "Write your message here...",
                 form_submit: "Send via Email",
                 form_sent_toast: (name) => `Thank you, ${name}! Your email client has been opened.`,
+                nasheed_play: "Play Nasheed",
+                nasheed_stop: "Stop Nasheed",
                 footer_rights: '© 2026 — All rights reserved for <strong class="text-slate-800 dark:text-white">Ahmad Farid Shirzad</strong>.',
                 footer_top: "Back to Top",
                 typewriter: [
@@ -1061,6 +1076,8 @@
                 form_msg_placeholder: "اكتب رسالتك هنا...",
                 form_submit: "إرسال عبر البريد الإلكتروني",
                 form_sent_toast: (name) => `شكراً لك يا ${name}! تم فتح تطبيق البريد الإلكتروني.`,
+                nasheed_play: "تشغيل النشيد",
+                nasheed_stop: "إيقاف النشيد",
                 footer_rights: '© 2026 — جميع الحقوق محفوظة لـ <strong class="text-slate-800 dark:text-white">أحمد فريد شيرزاد</strong>.',
                 footer_top: "العودة إلى الأعلى",
                 typewriter: [
@@ -1078,6 +1095,45 @@
         let isDeleting = false;
         let typewriterTimer = null;
         const typeElement = document.getElementById('typewriter-text');
+        const nasheedAudio = document.getElementById('nasheed-audio');
+
+        function syncNasheedButton() {
+            const btn = document.getElementById('nasheed-toggle-btn');
+            const label = document.getElementById('nasheed-btn-label');
+            const icon = document.getElementById('nasheed-icon');
+            const dict = translations[currentLang] || translations.fa;
+            const isPlaying = nasheedAudio && !nasheedAudio.paused;
+
+            if (btn) btn.setAttribute('aria-pressed', String(isPlaying));
+            if (label) label.textContent = isPlaying ? dict.nasheed_stop : dict.nasheed_play;
+            if (icon) {
+                icon.classList.remove('fa-play', 'fa-pause');
+                icon.classList.add(isPlaying ? 'fa-pause' : 'fa-play');
+            }
+        }
+
+        function toggleNasheed() {
+            if (!nasheedAudio) return;
+            if (nasheedAudio.paused) {
+                nasheedAudio.play().then(() => {
+                    syncNasheedButton();
+                }).catch(() => {
+                    syncNasheedButton();
+                });
+            } else {
+                nasheedAudio.pause();
+                syncNasheedButton();
+            }
+        }
+
+        if (nasheedAudio) {
+            nasheedAudio.addEventListener('play', syncNasheedButton);
+            nasheedAudio.addEventListener('pause', syncNasheedButton);
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            syncNasheedButton();
+        });
 
         function applyLanguage(lang) {
             currentLang = lang;
@@ -1105,6 +1161,8 @@
                     el.innerHTML = dict[key];
                 }
             });
+
+            syncNasheedButton();
 
             const nameInput = document.getElementById('sender-name');
             const subjInput = document.getElementById('sender-contact');
