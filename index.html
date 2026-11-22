@@ -26,19 +26,19 @@
                         sans: ['Vazirmatn', 'sans-serif'],
                     },
                     colors: {
-                        darkbg: '#060b14',
-                        darkcard: '#0d1526',
+                        darkbg: '#040912',
+                        darkcard: '#0b1424',
                     },
                     animation: {
-                        'blob': 'blob 8s infinite',
+                        'blob': 'blob 9s infinite',
                         'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
                         'float': 'float 6s ease-in-out infinite',
                     },
                     keyframes: {
                         blob: {
                             '0%': { transform: 'translate(0px, 0px) scale(1)' },
-                            '33%': { transform: 'translate(30px, -40px) scale(1.1)' },
-                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '33%': { transform: 'translate(28px, -36px) scale(1.08)' },
+                            '66%': { transform: 'translate(-22px, 22px) scale(0.92)' },
                             '100%': { transform: 'translate(0px, 0px) scale(1)' },
                         },
                         float: {
@@ -54,20 +54,46 @@
     <style>
         /* افکت شیشه‌ای مدرن (Glassmorphism) */
         .glass {
-            background: rgba(255, 255, 255, 0.75);
+            background: rgba(255, 255, 255, 0.78);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
         }
         .dark .glass {
-            background: rgba(13, 21, 38, 0.65);
+            background: rgba(11, 20, 36, 0.68);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
         }
 
-        /* الگوی نقطه‌ای پس‌زمینه */
+        /* بک‌گروند مدرن طبی و آزمایشگاهی (Clinical Grid + Bio Gradient) */
+        .med-bg-canvas {
+            background-color: #f4fbf9;
+            background-image:
+                radial-gradient(circle at 15% 15%, rgba(16, 185, 129, 0.14), transparent 42%),
+                radial-gradient(circle at 85% 20%, rgba(14, 165, 233, 0.12), transparent 45%),
+                radial-gradient(circle at 50% 85%, rgba(20, 184, 166, 0.13), transparent 48%),
+                linear-gradient(to right, rgba(15, 118, 110, 0.06) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(15, 118, 110, 0.06) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 100% 100%, 36px 36px, 36px 36px;
+        }
+        .dark .med-bg-canvas {
+            background-color: #040912;
+            background-image:
+                radial-gradient(circle at 18% 12%, rgba(16, 185, 129, 0.18), transparent 45%),
+                radial-gradient(circle at 82% 18%, rgba(56, 189, 248, 0.14), transparent 45%),
+                radial-gradient(circle at 52% 88%, rgba(45, 212, 191, 0.14), transparent 50%),
+                linear-gradient(to right, rgba(52, 211, 153, 0.065) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(52, 211, 153, 0.065) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 100% 100%, 36px 36px, 36px 36px;
+        }
+
+        /* الگوی تقاطع ظریف آزمایشگاهی برای بخش Hero */
         .bg-grid-pattern {
-            background-image: radial-gradient(rgba(16, 185, 129, 0.15) 1px, transparent 1px);
-            background-size: 28px 28px;
+            background-image:
+                radial-gradient(rgba(16, 185, 129, 0.24) 1.25px, transparent 1.25px),
+                linear-gradient(to right, rgba(45, 212, 191, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(45, 212, 191, 0.05) 1px, transparent 1px);
+            background-size: 36px 36px, 36px 36px, 36px 36px;
+            background-position: -0.6px -0.6px, 0 0, 0 0;
         }
 
         /* قاب مدرن و هاله چرخان عکس پروفایل */
@@ -156,13 +182,14 @@
         }
     </style>
 </head>
-<body class="bg-slate-50 dark:bg-darkbg text-slate-800 dark:text-slate-200 font-sans antialiased selection:bg-emerald-500 selection:text-white transition-colors duration-300 overflow-x-hidden">
+<body class="med-bg-canvas text-slate-800 dark:text-slate-200 font-sans antialiased selection:bg-emerald-500 selection:text-white transition-colors duration-300 overflow-x-hidden">
 
-    <!-- هاله‌های نوری متحرک پس‌زمینه -->
+    <!-- هاله‌های نوری زیستی و لایه شبکه‌ای عمق پس‌زمینه -->
     <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-        <div class="absolute top-[-10%] right-[-5%] w-[450px] h-[450px] bg-emerald-500/15 dark:bg-emerald-500/10 rounded-full blur-[100px] animate-blob"></div>
-        <div class="absolute bottom-[10%] left-[-5%] w-[400px] h-[400px] bg-teal-500/15 dark:bg-cyan-500/10 rounded-full blur-[100px] animate-blob" style="animation-delay: 2s;"></div>
-        <div class="absolute top-[40%] left-[30%] w-[300px] h-[300px] bg-indigo-500/10 dark:bg-emerald-400/5 rounded-full blur-[90px] animate-blob" style="animation-delay: 4s;"></div>
+        <div class="absolute top-[-12%] right-[-8%] w-[520px] h-[520px] bg-emerald-500/15 dark:bg-emerald-500/12 rounded-full blur-[120px] animate-blob"></div>
+        <div class="absolute bottom-[6%] left-[-8%] w-[460px] h-[460px] bg-sky-400/15 dark:bg-cyan-400/10 rounded-full blur-[120px] animate-blob" style="animation-delay: 2.5s;"></div>
+        <div class="absolute top-[38%] left-[28%] w-[360px] h-[360px] bg-teal-400/12 dark:bg-teal-400/8 rounded-full blur-[110px] animate-blob" style="animation-delay: 5s;"></div>
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_35%,rgba(4,9,18,0.04)_100%)] dark:bg-[radial-gradient(circle_at_center,transparent_30%,rgba(2,6,14,0.48)_100%)]"></div>
     </div>
 
     <!-- نوار ناوبری شناور (Floating Glass Navbar) -->
@@ -209,7 +236,7 @@
     </div>
 
     <!-- بخش اصلی (Hero Section) -->
-    <header class="relative pt-32 pb-20 sm:pt-40 sm:pb-28 bg-grid-pattern border-b border-slate-200/60 dark:border-slate-800/60 z-10">
+    <header class="relative pt-32 pb-20 sm:pt-40 sm:pb-28 bg-grid-pattern border-b border-emerald-500/15 dark:border-emerald-400/15 z-10">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row items-center gap-10 md:gap-14">
                 
@@ -961,7 +988,7 @@
                 form_subject_placeholder: "مثال: استفسار علمي، تعاون...",
                 form_msg_label: "نص الرسالة",
                 form_msg_placeholder: "اكتب رسالتك هنا...",
-                form_submit: "إرسال عبر البريد الإلكتروني",
+                form_submit: "ارسال عبر البريد الإلكتروني",
                 form_sent_toast: (name) => `شكراً لك يا ${name}! تم فتح تطبيق البريد الإلكتروني.`,
                 footer_rights: '© 2026 — جميع الحقوق محفوظة لـ <strong class="text-slate-800 dark:text-white">أحمد فريد شيرزاد</strong>.',
                 footer_top: "العودة إلى الأعلى",
